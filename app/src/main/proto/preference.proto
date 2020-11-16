@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option java_package = "com.robosolutions.temixtopsmarket";
+option java_multiple_files = true;
+
+// Application's preferences
+message Preference {
+  // Password details for admin panel
+  Credentials password = 1;
+}
+
+message Credentials {
+  // Admin panel's encrypted password
+  string password = 1;
+
+  // Admin panel's password encryption initialization vector
+  string iv = 2;
+}

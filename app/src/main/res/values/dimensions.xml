@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="app_button_padding_horizontal">24dp</dimen>
+    <dimen name="app_button_padding_vertical">16dp</dimen>
+    <dimen name="app_button_corner_radius">16dp</dimen>
+    <dimen name="app_button_equality_width">250dp</dimen>
+    <dimen name="app_button_equality_height">100dp</dimen>
+
+    <dimen name="edit_text_width">400dp</dimen>
+
     <dimen name="image_button_size">60dp</dimen>
     <dimen name="image_button_icon">36dp</dimen>
 

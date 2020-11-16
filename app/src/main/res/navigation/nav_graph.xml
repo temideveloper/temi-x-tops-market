@@ -9,5 +9,22 @@
         android:id="@+id/homeFragment"
         tools:layout="@layout/fragment_home"
         android:name="com.robosolutions.temixtopsmarket.ui.home.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_passwordFragment"
+            app:destination="@id/passwordFragment" >
+            <argument
+                android:name="changePassword"
+                android:defaultValue="false" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/passwordFragment"
+        tools:layout="@layout/fragment_password"
+        android:name="com.robosolutions.temixtopsmarket.ui.password.PasswordFragment"
+        android:label="PasswordFragment" >
+        <argument
+            android:name="changePassword"
+            app:argType="boolean" />
+    </fragment>
 </navigation>
