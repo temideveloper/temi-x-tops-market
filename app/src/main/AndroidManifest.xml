@@ -12,7 +12,7 @@
         android:theme="@style/Theme.TemiXTopsMarket">
 
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".ui.activity.MainActivity"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
