@@ -7,4 +7,6 @@ import com.robosolutions.temixtopsmarket.ui.base.BindingFragment
 class HomeFragment : BindingFragment<FragmentHomeBinding>() {
 
     override val layoutId = R.layout.fragment_home
+
+    override val useHeader = false
 }

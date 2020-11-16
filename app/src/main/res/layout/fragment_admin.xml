@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            tools:context=".ui.admin.AdminFragment">
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/SettingsSelectButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_settings_general"
+                app:icon="@drawable/ic_settings_general" />
+
+            <View style="@style/HorizontalLine" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/SettingsSelectButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_settings_delays"
+                app:icon="@drawable/ic_settings_delay" />
+
+            <View style="@style/HorizontalLine" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/SettingsSelectButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_settings_navigation"
+                app:icon="@drawable/ic_settings_location" />
+
+            <View style="@style/HorizontalLine" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/SettingsSelectButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_settings_speech"
+                app:icon="@drawable/ic_settings_speech" />
+
+            <View style="@style/HorizontalLine" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/SettingsSelectButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_settings_qr"
+                app:icon="@drawable/ic_settings_qr" />
+
+            <View style="@style/HorizontalLine" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/SettingsSelectButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_settings_staff"
+                app:icon="@drawable/ic_settings_staff" />
+
+            <View style="@style/HorizontalLine" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/SettingsSelectButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_settings_videos"
+                app:icon="@drawable/ic_settings_video" />
+        </LinearLayout>
+    </ScrollView>
+</layout>

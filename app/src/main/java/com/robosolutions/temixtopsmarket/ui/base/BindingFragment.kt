@@ -12,17 +12,31 @@ import com.robosolutions.temixtopsmarket.extensions.executePendingBindings
 import com.robosolutions.temixtopsmarket.ui.activity.MainActivityViewModel
 
 abstract class BindingFragment<T : ViewDataBinding> : Fragment() {
-    protected val sharedViewModel by activityViewModels<MainActivityViewModel>()
+    protected val mainViewModel by activityViewModels<MainActivityViewModel>()
 
     private lateinit var binding: T
 
     abstract val layoutId: Int
+
+    /** Whether the screen should display the header part (title with back and home button). */
+    open val useHeader = true
+
+    /** English title string resource id. */
+    open val titleIdEn: Int? = null
+
+    /** Thai title string resource id. */
+    open val titleIdThai: Int? = null
 
     final override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        // Update title
+        mainViewModel.updateHeaderTitle(titleIdEn, titleIdThai)
+
+        mainViewModel.updateHeader(useHeader)
+
         binding = DataBindingUtil.inflate(inflater, layoutId, container, false)
         binding.executePendingBindings {
             // Binding using reflection
@@ -56,7 +70,7 @@ abstract class BindingFragment<T : ViewDataBinding> : Fragment() {
         tryAssignBinding("setFragment", this::class.java, binding, this)
 
         // Set shared view model
-        tryAssignBinding("setSharedModel", sharedViewModel::class.java, binding, sharedViewModel)
+        tryAssignBinding("setSharedModel", mainViewModel::class.java, binding, mainViewModel)
     }
 
     /**

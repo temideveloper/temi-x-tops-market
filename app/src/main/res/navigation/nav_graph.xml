@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        tools:layout="@layout/fragment_home"
         android:name="com.robosolutions.temixtopsmarket.ui.home.HomeFragment"
-        android:label="HomeFragment" >
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_passwordFragment"
-            app:destination="@id/passwordFragment" >
+            app:destination="@id/passwordFragment">
             <argument
                 android:name="changePassword"
                 android:defaultValue="false" />
@@ -20,11 +20,20 @@
     </fragment>
     <fragment
         android:id="@+id/passwordFragment"
-        tools:layout="@layout/fragment_password"
         android:name="com.robosolutions.temixtopsmarket.ui.password.PasswordFragment"
-        android:label="PasswordFragment" >
+        android:label="PasswordFragment"
+        tools:layout="@layout/fragment_password">
         <argument
             android:name="changePassword"
             app:argType="boolean" />
+        <action
+            android:id="@+id/action_passwordFragment_to_adminFragment"
+            app:destination="@id/adminFragment"
+            app:popUpTo="@id/homeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/adminFragment"
+        android:name="com.robosolutions.temixtopsmarket.ui.admin.AdminFragment"
+        android:label="AdminFragment"
+        tools:layout="@layout/fragment_admin" />
 </navigation>

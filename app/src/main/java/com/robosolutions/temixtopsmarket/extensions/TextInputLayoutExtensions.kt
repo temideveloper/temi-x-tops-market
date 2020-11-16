@@ -11,7 +11,7 @@ import com.google.android.material.textfield.TextInputLayout
  */
 @BindingAdapter("errorText")
 fun TextInputLayout.errorText(error: String?) {
-    error?.let { if (it.isNotEmpty()) setError(it) else setError(null) } ?: setError(null)
+    error?.let { if (it.isNotBlank()) setError(it) else setError(null) } ?: setError(null)
 }
 
 /**

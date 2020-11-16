@@ -12,6 +12,7 @@ class MarketApplication : Application() {
 
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
+            Timber.i("Timber tree planted")
         }
     }
 }

@@ -5,6 +5,14 @@
 
     <string name="button_admin_confirm">Confirm</string>
 
+    <string name="button_settings_general">General</string>
+    <string name="button_settings_delays">Delays</string>
+    <string name="button_settings_navigation">Store Navigation</string>
+    <string name="button_settings_speech">Speech</string>
+    <string name="button_settings_qr">QR Codes</string>
+    <string name="button_settings_staff">Staffs</string>
+    <string name="button_settings_videos">Videos</string>
+
     <string name="error_incorrect_password">Incorrect password!</string>
     <string name="error_weak_password">Password does not meet the requirements!</string>
     <string name="error_confirmation_password">Confirmation password must match the password!</string>

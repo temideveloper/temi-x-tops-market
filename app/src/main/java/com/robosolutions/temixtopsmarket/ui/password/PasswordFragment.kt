@@ -8,12 +8,12 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import com.robosolutions.temixtopsmarket.R
 import com.robosolutions.temixtopsmarket.databinding.FragmentPasswordBinding
-import com.robosolutions.temixtopsmarket.extensions.executePendingBindings
+import com.robosolutions.temixtopsmarket.extensions.navigate
+import com.robosolutions.temixtopsmarket.extensions.singleLatest
 import com.robosolutions.temixtopsmarket.ui.base.BindingViewModelFragment
 import com.robosolutions.temixtopsmarket.utils.PasswordOperation
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_password.*
-import kotlinx.coroutines.flow.single
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
@@ -32,18 +32,15 @@ class PasswordFragment :
 
         // Set the password operation
         lifecycleScope.launch {
-            viewModel.persistedPassword.single().also { pass ->
-                binding.executePendingBindings {
-                    when {
-                        args.changePassword -> PasswordOperation.CHANGE_PASSWORD
-                        pass.isBlank() -> PasswordOperation.INITIAL_PASSWORD
-                        else -> PasswordOperation.INPUT_PASSWORD
-                    }.also {
-                        Timber.d("Password operation: $it")
+            viewModel.persistedPassword.singleLatest().also { pass ->
+                when {
+                    args.changePassword -> PasswordOperation.CHANGE_PASSWORD
+                    pass.isBlank() -> PasswordOperation.INITIAL_PASSWORD
+                    else -> PasswordOperation.INPUT_PASSWORD
+                }.also {
+                    Timber.d("Password operation: $it")
 
-                        op = it
-                        viewModel!!.submitOperation(it)
-                    }
+                    viewModel.submitOperation(it)
                 }
             }
         }
@@ -69,7 +66,7 @@ class PasswordFragment :
         lifecycleScope.launchWhenCreated {
             Timber.d("Submitting password for checking")
 
-            viewModel.requirements.single().also { (satisfied, passwordInput, op) ->
+            viewModel.requirements.singleLatest().also { (satisfied, passwordInput, op) ->
                 Timber.d("Password is satisfied: $satisfied")
 
                 if (satisfied) {
@@ -77,7 +74,7 @@ class PasswordFragment :
                         viewModel.savePassword(passwordInput)
                     }
 
-//                    v.navigate(R.id.action_passwordFragment_to_adminEntranceFragment)
+                    v.navigate(R.id.action_passwordFragment_to_adminFragment)
                 }
             }
         }

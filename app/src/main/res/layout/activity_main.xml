@@ -13,13 +13,14 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp"
         tools:context=".ui.activity.MainActivity">
 
         <androidx.constraintlayout.widget.Group
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:constraint_referenced_ids="buttonHome,buttonBack,textTitleEn"
+            app:constraint_referenced_ids="buttonHome,buttonBack,textTitleEn, textTitleTh"
             app:isVisible="@{viewModel.displayHeader}" />
 
         <com.google.android.material.button.MaterialButton
@@ -33,7 +34,7 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/textTitleTh"
-            style="@style/HeaderTextEn"
+            style="@style/HeaderTextTh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|top"
@@ -45,7 +46,7 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/textTitleEn"
-            style="@style/HeaderTextTh"
+            style="@style/HeaderTextEn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{viewModel.titleEnglish}"

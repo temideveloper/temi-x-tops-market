@@ -6,15 +6,21 @@
     <dimen name="app_button_equality_width">250dp</dimen>
     <dimen name="app_button_equality_height">100dp</dimen>
 
+    <dimen name="settings_button_icon_size">48dp</dimen>
+    <dimen name="settings_button_icon_padding">24dp</dimen>
+
     <dimen name="edit_text_width">400dp</dimen>
+
+    <dimen name="horizontal_line_height">2dp</dimen>
+    <dimen name="horizontal_line_width">500dp</dimen>
 
     <dimen name="image_button_size">60dp</dimen>
     <dimen name="image_button_icon">36dp</dimen>
 
-    <dimen name="text_normal_th">22sp</dimen>
+    <dimen name="text_normal_th">30sp</dimen>
     <dimen name="text_normal_en">20sp</dimen>
-    <dimen name="text_large_th">32sp</dimen>
-    <dimen name="text_large_en">30sp</dimen>
+    <dimen name="text_large_th">38sp</dimen>
+    <dimen name="text_large_en">24sp</dimen>
 
     <dimen name="margin_header_to_fragment_container">8dp</dimen>
 </resources>

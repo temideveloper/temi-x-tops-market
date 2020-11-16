@@ -22,9 +22,14 @@ class PasswordFragmentViewModel @ViewModelInject constructor(
     @ApplicationContext private val context: Context,
     private val repository: PreferenceRepository
 ) : ViewModel() {
-    val persistedPassword = repository.password.map {
-        CryptoManager.decrypt(it.password, it.iv)
-    }
+    val persistedPassword = repository.password
+        .map {
+            if (it.password.isNotBlank() && it.iv.isNotBlank()) {
+                CryptoManager.decrypt(it.password, it.iv)
+            } else {
+                ""
+            }
+        }
 
     private val minPasswordLength = context.resources.getInteger(R.integer.min_password_length)
 
@@ -35,6 +40,7 @@ class PasswordFragmentViewModel @ViewModelInject constructor(
     private val oldPasswordInput = MutableStateFlow("")
 
     private val operation = MutableStateFlow(PasswordOperation.INPUT_PASSWORD)
+    val op = operation.asLiveData()
 
     private val _passwordError = MutableSharedFlow<Int>()
     val passwordError = _passwordError.mapStringResource(context).asLiveData()
@@ -79,11 +85,11 @@ class PasswordFragmentViewModel @ViewModelInject constructor(
             }
 
             PasswordOperation.INITIAL_PASSWORD ->
-                passwordSatisfied.combineToPair(confirmationPasswordCorrect).map {
-                    if (!it.first) _passwordError.emit(R.string.error_weak_password)
-                    if (!it.second) _confirmPasswordError.emit(R.string.error_confirmation_password)
+                passwordSatisfied.combine(confirmationPasswordCorrect) { passOk, confirmPassOk ->
+                    if (!passOk) _passwordError.emit(R.string.error_weak_password)
+                    if (!confirmPassOk) _confirmPasswordError.emit(R.string.error_confirmation_password)
 
-                    it.toList()
+                    listOf(passOk, confirmPassOk)
                 }
 
             PasswordOperation.CHANGE_PASSWORD -> oldPasswordCorrect.combineToTriple(

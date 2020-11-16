@@ -1,14 +1,17 @@
 package com.robosolutions.temixtopsmarket.extensions
 
 import android.content.Context
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.*
 
 infix fun <T> MutableStateFlow<T>.updateTo(newValue: T) {
     value = newValue
 }
+
+/**
+ * Fetch 1 value from the flow and return it.
+ *
+ */
+suspend fun <T> Flow<T>.singleLatest() = take(1).single()
 
 /**
  * Combines both [Flow] object and check if both content is equal and both must not be blank.
