@@ -57,7 +57,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/button_settings_qr"
-                app:icon="@drawable/ic_settings_qr" />
+                app:icon="@drawable/ic_settings_qr"
+                app:onClickNavigate="@{@id/action_adminFragment_to_qrCodeFragment}" />
 
             <View style="@style/HorizontalLine" />
 

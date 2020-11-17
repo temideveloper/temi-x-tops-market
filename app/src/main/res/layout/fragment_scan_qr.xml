@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.robosolutions.temixtopsmarket.ui.qr.ScanQrDialog" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        tools:context=".ui.qr.ScanQrDialog">
+
+        <com.otaliastudios.cameraview.CameraView
+            android:id="@+id/cameraView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:cameraAudio="off"
+            app:cameraEngine="camera1"
+            app:cameraFacing="front"
+            app:cameraPreview="glSurface"
+            app:cameraPreviewFrameRate="30"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.4" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animationScan"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:canVisible="@{!fragment.viewModel.urlDetected}"
+            app:layout_constraintBottom_toTopOf="@id/buttonConfirm"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/cameraView"
+            app:layout_constraintTop_toTopOf="@id/cameraView"
+            app:layout_constraintWidth_percent="0.1"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/scan" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textDetectedUrl"
+            style="@style/SettingsTitleText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:text="@{fragment.viewModel.detectedUrl}"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="@id/animationScan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/cameraView"
+            app:layout_constraintTop_toTopOf="@id/animationScan"
+            tools:text="https://temperaturepass.ndi-api.gov.sg/login/PROD-199604030H-125413-SCHAEFFLERSINGAPOREPTELTD-SE" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonConfirm"
+            style="@style/AdminAppButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> fragment.onConfirmUrl()}"
+            android:text="@string/button_admin_confirm"
+            app:canVisible="@{fragment.viewModel.urlDetected}"
+            app:layout_constraintBottom_toBottomOf="@id/cameraView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/cameraView"
+            app:layout_constraintTop_toBottomOf="@id/animationScan" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

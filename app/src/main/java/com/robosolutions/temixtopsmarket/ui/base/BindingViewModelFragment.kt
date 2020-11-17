@@ -2,6 +2,7 @@ package com.robosolutions.temixtopsmarket.ui.base
 
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
+import com.robosolutions.temixtopsmarket.utils.tryAssignBinding
 
 abstract class BindingViewModelFragment<T : ViewDataBinding, VM : ViewModel> :
     BindingFragment<T>() {

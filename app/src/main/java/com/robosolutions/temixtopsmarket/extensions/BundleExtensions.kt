@@ -3,12 +3,12 @@ package com.robosolutions.temixtopsmarket.extensions
 import android.os.Bundle
 
 enum class Keys {
-    DURATION
+    DURATION, URL_STRING
 }
 
-//fun Bundle.putTemiLocation(location: String) = putString(Keys.TEMI_LOCATION.name, location)
-//
-//fun Bundle.getTemiLocation() = getString(Keys.TEMI_LOCATION.name)
+fun Bundle.putUrl(url: String) = putString(Keys.URL_STRING.name, url)
+
+fun Bundle.getUrl() = getString(Keys.URL_STRING.name)
 
 fun Bundle.putDuration(duration: Int) = putInt(Keys.DURATION.name, duration)
 

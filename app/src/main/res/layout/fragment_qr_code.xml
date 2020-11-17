@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.robosolutions.temixtopsmarket.ui.qr.QrCodeFragment" />
+
+        <variable
+            name="viewModel"
+            type="com.robosolutions.temixtopsmarket.ui.qr.QrCodeFragmentViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.qr.QrCodeFragment">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelTitleThaiChana"
+            style="@style/SettingsTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_qr_check_in_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelDescThaiChana"
+            style="@style/SettingsTextDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/settings_margin_between_title_desc"
+            android:text="@string/label_qr_check_in_desc"
+            app:layout_constraintStart_toStartOf="@id/labelTitleThaiChana"
+            app:layout_constraintTop_toBottomOf="@id/labelTitleThaiChana"
+            app:layout_constraintWidth_percent="0.5" />
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/ImageButton"
+            android:layout_marginEnd="16dp"
+            android:onClick="@{v -> fragment.scanThaiChana(v)}"
+            app:icon="@drawable/ic_qr_scan"
+            app:layout_constraintBottom_toBottomOf="@id/layoutThaiChana"
+            app:layout_constraintEnd_toStartOf="@id/layoutThaiChana"
+            app:layout_constraintTop_toTopOf="@id/layoutThaiChana" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutThaiChana"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_thai_chana_qr"
+            app:endIconMode="clear_text"
+            app:layout_constraintBottom_toBottomOf="@id/labelDescThaiChana"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/labelTitleThaiChana"
+            app:layout_constraintWidth_percent="0.4">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextThaiChana"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textUri"
+                android:text="@{viewModel.qrCodeUrls.thaiChana}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelTitlePromotion"
+            style="@style/SettingsTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/settings_margin_between_settings"
+            android:text="@string/label_qr_promotion_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelDescThaiChana" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelDescPromotion"
+            style="@style/SettingsTextDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/settings_margin_between_title_desc"
+            android:text="@string/label_qr_promotion_desc"
+            app:layout_constraintStart_toStartOf="@id/labelTitlePromotion"
+            app:layout_constraintTop_toBottomOf="@id/labelTitlePromotion"
+            app:layout_constraintWidth_percent="0.5" />
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/ImageButton"
+            android:layout_marginEnd="16dp"
+            android:onClick="@{v -> fragment.scanPromotion(v)}"
+            app:icon="@drawable/ic_qr_scan"
+            app:layout_constraintBottom_toBottomOf="@id/layoutPromotion"
+            app:layout_constraintEnd_toStartOf="@id/layoutPromotion"
+            app:layout_constraintTop_toTopOf="@id/layoutPromotion" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutPromotion"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_promotion_qr"
+            app:endIconMode="clear_text"
+            app:layout_constraintBottom_toBottomOf="@id/labelDescPromotion"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/labelTitlePromotion"
+            app:layout_constraintWidth_percent="0.4">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextPromotion"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textUri"
+                android:text="@{viewModel.qrCodeUrls.promotion}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/SettingsTips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_qr_tips"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <View
+            style="@style/HorizontalLine"
+            android:layout_width="match_parent"
+            app:layout_constraintBottom_toTopOf="@id/labelTitlePromotion"
+            app:layout_constraintTop_toBottomOf="@id/labelDescThaiChana" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

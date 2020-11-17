@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.robosolutions.temixtopsmarket.extensions.executePendingBindings
 import com.robosolutions.temixtopsmarket.ui.activity.MainActivityViewModel
+import com.robosolutions.temixtopsmarket.utils.tryAssignBinding
 
 abstract class BindingFragment<T : ViewDataBinding> : Fragment() {
     protected val mainViewModel by activityViewModels<MainActivityViewModel>()
@@ -71,21 +72,5 @@ abstract class BindingFragment<T : ViewDataBinding> : Fragment() {
 
         // Set shared view model
         tryAssignBinding("setSharedModel", mainViewModel::class.java, binding, mainViewModel)
-    }
-
-    /**
-     * Tries to bind an object if it is declared in the binding.
-     *
-     * @param method The generated method name for setting the object.
-     * @param argClass The class type for the object to set.
-     * @param binding The binding object.
-     * @param value The object to bind.
-     */
-    protected fun tryAssignBinding(method: String, argClass: Class<*>, binding: T, value: Any) {
-        try {
-            binding::class.java.getMethod(method, argClass).invoke(binding, value)
-        } catch (e: NoSuchMethodException) {
-            // Do nothing
-        }
     }
 }

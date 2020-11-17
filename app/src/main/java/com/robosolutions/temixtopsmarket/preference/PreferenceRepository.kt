@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.datastore.createDataStore
 import com.robosolutions.temixtopsmarket.Delays
 import com.robosolutions.temixtopsmarket.Preference
+import com.robosolutions.temixtopsmarket.QrCodeUrls
 import com.robosolutions.temixtopsmarket.R
 import com.robosolutions.temixtopsmarket.extensions.getInt
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -69,6 +70,17 @@ class PreferenceRepository @Inject constructor(@ApplicationContext context: Cont
 
     private suspend fun saveDelays(block: Delays.Builder.() -> Delays.Builder) {
         savePreference { setDelays(block(delays.toBuilder()).build()) }
+    }
+
+    /** Contains URL for QR Codes. */
+    val qrCodeUrls = preference.map { it.qrCodeUrls }
+
+    suspend fun saveThaiChanaUrl(url: String) = saveQrCode { setThaiChana(url) }
+
+    suspend fun savePromotionUrl(url: String) = saveQrCode { setPromotion(url) }
+
+    private suspend fun saveQrCode(block: QrCodeUrls.Builder.() -> QrCodeUrls.Builder) {
+        savePreference { setQrCodeUrls(block(qrCodeUrls.toBuilder()).build()) }
     }
 
     /**

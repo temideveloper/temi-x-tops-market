@@ -6,6 +6,12 @@ import androidx.databinding.BindingAdapter
 import com.robosolutions.temixtopsmarket.R
 
 /**
+ * The current text as a [String]. If there is no text, an empty [String] is returned.
+ */
+val TextView.textString
+    get() = text?.toString() ?: ""
+
+/**
  * Sets the text for duration.
  *
  * @param ms The duration in milliseconds.

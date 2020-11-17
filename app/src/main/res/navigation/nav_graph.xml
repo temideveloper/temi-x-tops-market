@@ -39,6 +39,9 @@
         <action
             android:id="@+id/action_adminFragment_to_delaysFragment"
             app:destination="@id/delaysFragment" />
+        <action
+            android:id="@+id/action_adminFragment_to_qrCodeFragment"
+            app:destination="@id/qrCodeFragment" />
     </fragment>
     <fragment
         android:id="@+id/delaysFragment"
@@ -58,4 +61,18 @@
             android:name="durationMs"
             app:argType="integer" />
     </dialog>
+    <fragment
+        android:id="@+id/qrCodeFragment"
+        android:name="com.robosolutions.temixtopsmarket.ui.qr.QrCodeFragment"
+        android:label="QrCodeFragment"
+        tools:layout="@layout/fragment_qr_code">
+        <action
+            android:id="@+id/action_qrCodeFragment_to_scanQrFragment"
+            app:destination="@id/scanQrFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/scanQrFragment"
+        android:name="com.robosolutions.temixtopsmarket.ui.qr.ScanQrDialog"
+        android:label="fragment_scan_qr"
+        tools:layout="@layout/fragment_scan_qr" />
 </navigation>

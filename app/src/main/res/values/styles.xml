@@ -30,6 +30,10 @@
         <item name="android:textSize">@dimen/text_normal_en</item>
     </style>
 
+    <style name="SettingsTips" parent="SettingsTextDescription">
+        <item name="android:textStyle">italic</item>
+    </style>
+
     <style name="AppButton" parent="Widget.MaterialComponents.Button">
         <item name="android:textSize">@dimen/text_normal_th</item>
         <item name="paddingStart">@dimen/app_button_padding_horizontal</item>

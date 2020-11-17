@@ -17,6 +17,12 @@
         The number of seconds for the robot to speak when going from a location to another.
     </string>
 
+    <string name="label_qr_check_in_title">Thai Chana</string>
+    <string name="label_qr_check_in_desc">The URL for checking in using Thai Chana</string>
+    <string name="label_qr_promotion_title">Promotions</string>
+    <string name="label_qr_promotion_desc">The URL for viewing ongoing promotions</string>
+    <string name="label_qr_tips">Tip: press the QR scan icon to scan your QR code</string>
+
     <string name="label_duration">%d minutes %d seconds</string>
     <string name="label_minutes">Minutes</string>
     <string name="label_seconds">Seconds</string>
@@ -40,5 +46,8 @@
     <string name="hint_old_password">Old Password</string>
     <string name="hint_new_password">New Password</string>
     <string name="hint_confirm_password">Confirmation Password</string>
+
+    <string name="hint_thai_chana_qr">Thai Chana URL</string>
+    <string name="hint_promotion_qr">Promotion URL</string>
 
 </resources>

@@ -10,6 +10,9 @@ message Preference {
 
   // Delays preferences
   Delays delays = 2;
+
+  // Qr Code preferences
+  QrCodeUrls qrCodeUrls = 3;
 }
 
 message Credentials {
@@ -30,4 +33,12 @@ message Delays {
 
   // Delay between excuse me messages
   int32 excuseMeInterval = 3;
+}
+
+message QrCodeUrls {
+  // URL for Thai Chana
+  string thaiChana = 1;
+
+  // URL for promotional stuffs
+  string promotion = 2;
 }
