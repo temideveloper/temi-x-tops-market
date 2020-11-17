@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.robosolutions.temixtopsmarket.ui.speech.SpeechFragmentViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.speech.SpeechFragment">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelTitleGreeting"
+            style="@style/SettingsTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_greeting_tts_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelDescGreeting"
+            style="@style/SettingsTextDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/settings_margin_between_title_desc"
+            android:text="@string/label_greeting_tts_desc"
+            app:layout_constraintStart_toStartOf="@id/labelTitleGreeting"
+            app:layout_constraintTop_toBottomOf="@id/labelTitleGreeting"
+            app:layout_constraintWidth_percent="0.5" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutGreeting"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/label_greeting_tts_title"
+            app:endIconMode="clear_text"
+            app:layout_constraintBottom_toBottomOf="@id/labelDescGreeting"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/labelTitleGreeting"
+            app:layout_constraintWidth_percent="0.4">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextGreeting"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@{viewModel.speech.greeting}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelTitleExcuseMe"
+            style="@style/SettingsTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/settings_margin_between_settings"
+            android:text="@string/label_excuse_me_tts_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelDescGreeting" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelDescExcuseMe"
+            style="@style/SettingsTextDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/settings_margin_between_title_desc"
+            android:text="@string/label_excuse_me_tts_desc"
+            app:layout_constraintStart_toStartOf="@id/labelTitleExcuseMe"
+            app:layout_constraintTop_toBottomOf="@id/labelTitleExcuseMe"
+            app:layout_constraintWidth_percent="0.5" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutExcuseMe"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/label_excuse_me_tts_title"
+            app:endIconMode="clear_text"
+            app:layout_constraintBottom_toBottomOf="@id/labelDescExcuseMe"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/labelTitleExcuseMe"
+            app:layout_constraintWidth_percent="0.4">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextExcuseMe"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@{viewModel.speech.excuseMe}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <View
+            style="@style/HorizontalLine"
+            android:layout_width="match_parent"
+            app:layout_constraintBottom_toTopOf="@id/labelTitleExcuseMe"
+            app:layout_constraintTop_toBottomOf="@id/labelDescGreeting" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

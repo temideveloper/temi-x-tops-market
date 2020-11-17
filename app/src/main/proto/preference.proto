@@ -13,6 +13,9 @@ message Preference {
 
   // Qr Code preferences
   QrCodeUrls qrCodeUrls = 3;
+
+  // TTS messages
+  Speech speech = 4;
 }
 
 message Credentials {
@@ -23,7 +26,6 @@ message Credentials {
   string iv = 2;
 }
 
-// Preferences in the delays section
 message Delays {
   // Delay before returning after navigating to a location
   int32 autoReturn = 1;
@@ -41,4 +43,12 @@ message QrCodeUrls {
 
   // URL for promotional stuffs
   string promotion = 2;
+}
+
+message Speech {
+  // TTS for greeting user
+  string greeting = 1;
+
+  // TTS for asking user to make way
+  string excuseMe = 2;
 }

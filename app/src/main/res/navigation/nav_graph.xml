@@ -42,6 +42,9 @@
         <action
             android:id="@+id/action_adminFragment_to_qrCodeFragment"
             app:destination="@id/qrCodeFragment" />
+        <action
+            android:id="@+id/action_adminFragment_to_speechFragment"
+            app:destination="@id/speechFragment" />
     </fragment>
     <fragment
         android:id="@+id/delaysFragment"
@@ -75,4 +78,9 @@
         android:name="com.robosolutions.temixtopsmarket.ui.qr.ScanQrDialog"
         android:label="fragment_scan_qr"
         tools:layout="@layout/fragment_scan_qr" />
+    <fragment
+        android:id="@+id/speechFragment"
+        tools:layout="@layout/fragment_speech"
+        android:name="com.robosolutions.temixtopsmarket.ui.speech.SpeechFragment"
+        android:label="SpeechFragment" />
 </navigation>

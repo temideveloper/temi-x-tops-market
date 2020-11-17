@@ -48,7 +48,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/button_settings_speech"
-                app:icon="@drawable/ic_settings_speech" />
+                app:icon="@drawable/ic_settings_speech"
+                app:onClickNavigate="@{@id/action_adminFragment_to_speechFragment}" />
 
             <View style="@style/HorizontalLine" />
 
