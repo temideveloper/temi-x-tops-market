@@ -2,7 +2,10 @@ package com.robosolutions.temixtopsmarket.preference
 
 import android.content.Context
 import androidx.datastore.createDataStore
+import com.robosolutions.temixtopsmarket.Delays
 import com.robosolutions.temixtopsmarket.Preference
+import com.robosolutions.temixtopsmarket.R
+import com.robosolutions.temixtopsmarket.extensions.getInt
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
@@ -41,6 +44,31 @@ class PreferenceRepository @Inject constructor(@ApplicationContext context: Cont
 
             setPassword(newCredentials)
         }
+    }
+
+    /** Delays preference. */
+    val delays = preference.map { it.delays }
+        .map {
+            it.toBuilder().apply {
+                autoReturn =
+                    autoReturn.coerceAtLeast(context.getInt(R.integer.default_auto_return_ms))
+
+                checkInReturn =
+                    checkInReturn.coerceAtLeast(context.getInt(R.integer.default_check_in_return_ms))
+
+                excuseMeInterval =
+                    excuseMeInterval.coerceAtLeast(context.getInt(R.integer.default_excuse_me_interval_ms))
+            }.build()
+        }
+
+    suspend fun saveAutoReturnDelay(delayMs: Int) = saveDelays { setAutoReturn(delayMs) }
+
+    suspend fun saveCheckInReturnDelay(delayMs: Int) = saveDelays { setCheckInReturn(delayMs) }
+
+    suspend fun saveExcuseMeInterval(delayMs: Int) = saveDelays { setExcuseMeInterval(delayMs) }
+
+    private suspend fun saveDelays(block: Delays.Builder.() -> Delays.Builder) {
+        savePreference { setDelays(block(delays.toBuilder()).build()) }
     }
 
     /**

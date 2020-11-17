@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
-    
+
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -29,7 +29,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/button_settings_delays"
-                app:icon="@drawable/ic_settings_delay" />
+                app:icon="@drawable/ic_settings_delay"
+                app:onClickNavigate="@{@id/action_adminFragment_to_delaysFragment}" />
 
             <View style="@style/HorizontalLine" />
 

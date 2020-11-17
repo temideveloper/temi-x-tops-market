@@ -24,6 +24,12 @@
         <item name="android:textSize">@dimen/text_large_en</item>
     </style>
 
+    <style name="SettingsTitleText" parent="TextAppearance.MaterialComponents.Headline5" />
+
+    <style name="SettingsTextDescription" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">@dimen/text_normal_en</item>
+    </style>
+
     <style name="AppButton" parent="Widget.MaterialComponents.Button">
         <item name="android:textSize">@dimen/text_normal_th</item>
         <item name="paddingStart">@dimen/app_button_padding_horizontal</item>
@@ -36,6 +42,21 @@
     </style>
 
     <style name="AdminAppButton" parent="AppButton">
+        <item name="android:textSize">@dimen/text_normal_en</item>
+    </style>
+
+    <style name="OutlinedAppButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textSize">@dimen/text_normal_th</item>
+        <item name="paddingStart">@dimen/app_button_padding_horizontal</item>
+        <item name="paddingEnd">@dimen/app_button_padding_horizontal</item>
+        <item name="android:paddingTop">@dimen/app_button_padding_vertical</item>
+        <item name="android:paddingBottom">@dimen/app_button_padding_vertical</item>
+        <item name="cornerRadius">@dimen/app_button_corner_radius</item>
+        <item name="android:layout_width">@dimen/app_button_equality_width</item>
+        <item name="android:layout_height">@dimen/app_button_equality_height</item>
+    </style>
+
+    <style name="AdminOutlinedAppButton" parent="OutlinedAppButton">
         <item name="android:textSize">@dimen/text_normal_en</item>
     </style>
 
@@ -61,5 +82,9 @@
         <item name="android:layout_height">@dimen/horizontal_line_height</item>
         <item name="android:layout_width">@dimen/horizontal_line_width</item>
         <item name="android:background">@color/design_default_color_secondary</item>
+    </style>
+
+    <style name="AppNumberPicker">
+        <item name="android:textSize">@dimen/text_normal_en</item>
     </style>
 </resources>

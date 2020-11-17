@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.robosolutions.temixtopsmarket.ui.delays.DelaysFragment" />
+
+        <variable
+            name="viewModel"
+            type="com.robosolutions.temixtopsmarket.ui.delays.DelaysFragmentViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.delays.DelaysFragment">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelTitleAutoReturn"
+            style="@style/SettingsTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_auto_return_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelDescAutoReturn"
+            style="@style/SettingsTextDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/settings_margin_between_title_desc"
+            android:text="@string/label_auto_return_desc"
+            app:layout_constraintStart_toStartOf="@id/labelTitleAutoReturn"
+            app:layout_constraintTop_toBottomOf="@id/labelTitleAutoReturn"
+            app:layout_constraintWidth_percent="0.5" />
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/SettingsSelectButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{v -> fragment.chooseAutoReturnDelay(v)}"
+            app:layout_constraintBottom_toBottomOf="@id/labelDescAutoReturn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/labelTitleAutoReturn"
+            app:textDuration="@{viewModel.delays.autoReturn}"
+            app:textDurationDefault="@{@integer/default_auto_return_ms}"
+            tools:text="1 minutes 30 seconds" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelTitleCheckInReturn"
+            style="@style/SettingsTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/settings_margin_between_settings"
+            android:text="@string/label_check_in_return_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelDescAutoReturn" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelDescCheckInReturn"
+            style="@style/SettingsTextDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/settings_margin_between_title_desc"
+            android:text="@string/label_check_in_return_desc"
+            app:layout_constraintStart_toStartOf="@id/labelTitleAutoReturn"
+            app:layout_constraintTop_toBottomOf="@id/labelTitleCheckInReturn"
+            app:layout_constraintWidth_percent="0.5" />
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/SettingsSelectButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{v -> fragment.chooseCheckInReturnDelay(v)}"
+            app:layout_constraintBottom_toBottomOf="@id/labelDescCheckInReturn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/labelTitleCheckInReturn"
+            app:textDuration="@{viewModel.delays.checkInReturn}"
+            app:textDurationDefault="@{@integer/default_check_in_return_ms}"
+            tools:text="1 minutes 30 seconds" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelTitleExcuseInterval"
+            style="@style/SettingsTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/settings_margin_between_settings"
+            android:text="@string/label_excuse_me_interval_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelDescCheckInReturn" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelDescExcuseInterval"
+            style="@style/SettingsTextDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/settings_margin_between_title_desc"
+            android:text="@string/label_excuse_me_interval_desc"
+            app:layout_constraintStart_toStartOf="@id/labelTitleAutoReturn"
+            app:layout_constraintTop_toBottomOf="@id/labelTitleExcuseInterval"
+            app:layout_constraintWidth_percent="0.5" />
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/SettingsSelectButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{v -> fragment.chooseExcuseMeInterval(v)}"
+            app:layout_constraintBottom_toBottomOf="@id/labelDescExcuseInterval"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/labelTitleExcuseInterval"
+            app:textDuration="@{viewModel.delays.excuseMeInterval}"
+            app:textDurationDefault="@{@integer/default_excuse_me_interval_ms}"
+            tools:text="1 minutes 30 seconds" />
+
+        <View
+            style="@style/HorizontalLine"
+            android:layout_width="match_parent"
+            app:layout_constraintBottom_toTopOf="@id/labelTitleCheckInReturn"
+            app:layout_constraintTop_toBottomOf="@id/labelDescAutoReturn" />
+
+        <View
+            style="@style/HorizontalLine"
+            android:layout_width="match_parent"
+            app:layout_constraintBottom_toTopOf="@id/labelTitleExcuseInterval"
+            app:layout_constraintTop_toBottomOf="@id/labelDescCheckInReturn" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

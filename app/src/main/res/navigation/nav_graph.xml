@@ -35,5 +35,27 @@
         android:id="@+id/adminFragment"
         android:name="com.robosolutions.temixtopsmarket.ui.admin.AdminFragment"
         android:label="AdminFragment"
-        tools:layout="@layout/fragment_admin" />
+        tools:layout="@layout/fragment_admin">
+        <action
+            android:id="@+id/action_adminFragment_to_delaysFragment"
+            app:destination="@id/delaysFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/delaysFragment"
+        android:name="com.robosolutions.temixtopsmarket.ui.delays.DelaysFragment"
+        android:label="DelaysFragment"
+        tools:layout="@layout/fragment_delays">
+        <action
+            android:id="@+id/action_delaysFragment_to_delaySelectDialog"
+            app:destination="@id/delaySelectDialog" />
+    </fragment>
+    <dialog
+        android:id="@+id/delaySelectDialog"
+        android:name="com.robosolutions.temixtopsmarket.ui.delays.DelaySelectDialog"
+        android:label="fragment_delay_select_dialog"
+        tools:layout="@layout/fragment_delay_select_dialog">
+        <argument
+            android:name="durationMs"
+            app:argType="integer" />
+    </dialog>
 </navigation>

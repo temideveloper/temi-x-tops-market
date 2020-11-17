@@ -7,6 +7,9 @@ option java_multiple_files = true;
 message Preference {
   // Password details for admin panel
   Credentials password = 1;
+
+  // Delays preferences
+  Delays delays = 2;
 }
 
 message Credentials {
@@ -15,4 +18,16 @@ message Credentials {
 
   // Admin panel's password encryption initialization vector
   string iv = 2;
+}
+
+// Preferences in the delays section
+message Delays {
+  // Delay before returning after navigating to a location
+  int32 autoReturn = 1;
+
+  // Delay before returning to the home screen from check in screen
+  int32 checkInReturn = 2;
+
+  // Delay between excuse me messages
+  int32 excuseMeInterval = 3;
 }

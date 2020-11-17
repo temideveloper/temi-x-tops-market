@@ -9,6 +9,9 @@
     <dimen name="settings_button_icon_size">48dp</dimen>
     <dimen name="settings_button_icon_padding">24dp</dimen>
 
+    <dimen name="settings_margin_between_title_desc">16dp</dimen>
+    <dimen name="settings_margin_between_settings">32dp</dimen>
+
     <dimen name="edit_text_width">400dp</dimen>
 
     <dimen name="horizontal_line_height">2dp</dimen>

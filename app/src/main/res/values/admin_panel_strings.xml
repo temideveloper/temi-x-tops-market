@@ -3,7 +3,26 @@
     <string name="label_password_length_requirement">Password must be at least %d characters long</string>
     <string name="label_password_mixed_case_requirement">Password must contain both lowercase and uppercase character</string>
 
+    <string name="label_check_in_return_title">Check In Return</string>
+    <string name="label_check_in_return_desc">
+        The number of seconds for the application to automatically navigate back to the home screen
+        from the check-in screen
+    </string>
+    <string name="label_auto_return_title">Auto Return</string>
+    <string name="label_auto_return_desc">
+        The number of seconds for the robot to return after doing store navigation.
+    </string>
+    <string name="label_excuse_me_interval_title">\"Excuse Me\" Interval</string>
+    <string name="label_excuse_me_interval_desc">
+        The number of seconds for the robot to speak when going from a location to another.
+    </string>
+
+    <string name="label_duration">%d minutes %d seconds</string>
+    <string name="label_minutes">Minutes</string>
+    <string name="label_seconds">Seconds</string>
+
     <string name="button_admin_confirm">Confirm</string>
+    <string name="button_admin_cancel">Cancel</string>
 
     <string name="button_settings_general">General</string>
     <string name="button_settings_delays">Delays</string>
