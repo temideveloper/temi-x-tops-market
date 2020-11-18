@@ -11,6 +11,8 @@
     <string name="title_tts_th">ข้อความเป็นคำพูด</string>
     <string name="title_general_en">General</string>
     <string name="title_general_th">ทั่วไป</string>
+    <string name="title_staff_en">Staffs</string>
+    <string name="title_staff_th">พนักงาน</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

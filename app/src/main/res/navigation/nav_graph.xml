@@ -48,6 +48,9 @@
         <action
             android:id="@+id/action_adminFragment_to_generalFragment"
             app:destination="@id/generalFragment" />
+        <action
+            android:id="@+id/action_adminFragment_to_staffsFragment"
+            app:destination="@id/staffsFragment" />
     </fragment>
     <fragment
         android:id="@+id/delaysFragment"
@@ -99,4 +102,9 @@
                 android:defaultValue="true" />
         </action>
     </fragment>
+    <fragment
+        android:id="@+id/staffsFragment"
+        tools:layout="@layout/fragment_staffs"
+        android:name="com.robosolutions.temixtopsmarket.ui.staff.StaffsFragment"
+        android:label="StaffsFragment" />
 </navigation>

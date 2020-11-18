@@ -1,8 +1,8 @@
 package com.robosolutions.temixtopsmarket.database
 
 import androidx.room.Dao
-import androidx.room.Delete
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
 
@@ -11,9 +11,9 @@ interface ContactableStaffDao {
     @Query("SELECT * FROM ContactableStaff")
     fun getStaffs(): Flow<List<ContactableStaff>>
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertStaff(staff: ContactableStaff)
 
-    @Delete
-    suspend fun removeStaff(staff: ContactableStaff)
+    @Query("DELETE FROM ContactableStaff WHERE userId = :staffUserId")
+    suspend fun removeStaff(staffUserId: String)
 }

@@ -26,4 +26,6 @@
     <dimen name="text_large_en">24sp</dimen>
 
     <dimen name="margin_header_to_fragment_container">8dp</dimen>
+
+    <dimen name="margin_search_bar_and_list">24dp</dimen>
 </resources>
