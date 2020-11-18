@@ -2,13 +2,28 @@ package com.robosolutions.temixtopsmarket.extensions
 
 import android.content.Context
 import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.robosolutions.temixtopsmarket.R
 
+/**
+ * Sets the text without filtering the result. Suitable for dropdown selection.
+ *
+ * @param text The text to set.
+ */
+@BindingAdapter("textNoFilter")
+fun AutoCompleteTextView.nonFilterText(text: String?) {
+    text?.let { setText(it, false) }
+}
+
+/**
+ * Populates the suggestions.
+ *
+ * @param content The suggestions.
+ */
 @BindingAdapter("content")
-fun <T> MaterialAutoCompleteTextView.simpleAdapter(content: List<T>?) {
+fun <T> AutoCompleteTextView.simpleAdapter(content: List<T>?) {
     setAdapter(ArrayAdapter(context, android.R.layout.simple_list_item_1, content ?: listOf()))
 }
 
