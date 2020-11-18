@@ -44,6 +44,23 @@ class PreferenceRepository @Inject constructor(@ApplicationContext context: Cont
         }
     }
 
+    /** General preference. */
+    val general = preference.map { it.general }
+        .map {
+            it.toBuilder().apply {
+                if (detectionRange == 0.0f) detectionRange = 1f // Set default detection range
+            }.build()
+        }
+
+    suspend fun saveDetectionRange(range: Float) = saveGeneral { setDetectionRange(range) }
+
+    suspend fun saveAutoReturnLocation(location: String) =
+        saveGeneral { setAutoReturnLocation(location) }
+
+    private suspend fun saveGeneral(block: General.Builder.() -> General.Builder) {
+        savePreference { setGeneral(block(general.toBuilder()).build()) }
+    }
+
     /** Delays preference. */
     val delays = preference.map { it.delays }
         .map {

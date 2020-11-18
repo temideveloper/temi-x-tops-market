@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.robosolutions.temixtopsmarket.ui.general.GeneralFragmentViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.general.GeneralFragment">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelTitleUserDetection"
+            style="@style/SettingsTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_user_detection_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelDescUserDetection"
+            style="@style/SettingsTextDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/settings_margin_between_title_desc"
+            android:text="@string/label_user_detection_desc"
+            app:layout_constraintStart_toStartOf="@id/labelTitleUserDetection"
+            app:layout_constraintTop_toBottomOf="@id/labelTitleUserDetection"
+            app:layout_constraintWidth_percent="0.5" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/sliderUserDetection"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:stepSize="0.1"
+            android:value="@{viewModel.general.detectionRange == 0 ? 1f : viewModel.general.detectionRange}"
+            android:valueFrom="0.5"
+            android:valueTo="2.0"
+            app:layout_constraintBottom_toBottomOf="@id/labelDescUserDetection"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/labelTitleUserDetection"
+            app:layout_constraintWidth_percent="0.4"
+            app:onValueChange="@{value -> viewModel.saveDetectionRange(value)}" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelTitleAutoReturnLoc"
+            style="@style/SettingsTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/settings_margin_between_settings"
+            android:text="@string/label_auto_return_loc_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelDescUserDetection" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelDescAutoReturnLoc"
+            style="@style/SettingsTextDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/settings_margin_between_title_desc"
+            android:text="@string/label_auto_return_loc_desc"
+            app:layout_constraintStart_toStartOf="@id/labelTitleAutoReturnLoc"
+            app:layout_constraintTop_toBottomOf="@id/labelTitleAutoReturnLoc"
+            app:layout_constraintWidth_percent="0.5" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutAutoReturnLoc"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/label_auto_return_loc_title"
+            app:layout_constraintBottom_toBottomOf="@id/labelDescAutoReturnLoc"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/labelTitleAutoReturnLoc"
+            app:layout_constraintWidth_percent="0.4">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/textAutoReturnLoc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="none"
+                android:text="@{viewModel.general.autoReturnLocation}"
+                app:content="@{viewModel.locations}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/AdminOutlinedAppButton"
+            android:layout_width="wrap_content"
+            android:text="@string/button_change_password"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:onClickNavigate="@{@id/action_generalFragment_to_passwordFragment}" />
+
+        <View
+            style="@style/HorizontalLine"
+            android:layout_width="match_parent"
+            app:layout_constraintBottom_toTopOf="@id/labelTitleAutoReturnLoc"
+            app:layout_constraintTop_toBottomOf="@id/labelDescUserDetection" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

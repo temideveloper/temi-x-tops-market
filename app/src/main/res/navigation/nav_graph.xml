@@ -45,6 +45,9 @@
         <action
             android:id="@+id/action_adminFragment_to_speechFragment"
             app:destination="@id/speechFragment" />
+        <action
+            android:id="@+id/action_adminFragment_to_generalFragment"
+            app:destination="@id/generalFragment" />
     </fragment>
     <fragment
         android:id="@+id/delaysFragment"
@@ -83,4 +86,17 @@
         tools:layout="@layout/fragment_speech"
         android:name="com.robosolutions.temixtopsmarket.ui.speech.SpeechFragment"
         android:label="SpeechFragment" />
+    <fragment
+        android:id="@+id/generalFragment"
+        android:name="com.robosolutions.temixtopsmarket.ui.general.GeneralFragment"
+        android:label="general_fragment"
+        tools:layout="@layout/fragment_general" >
+        <action
+            android:id="@+id/action_generalFragment_to_passwordFragment"
+            app:destination="@id/passwordFragment" >
+            <argument
+                android:name="changePassword"
+                android:defaultValue="true" />
+        </action>
+    </fragment>
 </navigation>

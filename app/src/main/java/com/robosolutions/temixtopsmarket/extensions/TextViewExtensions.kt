@@ -1,9 +1,16 @@
 package com.robosolutions.temixtopsmarket.extensions
 
 import android.content.Context
+import android.widget.ArrayAdapter
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.robosolutions.temixtopsmarket.R
+
+@BindingAdapter("content")
+fun <T> MaterialAutoCompleteTextView.simpleAdapter(content: List<T>?) {
+    setAdapter(ArrayAdapter(context, android.R.layout.simple_list_item_1, content ?: listOf()))
+}
 
 /**
  * The current text as a [String]. If there is no text, an empty [String] is returned.

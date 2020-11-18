@@ -32,8 +32,14 @@
     <string name="label_excuse_me_tts_title">\"Excuse Me\"</string>
     <string name="label_excuse_me_tts_desc">The message spoken to ask user to move out of the way when temi is escorting the user</string>
 
+    <string name="label_user_detection_title">User Detection Range</string>
+    <string name="label_user_detection_desc">The range of user detection in meters</string>
+    <string name="label_auto_return_loc_title">Auto Return Location</string>
+    <string name="label_auto_return_loc_desc">Where to return after temi escorts the user in store navigation</string>
+
     <string name="button_admin_confirm">Confirm</string>
     <string name="button_admin_cancel">Cancel</string>
+    <string name="button_change_password">Change Password</string>
 
     <string name="button_settings_general">General</string>
     <string name="button_settings_delays">Delays</string>

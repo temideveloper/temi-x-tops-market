@@ -16,6 +16,17 @@ message Preference {
 
   // TTS messages
   Speech speech = 4;
+
+  // General preferences
+  General general = 5;
+}
+
+message General {
+  // The range of user detection
+  float detectionRange = 1;
+
+  // Where to return after store navigation
+  string autoReturnLocation = 2;
 }
 
 message Credentials {
