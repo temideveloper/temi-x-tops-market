@@ -1,13 +1,18 @@
 package com.robosolutions.temixtopsmarket.di
 
+import android.content.Context
 import com.google.mlkit.vision.barcode.Barcode
 import com.google.mlkit.vision.barcode.BarcodeScanner
 import com.google.mlkit.vision.barcode.BarcodeScannerOptions
 import com.google.mlkit.vision.barcode.BarcodeScanning
+import com.robosolutions.temixtopsmarket.database.AppDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.android.components.FragmentComponent
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Singleton
 
 @Module
 @InstallIn(FragmentComponent::class)
@@ -20,4 +25,18 @@ class FragmentModules {
 
         return BarcodeScanning.getClient(barcodeOption)
     }
+}
+
+@Module
+@InstallIn(ApplicationComponent::class)
+class AppModules {
+    @Provides
+    fun provideStaffDao(database: AppDatabase) = database.staffDao
+
+    @Provides
+    fun provideVideoDao(database: AppDatabase) = database.videoDao
+
+    @Singleton
+    @Provides
+    fun provideAppDatabase(@ApplicationContext context: Context) = AppDatabase.create(context)
 }
