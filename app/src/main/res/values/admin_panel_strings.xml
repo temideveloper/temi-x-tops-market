@@ -37,6 +37,15 @@
     <string name="label_auto_return_loc_title">Auto Return Location</string>
     <string name="label_auto_return_loc_desc">Where to return after temi escorts the user in store navigation</string>
 
+    <string name="label_zone_one_title">Zone 1</string>
+    <string name="label_zone_one_desc">Location to visit for zone one</string>
+    <string name="label_zone_two_title">Zone 2</string>
+    <string name="label_zone_two_desc">Location to visit for zone two</string>
+    <string name="label_zone_three_title">Zone 3</string>
+    <string name="label_zone_three_desc">Location to visit for zone three</string>
+    <string name="label_zone_four_title">Zone 4</string>
+    <string name="label_zone_four_desc">Location to visit for zone four</string>
+
     <string name="button_admin_confirm">Confirm</string>
     <string name="button_admin_cancel">Cancel</string>
     <string name="button_change_password">Change Password</string>

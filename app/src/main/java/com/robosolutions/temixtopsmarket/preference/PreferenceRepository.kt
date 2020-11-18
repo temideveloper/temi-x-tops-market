@@ -86,6 +86,20 @@ class PreferenceRepository @Inject constructor(@ApplicationContext context: Cont
         savePreference { setDelays(block(delays.toBuilder()).build()) }
     }
 
+    val locations = preference.map { it.locations }
+
+    suspend fun saveZoneOne(location: String) = saveLocations { setZoneOne(location) }
+
+    suspend fun saveZoneTwo(location: String) = saveLocations { setZoneTwo(location) }
+
+    suspend fun saveZoneThree(location: String) = saveLocations { setZoneThree(location) }
+    
+    suspend fun saveZoneFour(location: String) = saveLocations { setZoneFour(location) }
+
+    private suspend fun saveLocations(block: Locations.Builder.() -> Locations.Builder) {
+        savePreference { setLocations(block(locations.toBuilder()).build()) }
+    }
+
     /** Contains URL for QR Codes. */
     val qrCodeUrls = preference.map { it.qrCodeUrls }
 

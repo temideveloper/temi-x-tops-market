@@ -19,6 +19,9 @@ message Preference {
 
   // General preferences
   General general = 5;
+
+  // Navigation locations
+  Locations locations = 6;
 }
 
 message General {
@@ -62,4 +65,11 @@ message Speech {
 
   // TTS for asking user to make way
   string excuseMe = 2;
+}
+
+message Locations {
+  string zoneOne = 1;
+  string zoneTwo = 2;
+  string zoneThree = 3;
+  string zoneFour = 4;
 }

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.robosolutions.temixtopsmarket.ui.location.NavLocationFragmentViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.location.NavLocationFragment">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelTitleZoneOne"
+            style="@style/SettingsTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_zone_one_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelDescZoneOne"
+            style="@style/SettingsTextDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/settings_margin_between_title_desc"
+            android:text="@string/label_zone_one_desc"
+            app:layout_constraintStart_toStartOf="@id/labelTitleZoneOne"
+            app:layout_constraintTop_toBottomOf="@id/labelTitleZoneOne"
+            app:layout_constraintWidth_percent="0.5" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutZoneOne"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/label_zone_one_title"
+            app:layout_constraintBottom_toBottomOf="@id/labelDescZoneOne"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/labelTitleZoneOne"
+            app:layout_constraintWidth_percent="0.4">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/textZoneOne"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                app:content="@{viewModel.locations}"
+                app:onTextChange="@{text -> viewModel.saveZoneOne(text)}"
+                app:textNoFilter="@{viewModel.savedLocations.zoneOne}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelTitleZoneTwo"
+            style="@style/SettingsTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/settings_margin_between_settings"
+            android:text="@string/label_zone_two_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelDescZoneOne" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelDescZoneTwo"
+            style="@style/SettingsTextDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/settings_margin_between_title_desc"
+            android:text="@string/label_zone_two_desc"
+            app:layout_constraintStart_toStartOf="@id/labelTitleZoneTwo"
+            app:layout_constraintTop_toBottomOf="@id/labelTitleZoneTwo"
+            app:layout_constraintWidth_percent="0.5" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutZoneTwo"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/label_zone_two_title"
+            app:layout_constraintBottom_toBottomOf="@id/labelDescZoneTwo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/labelTitleZoneTwo"
+            app:layout_constraintWidth_percent="0.4">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/textZoneTwo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                app:content="@{viewModel.locations}"
+                app:onTextChange="@{text -> viewModel.saveZoneTwo(text)}"
+                app:textNoFilter="@{viewModel.savedLocations.zoneTwo}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelTitleZoneThree"
+            style="@style/SettingsTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/settings_margin_between_settings"
+            android:text="@string/label_zone_three_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelDescZoneTwo" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelDescZoneThree"
+            style="@style/SettingsTextDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/settings_margin_between_title_desc"
+            android:text="@string/label_zone_three_desc"
+            app:layout_constraintStart_toStartOf="@id/labelTitleZoneThree"
+            app:layout_constraintTop_toBottomOf="@id/labelTitleZoneThree"
+            app:layout_constraintWidth_percent="0.5" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutZoneThree"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/label_zone_three_title"
+            app:layout_constraintBottom_toBottomOf="@id/labelDescZoneThree"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/labelTitleZoneThree"
+            app:layout_constraintWidth_percent="0.4">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/textZoneThree"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                app:content="@{viewModel.locations}"
+                app:onTextChange="@{text -> viewModel.saveZoneThree(text)}"
+                app:textNoFilter="@{viewModel.savedLocations.zoneThree}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelTitleZoneFour"
+            style="@style/SettingsTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/settings_margin_between_settings"
+            android:text="@string/label_zone_four_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelDescZoneThree" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelDescZoneFour"
+            style="@style/SettingsTextDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/settings_margin_between_title_desc"
+            android:text="@string/label_zone_four_desc"
+            app:layout_constraintStart_toStartOf="@id/labelTitleZoneFour"
+            app:layout_constraintTop_toBottomOf="@id/labelTitleZoneFour"
+            app:layout_constraintWidth_percent="0.5" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutZoneFour"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/label_zone_four_title"
+            app:layout_constraintBottom_toBottomOf="@id/labelDescZoneFour"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/labelTitleZoneFour"
+            app:layout_constraintWidth_percent="0.4">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/textZoneFour"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                app:content="@{viewModel.locations}"
+                app:onTextChange="@{text -> viewModel.saveZoneFour(text)}"
+                app:textNoFilter="@{viewModel.savedLocations.zoneFour}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

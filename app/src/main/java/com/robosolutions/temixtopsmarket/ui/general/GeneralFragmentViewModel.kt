@@ -5,13 +5,12 @@ import androidx.lifecycle.asLiveData
 import com.robosolutions.temixtopsmarket.extensions.robot
 import com.robosolutions.temixtopsmarket.preference.PreferenceRepository
 import com.robosolutions.temixtopsmarket.ui.base.AppViewModel
+import com.robosolutions.temixtopsmarket.ui.base.LocationViewModel
 
 class GeneralFragmentViewModel @ViewModelInject constructor(
     private val repository: PreferenceRepository
-) : AppViewModel() {
+) : LocationViewModel() {
     val general = repository.general.asLiveData()
-
-    val locations = robot.locations
 
     fun saveDetectionRange(range: Float) = viewModelLaunch { repository.saveDetectionRange(range) }
 
