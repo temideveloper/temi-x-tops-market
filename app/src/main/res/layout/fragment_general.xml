@@ -86,6 +86,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="none"
                 app:content="@{viewModel.locations}"
+                app:onTextChange="@{text -> viewModel.saveAutoReturnLocation(text)}"
                 app:textNoFilter="@{viewModel.general.autoReturnLocation}" />
         </com.google.android.material.textfield.TextInputLayout>
 

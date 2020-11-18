@@ -4,6 +4,7 @@ import android.content.Context
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.TextView
+import androidx.core.widget.doOnTextChanged
 import androidx.databinding.BindingAdapter
 import com.robosolutions.temixtopsmarket.R
 
@@ -50,4 +51,13 @@ private fun getDurationString(totalMs: Int, context: Context): String {
     val (_, minutes, seconds) = totalMs.toDuration()
 
     return context.getString(R.string.label_duration).format(minutes, seconds)
+}
+
+@BindingAdapter("onTextChange")
+fun TextView.onTextChanged(block: TextChanged) {
+    doOnTextChanged { text, _, _, _ -> block.onTextChange(text?.toString() ?: "") }
+}
+
+interface TextChanged {
+    fun onTextChange(text: String)
 }

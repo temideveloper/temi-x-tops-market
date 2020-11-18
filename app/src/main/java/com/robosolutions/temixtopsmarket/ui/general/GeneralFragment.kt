@@ -17,10 +17,4 @@ class GeneralFragment :
 
     override val titleIdEn = R.string.title_general_en
     override val titleIdThai = R.string.title_general_th
-
-    override fun onPause() {
-        super.onPause()
-
-        viewModel.saveAutoReturnLocation(textAutoReturnLoc.textString)
-    }
 }
