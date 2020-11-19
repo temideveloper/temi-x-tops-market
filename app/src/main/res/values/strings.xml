@@ -16,6 +16,9 @@
     <string name="title_nav_location_en">Navigation Locations</string>
     <string name="title_nav_location_th">ตำแหน่งการนำทาง</string>
 
+    <string name="title_promotions_en">Promotions</string>
+    <string name="title_promotions_th">โปรโมชั่น</string>
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -54,6 +54,13 @@
         <action
             android:id="@+id/action_adminFragment_to_navLocationFragment"
             app:destination="@id/navLocationFragment" />
+        <action
+            android:id="@+id/action_adminFragment_to_videosFragment"
+            app:destination="@id/videosFragment" >
+            <argument
+                android:name="isEditMode"
+                android:defaultValue="true" />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/delaysFragment"
@@ -115,4 +122,13 @@
         android:name="com.robosolutions.temixtopsmarket.ui.location.NavLocationFragment"
         android:label="NavLocationFragment"
         tools:layout="@layout/fragment_nav_location" />
+    <fragment
+        android:id="@+id/videosFragment"
+        android:name="com.robosolutions.temixtopsmarket.ui.video.VideosFragment"
+        android:label="fragment_videos"
+        tools:layout="@layout/fragment_videos" >
+        <argument
+            android:name="isEditMode"
+            app:argType="boolean" />
+    </fragment>
 </navigation>

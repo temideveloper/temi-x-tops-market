@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="editable"
+            type="boolean" />
+
+        <variable
+            name="promotionVideo"
+            type="com.robosolutions.temixtopsmarket.database.PromotionVideo" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:background="?android:attr/selectableItemBackground"
+        app:cardCornerRadius="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="32dp"
+            android:paddingVertical="16dp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imageThumbnail"
+                android:layout_width="400dp"
+                android:layout_height="0dp"
+                android:contentDescription="@{promotionVideo.title}"
+                android:scaleType="centerCrop"
+                android:src="@android:color/white"
+                app:layout_constraintDimensionRatio="1.25"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/CorneredImageView"
+                tools:src="@android:color/darker_gray" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textVideoTitle"
+                style="@style/VideoTitleText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@{promotionVideo.title}"
+                app:layout_constraintBottom_toTopOf="@id/textVideoSummary"
+                app:layout_constraintEnd_toEndOf="@id/imageThumbnail"
+                app:layout_constraintStart_toStartOf="@id/imageThumbnail"
+                app:layout_constraintTop_toBottomOf="@id/imageThumbnail"
+                tools:text="Huge Discount for Big Tuna Sandwich" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textVideoSummary"
+                style="@style/VideoSummaryText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@{promotionVideo.summary}"
+                app:layout_constraintEnd_toEndOf="@id/textVideoTitle"
+                app:layout_constraintStart_toStartOf="@id/textVideoTitle"
+                app:layout_constraintTop_toBottomOf="@id/textVideoTitle"
+                tools:text="Starting from 11 Nov to 19 Nov, our exclusive item Big Tuna Sandwich will be discounted by 50% while stocks last" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonRemove"
+                style="@style/SettingsSelectButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/button_admin_remove"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_small_en"
+                app:isVisible="@{editable}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/textVideoTitle"
+                app:layout_constraintStart_toStartOf="@id/textVideoTitle"
+                app:layout_constraintTop_toBottomOf="@id/textVideoSummary" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

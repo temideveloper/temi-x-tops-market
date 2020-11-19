@@ -10,3 +10,8 @@ fun <T, VH : RecyclerView.ViewHolder> RecyclerView.bindAdapter(adapter: ListAdap
 
 @BindingAdapter("itemDecoration")
 fun RecyclerView.bindDecoration(decor: RecyclerView.ItemDecoration) = addItemDecoration(decor)
+
+@BindingAdapter("customLayoutManager")
+fun RecyclerView.bindLayoutManager(customManager: RecyclerView.LayoutManager) {
+    layoutManager = customManager
+}

@@ -26,6 +26,18 @@
 
     <style name="SettingsTitleText" parent="TextAppearance.MaterialComponents.Headline5" />
 
+    <style name="VideoTitleText" parent="TextAppearance.MaterialComponents.Headline1">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_normal_en</item>
+    </style>
+
+    <style name="VideoSummaryText" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">@dimen/text_small_en</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
     <style name="SettingsTextDescription" parent="TextAppearance.MaterialComponents.Caption">
         <item name="android:textSize">@dimen/text_normal_en</item>
     </style>
@@ -95,5 +107,10 @@
     <style name="CircularImageView" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="CorneredImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">3%</item>
     </style>
 </resources>

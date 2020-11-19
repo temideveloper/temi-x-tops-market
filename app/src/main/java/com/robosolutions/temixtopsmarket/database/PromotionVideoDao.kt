@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface PromotionVideoDao {
-    @Query("SELECT * FROM PromotionVideo")
+    @Query("SELECT * FROM PromotionVideo ORDER BY title")
     fun getVideos(): Flow<List<PromotionVideo>>
 
     @Insert
