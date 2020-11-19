@@ -1,18 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.home.HomeFragment">
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonAdminPanel"
             style="@style/ImageButton"
             app:icon="@drawable/ic_admin_panel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:onClickNavigate="@{@id/action_homeFragment_to_passwordFragment}" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonCheckIn"
+            style="@style/HomeScreenButton"
+            app:layout_constraintBottom_toTopOf="@+id/buttonNavigation"
+            app:layout_constraintEnd_toStartOf="@id/buttonPromotion"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buttonAdminPanel" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonPromotion"
+            style="@style/HomeScreenButton"
+            app:layout_constraintBottom_toTopOf="@id/buttonContactStaff"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/buttonCheckIn"
+            app:layout_constraintTop_toBottomOf="@id/buttonAdminPanel" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonNavigation"
+            style="@style/HomeScreenButton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/buttonContactStaff"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buttonCheckIn" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonContactStaff"
+            style="@style/HomeScreenButton"
+            android:text="@string/button_contact_staff"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/buttonNavigation"
+            app:layout_constraintTop_toBottomOf="@+id/buttonPromotion"
+            app:onClickNavigate="@{@id/action_homeFragment_to_contactStaffFragment}" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -82,6 +82,16 @@
                 android:text="@string/button_settings_videos"
                 app:icon="@drawable/ic_settings_video"
                 app:onClickNavigate="@{@id/action_adminFragment_to_videosFragment}" />
+
+            <View style="@style/HorizontalLine" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/SettingsSelectButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_settings_videos"
+                app:icon="@drawable/ic_settings_video"
+                app:onClickNavigate="@{@id/action_adminFragment_to_videosFragment}" />
         </LinearLayout>
     </ScrollView>
 </layout>

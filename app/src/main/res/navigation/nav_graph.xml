@@ -17,6 +17,9 @@
                 android:name="changePassword"
                 android:defaultValue="false" />
         </action>
+        <action
+            android:id="@+id/action_homeFragment_to_contactStaffFragment"
+            app:destination="@id/contactStaffFragment" />
     </fragment>
     <fragment
         android:id="@+id/passwordFragment"
@@ -143,4 +146,9 @@
             android:name="videoId"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/contactStaffFragment"
+        tools:layout="@layout/fragment_contact_staff"
+        android:name="com.robosolutions.temixtopsmarket.ui.staff.ContactStaffFragment"
+        android:label="ContactStaffFragment" />
 </navigation>

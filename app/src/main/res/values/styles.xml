@@ -24,7 +24,20 @@
         <item name="android:textSize">@dimen/text_large_en</item>
     </style>
 
+    <style name="NormalTextTh" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textSize">@dimen/text_normal_th</item>
+    </style>
+
+    <style name="NormalTextEn" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">@dimen/text_normal_en</item>
+    </style>
+
     <style name="SettingsTitleText" parent="TextAppearance.MaterialComponents.Headline5" />
+
+    <style name="ContactStaffNameText" parent="TextAppearance.MaterialComponents.Headline2">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textSize">@dimen/text_normal_th</item>
+    </style>
 
     <style name="VideoTitleText" parent="TextAppearance.MaterialComponents.Headline1">
         <item name="android:textColor">@android:color/white</item>
@@ -59,6 +72,13 @@
 
     <style name="AdminAppButton" parent="AppButton">
         <item name="android:textSize">@dimen/text_normal_en</item>
+    </style>
+
+    <style name="HomeScreenButton" parent="AppButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="layout_constraintDimensionRatio">1.7</item>
+        <item name="layout_constraintWidth_percent">0.275</item>
     </style>
 
     <style name="OutlinedAppButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
