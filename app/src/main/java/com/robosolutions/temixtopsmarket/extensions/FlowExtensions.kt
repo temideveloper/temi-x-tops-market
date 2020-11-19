@@ -7,6 +7,16 @@ infix fun <T> MutableStateFlow<T>.updateTo(newValue: T) {
     value = newValue
 }
 
+fun MutableStateFlow<Int>.increment() {
+    val currentValue = value
+    value = currentValue + 1
+}
+
+fun MutableStateFlow<Int>.decrement() {
+    val currentValue = value
+    value = currentValue - 1
+}
+
 /**
  * Fetch 1 value from the flow and return it.
  *

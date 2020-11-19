@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import com.robosolutions.temixtopsmarket.R
 import com.robosolutions.temixtopsmarket.extensions.executePendingBindings
 import com.robosolutions.temixtopsmarket.ui.activity.MainActivityViewModel
 import com.robosolutions.temixtopsmarket.utils.tryAssignBinding
@@ -28,6 +29,9 @@ abstract class BindingFragment<T : ViewDataBinding> : Fragment() {
     /** Thai title string resource id. */
     open val titleIdThai: Int? = null
 
+    /** Padding for the content of the screen. */
+    open val contentPadding: Int? = R.dimen.content_padding
+
     final override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -37,6 +41,8 @@ abstract class BindingFragment<T : ViewDataBinding> : Fragment() {
         mainViewModel.updateHeaderTitle(titleIdEn, titleIdThai)
 
         mainViewModel.updateHeader(useHeader)
+
+        mainViewModel.updateContentPadding(contentPadding)
 
         binding = DataBindingUtil.inflate(inflater, layoutId, container, false)
         binding.executePendingBindings {

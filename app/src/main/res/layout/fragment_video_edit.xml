@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.robosolutions.temixtopsmarket.ui.video.VideoEditFragment" />
+
+        <variable
+            name="viewModel"
+            type="com.robosolutions.temixtopsmarket.ui.video.VideoEditFragmentViewModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/videoCardView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:transitionName="@string/transition_name_video_details">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.video.VideoEditFragment">
+
+            <ImageView
+                android:id="@+id/imageThumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:contentDescription="@string/content_desc_video"
+                android:scaleType="centerCrop"
+                app:fallbackId="@{@android:color/darker_gray}"
+                app:layout_constraintHeight_percent="0.5"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcGlideThumb="@{viewModel.videoFile}"
+                tools:src="@android:color/darker_gray" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonChangeVideo"
+                style="@style/AdminOutlinedAppButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:onClick="@{() -> fragment.onChangeVideo()}"
+                android:text="@string/button_change_video"
+                app:canVisible="@{!viewModel.isProcessing}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageThumbnail" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/labelTitle"
+                style="@style/SettingsTitleText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/label_video_title"
+                app:layout_constraintBottom_toTopOf="@id/labelSummary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/buttonChangeVideo"
+                app:layout_constraintWidth_percent="0.3" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/labelSummary"
+                style="@style/SettingsTitleText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/label_video_summary"
+                app:layout_constraintBottom_toTopOf="@id/buttonSave"
+                app:layout_constraintStart_toStartOf="@id/labelTitle"
+                app:layout_constraintTop_toBottomOf="@id/labelTitle"
+                app:layout_constraintWidth_percent="0.3" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutTitle"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:hint="@string/label_video_title"
+                app:endIconMode="clear_text"
+                app:layout_constraintBottom_toBottomOf="@id/labelTitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/labelTitle"
+                app:layout_constraintTop_toTopOf="@id/labelTitle">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextVideoTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textCapWords"
+                    android:text="@{viewModel.currentVideo.title}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/label_video_summary"
+                app:endIconMode="clear_text"
+                app:layout_constraintBottom_toBottomOf="@id/labelSummary"
+                app:layout_constraintEnd_toEndOf="@id/layoutTitle"
+                app:layout_constraintStart_toEndOf="@id/labelSummary"
+                app:layout_constraintTop_toTopOf="@id/labelSummary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextVideoSummary"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textShortMessage"
+                    android:text="@{viewModel.currentVideo.summary}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonSave"
+                style="@style/AdminAppButton"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:enabled="@{!viewModel.isProcessing}"
+                android:onClick="@{() -> fragment.onSaveChanges()}"
+                android:text="@string/button_admin_save"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/buttonCancel"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonCancel"
+                style="@style/AdminOutlinedAppButton"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> fragment.onCancel()}"
+                android:text="@string/button_admin_cancel"
+                app:layout_constraintBottom_toBottomOf="@id/buttonSave"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/buttonSave" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                app:isVisible="@{viewModel.isProcessing}"
+                app:layout_constraintBottom_toTopOf="@id/layoutTitle"
+                app:layout_constraintDimensionRatio="1"
+                app:layout_constraintEnd_toEndOf="@id/buttonChangeVideo"
+                app:layout_constraintStart_toStartOf="@id/buttonChangeVideo"
+                app:layout_constraintTop_toBottomOf="@id/imageThumbnail"
+                app:layout_constraintWidth_percent=".1"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/loading" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

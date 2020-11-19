@@ -1,19 +1,20 @@
 package com.robosolutions.temixtopsmarket.database
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import kotlinx.coroutines.flow.Flow
+import java.util.*
 
 @Dao
 interface PromotionVideoDao {
     @Query("SELECT * FROM PromotionVideo ORDER BY title")
     fun getVideos(): Flow<List<PromotionVideo>>
 
-    @Insert
-    fun saveVideo(video: PromotionVideo)
+    @Query("SELECT * FROM PromotionVideo WHERE id = :videoId")
+    fun getVideoById(videoId: UUID): Flow<PromotionVideo>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun saveVideo(video: PromotionVideo)
 
     @Delete
-    fun deleteVideo(video: PromotionVideo)
+    suspend fun deleteVideo(video: PromotionVideo)
 }

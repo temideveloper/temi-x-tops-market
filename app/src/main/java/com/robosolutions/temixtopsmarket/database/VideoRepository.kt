@@ -15,21 +15,19 @@ class VideoRepository @Inject constructor(
 ) : PromotionVideoDao by dao {
 
     /** Parent directory for videos. */
-    private val parentDirectory = File(context.applicationContext.filesDir, VIDEO_FOLDER)
+    private val parentDirectory = File(context.applicationContext.filesDir, VIDEO_FOLDER).also {
+        it.mkdirs()
+    }
 
     @WorkerThread
-    fun saveVideoFile(video: PromotionVideo, input: InputStream) =
-        try {
-            FileOutputStream(getVideoFile(video), false).use {
-                input.copyTo(it)
+    fun saveVideoFile(title: String, input: InputStream) =
+        FileOutputStream(getVideoFile(title), false).use {
+            input.copyTo(it)
 
-                Timber.d("Saved video for title ${video.title}")
-            }
-        } catch (e: Exception) {
-            Timber.e(e, "Failed to save video for title ${video.title}!")
+            Timber.d("Saved video for title $title")
         }
 
-    fun getVideoFile(video: PromotionVideo) = File(parentDirectory, video.title)
+    fun getVideoFile(title: String) = File(parentDirectory, title)
 
     companion object {
         const val VIDEO_FOLDER = "videos"

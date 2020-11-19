@@ -56,7 +56,7 @@
             app:destination="@id/navLocationFragment" />
         <action
             android:id="@+id/action_adminFragment_to_videosFragment"
-            app:destination="@id/videosFragment" >
+            app:destination="@id/videosFragment">
             <argument
                 android:name="isEditMode"
                 android:defaultValue="true" />
@@ -126,9 +126,21 @@
         android:id="@+id/videosFragment"
         android:name="com.robosolutions.temixtopsmarket.ui.video.VideosFragment"
         android:label="fragment_videos"
-        tools:layout="@layout/fragment_videos" >
+        tools:layout="@layout/fragment_videos">
         <argument
             android:name="isEditMode"
             app:argType="boolean" />
+        <action
+            android:id="@+id/action_videosFragment_to_videoEditFragment"
+            app:destination="@id/videoEditFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/videoEditFragment"
+        android:name="com.robosolutions.temixtopsmarket.ui.video.VideoEditFragment"
+        android:label="VideoEditFragment"
+        tools:layout="@layout/fragment_video_edit">
+        <argument
+            android:name="videoId"
+            app:argType="string" />
     </fragment>
 </navigation>

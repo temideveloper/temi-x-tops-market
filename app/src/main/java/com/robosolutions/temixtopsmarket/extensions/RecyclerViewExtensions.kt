@@ -13,5 +13,7 @@ fun RecyclerView.bindDecoration(decor: RecyclerView.ItemDecoration) = addItemDec
 
 @BindingAdapter("customLayoutManager")
 fun RecyclerView.bindLayoutManager(customManager: RecyclerView.LayoutManager) {
-    layoutManager = customManager
+    if (layoutManager == null || layoutManager?.isAttachedToWindow == false) {
+        layoutManager = customManager
+    }
 }

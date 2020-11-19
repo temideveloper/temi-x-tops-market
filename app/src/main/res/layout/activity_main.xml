@@ -13,8 +13,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingHorizontal="16dp"
-        android:paddingVertical="8dp"
+        android:padding="@{viewModel.contentPadding}"
         tools:context=".ui.activity.MainActivity">
 
         <androidx.constraintlayout.widget.Group
@@ -49,7 +48,9 @@
             style="@style/HeaderTextEn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_header_to_fragment_container"
             android:text="@{viewModel.titleEnglish}"
+            app:layout_constraintBottom_toTopOf="@id/navHostFragment"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textTitleTh"
@@ -70,7 +71,6 @@
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="@dimen/margin_header_to_fragment_container"
             app:defaultNavHost="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

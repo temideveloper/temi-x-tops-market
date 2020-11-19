@@ -6,6 +6,10 @@
     <data>
 
         <variable
+            name="videoFile"
+            type="java.io.File" />
+
+        <variable
             name="editable"
             type="boolean" />
 
@@ -20,6 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:background="?android:attr/selectableItemBackground"
+        android:transitionName="@{@string/transition_name_video(promotionVideo.id.toString())}"
         app:cardCornerRadius="8dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -34,11 +39,12 @@
                 android:layout_height="0dp"
                 android:contentDescription="@{promotionVideo.title}"
                 android:scaleType="centerCrop"
-                android:src="@android:color/white"
+                app:fallbackId="@{@android:color/darker_gray}"
                 app:layout_constraintDimensionRatio="1.25"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:shapeAppearanceOverlay="@style/CorneredImageView"
+                app:srcGlideThumb="@{videoFile}"
                 tools:src="@android:color/darker_gray" />
 
             <com.google.android.material.textview.MaterialTextView

@@ -1,11 +1,11 @@
 package com.robosolutions.temixtopsmarket.extensions
 
 import android.view.View
-import androidx.appcompat.widget.TooltipCompat
 import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import androidx.navigation.NavDirections
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.FragmentNavigator
 
 /**
  * Navigates to another destination.
@@ -20,6 +20,16 @@ fun View?.navigate(resId: Int) = this?.findNavController()?.navigate(resId)
  * @param dir The destination direction.
  */
 fun View?.navigate(dir: NavDirections) = this?.findNavController()?.navigate(dir)
+
+/**
+ * Navigates to another destination by [NavDirections] with extras.
+ *
+ * @param dir The destination direction.
+ * @param extras Navigation extras.
+ */
+fun View?.navigate(dir: NavDirections, extras: FragmentNavigator.Extras) =
+    this?.findNavController()?.navigate(dir, extras)
+
 
 /**
  * When the [View] is clicked, the application will navigate based on the given action id.
