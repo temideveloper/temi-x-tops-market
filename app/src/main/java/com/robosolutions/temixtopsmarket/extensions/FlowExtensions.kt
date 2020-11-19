@@ -1,6 +1,7 @@
 package com.robosolutions.temixtopsmarket.extensions
 
 import android.content.Context
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 
 infix fun <T> MutableStateFlow<T>.updateTo(newValue: T) {
@@ -16,6 +17,23 @@ fun MutableStateFlow<Int>.decrement() {
     val currentValue = value
     value = currentValue - 1
 }
+
+/**
+ * Creates a timer-like flow. Call the [collect] method to start the timer.
+ *
+ * @param seconds The duration in seconds.
+ * @param onElapse The action to do when a second passed.
+ * @param onTimesUp The action to do when the timer is up.
+ */
+fun timer(seconds: Int, onElapse: (Int) -> Unit = {}, onTimesUp: (Int) -> Unit = {}) =
+    (seconds downTo 0)
+        .asFlow()
+        .onEach {
+            delay(1000)
+            onElapse(it)
+        }.onCompletion {
+            onTimesUp(seconds)
+        }.cancellable()
 
 /**
  * Fetch 1 value from the flow and return it.

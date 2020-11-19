@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.robosolutions.temixtopsmarket.ui.admin.AdminFragmentViewModel" />
+
+        <variable
+            name="fragment"
+            type="com.robosolutions.temixtopsmarket.ui.admin.AdminFragment" />
+    </data>
+
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -89,9 +100,10 @@
                 style="@style/SettingsSelectButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/button_settings_videos"
-                app:icon="@drawable/ic_settings_video"
-                app:onClickNavigate="@{@id/action_adminFragment_to_videosFragment}" />
+                android:onClick="@{() -> fragment.showTemiTopBar()}"
+                android:text="@{viewModel.currentCount == -1 ? @string/button_settings_open_menu : @string/label_countdown_top_bar(viewModel.currentCount)}"
+                app:icon="@drawable/ic_menu"
+                tools:text="@string/button_settings_open_menu" />
         </LinearLayout>
     </ScrollView>
 </layout>

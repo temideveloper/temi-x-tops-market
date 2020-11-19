@@ -9,13 +9,17 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.robosolutions.temixtopsmarket.R
 import com.robosolutions.temixtopsmarket.databinding.ActivityMainBinding
+import com.robosolutions.temixtopsmarket.extensions.completeHideTopBar
 import com.robosolutions.temixtopsmarket.extensions.executePendingBindings
+import com.robosolutions.temixtopsmarket.extensions.robot
 import com.robosolutions.temixtopsmarket.utils.isNightMode
 import com.robosolutions.temixtopsmarket.utils.switchNightMode
+import com.robotemi.sdk.listeners.OnRobotReadyListener
 import dagger.hilt.android.AndroidEntryPoint
 
+
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), OnRobotReadyListener {
 
     private val mainViewModel by viewModels<MainActivityViewModel>()
 
@@ -26,6 +30,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        robot.addOnRobotReadyListener(this)
+
         if (!isNightMode) switchNightMode(true)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
@@ -35,11 +41,23 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+
+        robot.removeOnRobotReadyListener(this)
+    }
+
     @Suppress("UNUSED_PARAMETER")
     fun onClickBack(v: View) = onBackPressed()
 
     @Suppress("UNUSED_PARAMETER")
     fun onClickHome(v: View) {
         navController.popBackStack(R.id.homeFragment, false)
+    }
+
+    override fun onRobotReady(isReady: Boolean) {
+        if (!isReady) return
+
+        robot.completeHideTopBar(this)
     }
 }

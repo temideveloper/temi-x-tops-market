@@ -49,6 +49,8 @@
     <string name="label_video_title">Title</string>
     <string name="label_video_summary">Summary</string>
 
+    <string name="label_countdown_top_bar">Hide top bar in %1$s seconds</string>
+
     <string name="dialog_remove_title">Remove Video</string>
     <string name="dialog_remove_content">Are you sure you want to remove this video?</string>
 
@@ -67,6 +69,7 @@
     <string name="button_settings_qr">QR Codes</string>
     <string name="button_settings_staff">Staffs</string>
     <string name="button_settings_videos">Videos</string>
+    <string name="button_settings_open_menu">Show Temi\'s Menu</string>
 
     <string name="error_incorrect_password">Incorrect password!</string>
     <string name="error_weak_password">Password does not meet the requirements!</string>

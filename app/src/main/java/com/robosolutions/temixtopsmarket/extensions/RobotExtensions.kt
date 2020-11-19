@@ -1,7 +1,10 @@
 package com.robosolutions.temixtopsmarket.extensions
 
+import android.app.Activity
+import android.content.pm.PackageManager
 import com.robotemi.sdk.Robot
 import com.robotemi.sdk.UserInfo
+import timber.log.Timber
 
 /**
  * Returns a [Robot] instance.
@@ -23,4 +26,21 @@ val Robot.contactsAndAdmin
  */
 val Robot.contactsAndAdminSorted
     get() = contactsAndAdmin.sortedBy { it.name }
+
+/**
+ * Hides temi's top bar completely.
+ *
+ * @param activity The activity that contains the UI MODE metadata.
+ */
+fun Robot.completeHideTopBar(activity: Activity) = try {
+    val packageManager = activity.packageManager
+    val componentName = activity.componentName
+
+    val activityInfo =
+        packageManager.getActivityInfo(componentName, PackageManager.GET_META_DATA)
+
+    onStart(activityInfo)
+} catch (e: PackageManager.NameNotFoundException) {
+    Timber.e(e, "Error on hiding temi's top bar")
+}
 
