@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="24dp"
             android:contentDescription="@string/content_desc_add_video"
-            android:onClick='@{v -> fragment.showVideoDetail(v, "")}'
+            android:onClick='@{v -> fragment.onVideoClicked(v, "")}'
             android:src="@drawable/ic_add_video"
             app:isVisible="@{fragment.isEditMode}"
             app:layout_constraintBottom_toBottomOf="parent"

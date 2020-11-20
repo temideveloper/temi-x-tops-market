@@ -33,7 +33,7 @@ class VideosFragment : BindingViewModelFragment<FragmentVideosBinding, VideosFra
         PromotionVideoAdapter(isEditMode, requireContext(),
 
             onClickCard = { v, video ->
-                showVideoDetail(v, video.id.toString())
+                onVideoClicked(v, video.id.toString())
             },
 
             onClickRemove = {
@@ -60,22 +60,29 @@ class VideosFragment : BindingViewModelFragment<FragmentVideosBinding, VideosFra
         viewModel.videos.observe(viewLifecycleOwner) { adapter.submitList(it) }
     }
 
-    fun showVideoDetail(v: View, videoId: String) {
-        val dir =
-            VideosFragmentDirections.actionVideosFragmentToVideoEditFragment(videoId)
-
+    fun onVideoClicked(v: View, videoId: String) {
         exitTransition = MaterialElevationScale(false)
         reenterTransition = MaterialElevationScale(true)
+
+        val dir = if (isEditMode) {
+            VideosFragmentDirections.actionVideosFragmentToVideoEditFragment(videoId)
+        } else {
+            VideosFragmentDirections.actionVideosFragmentToVideoPlayFragment(videoId)
+        }
 
         val detailTransitionName = getString(R.string.transition_name_video_details)
         val extras = FragmentNavigatorExtras(v to detailTransitionName)
 
-        if (videoId.isNotBlank()) {
-            // For existing video
-            v.navigate(dir, extras)
+        if (isEditMode) {
+            if (videoId.isNotBlank()) {
+                // For existing video
+                v.navigate(dir, extras)
+            } else {
+                // For new video
+                v.navigate(dir)
+            }
         } else {
-            // For new video
-            v.navigate(dir)
+            v.navigate(dir, extras)
         }
     }
 }

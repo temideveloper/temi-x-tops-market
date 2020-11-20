@@ -28,9 +28,13 @@ class MainActivityViewModel @ViewModelInject constructor(
     fun updateHeader(isVisible: Boolean) = _displayHeader updateTo isVisible
 
     fun updateHeaderTitle(englishId: Int?, thaiId: Int?) {
-        _titleEnglish updateTo (englishId?.let { context.getString(it) } ?: "")
-        _titleThai updateTo (thaiId?.let { context.getString(it) } ?: "")
+        updateHeaderEnglish(englishId?.let { context.getString(it) } ?: "")
+        updateHeaderThai(thaiId?.let { context.getString(it) } ?: "")
     }
+
+    fun updateHeaderThai(title: String) = _titleThai updateTo title
+
+    fun updateHeaderEnglish(title: String) = _titleEnglish updateTo title
 
     fun updateContentPadding(dimenId: Int?) {
         _contentPadding updateTo (dimenId ?: R.dimen.zero_dp)

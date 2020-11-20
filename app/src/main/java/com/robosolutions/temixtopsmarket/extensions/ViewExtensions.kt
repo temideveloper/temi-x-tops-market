@@ -1,6 +1,7 @@
 package com.robosolutions.temixtopsmarket.extensions
 
 import android.view.View
+import android.view.ViewTreeObserver
 import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import androidx.navigation.NavDirections
@@ -59,4 +60,23 @@ fun View.dynamicVisibility(isVisible: Boolean?) {
 @BindingAdapter("canVisible")
 fun View.dynamicInvisibleVisibility(isVisible: Boolean) {
     visibility = if (isVisible) View.VISIBLE else View.INVISIBLE
+}
+
+/**
+ * Adds an action when the global layout has been calculated.
+ *
+ * @param block The action to do.
+ */
+inline fun View.doOnGlobalLayout(crossinline block: (View) -> Unit) {
+    val treeObserver = viewTreeObserver
+
+    treeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
+        override fun onGlobalLayout() {
+            if (viewTreeObserver.isAlive) {
+                viewTreeObserver.removeOnGlobalLayoutListener(this)
+            }
+
+            block(this@doOnGlobalLayout)
+        }
+    })
 }

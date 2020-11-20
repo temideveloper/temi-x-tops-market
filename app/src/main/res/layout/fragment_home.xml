@@ -30,7 +30,8 @@
             app:layout_constraintBottom_toTopOf="@id/buttonContactStaff"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/buttonCheckIn"
-            app:layout_constraintTop_toBottomOf="@id/buttonAdminPanel" />
+            app:layout_constraintTop_toBottomOf="@id/buttonAdminPanel"
+            app:onClickNavigate="@{@id/action_homeFragment_to_promotionFragment}" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonNavigation"

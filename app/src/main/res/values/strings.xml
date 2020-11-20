@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">Temi x Tops Market</string>
 
+    <string name="label_or_en">OR</string>
+    <string name="label_or_th">หรือ</string>
+    <string name="label_scan_promotion_en"><b>Scan</b> to view in mobile</string>
+    <string name="label_scan_promotion_th"><b>สแกน</b>เพื่อดูในโทรศัพท์มือถือ</string>
+
     <string name="label_contact_staff_sub_en"><b>Need help?</b></string>
     <string name="label_contact_staff_sub_th"><b>ต้องการความช่วยเหลือ?</b></string>
     <string name="label_contact_staff_content_th">คุณสามารถแตะรายชื่อติดต่อด้านล่างเพื่อให้เจ้าหน้าที่ของเราช่วยเหลือคุณในการสนทนาทางวิดีโอ</string>
@@ -28,7 +33,11 @@
 
     <string name="button_contact_staff">ติดต่อเจ้าหน้าที่\n(Contact Staff)</string>
 
+    <string name="button_play_promotions">เล่นโปรโมชั่น\n(Play Promotions)</string>
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="content_desc_qr_promotion">QR Code to see promotions</string>
 
     <string name="transition_name_video">video_%1$s</string>
     <string name="transition_name_video_details">video details</string>

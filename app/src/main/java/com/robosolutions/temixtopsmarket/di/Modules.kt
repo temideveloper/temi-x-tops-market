@@ -1,11 +1,13 @@
 package com.robosolutions.temixtopsmarket.di
 
 import android.content.Context
+import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.mlkit.vision.barcode.Barcode
 import com.google.mlkit.vision.barcode.BarcodeScanner
 import com.google.mlkit.vision.barcode.BarcodeScannerOptions
 import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.robosolutions.temixtopsmarket.database.AppDatabase
+import com.robosolutions.temixtopsmarket.utils.LifecycleExoPlayer
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,6 +27,13 @@ class FragmentModules {
 
         return BarcodeScanning.getClient(barcodeOption)
     }
+
+    @Provides
+    fun provideLifecycleExoPlayer(@ApplicationContext context: Context) =
+        SimpleExoPlayer.Builder(context)
+            .build()
+            .apply { repeatMode = SimpleExoPlayer.REPEAT_MODE_ONE }
+            .run { LifecycleExoPlayer(this) }
 }
 
 @Module

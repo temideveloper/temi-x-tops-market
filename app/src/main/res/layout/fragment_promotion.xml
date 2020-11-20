@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.robosolutions.temixtopsmarket.ui.video.PromotionFragmentViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.video.PromotionFragment">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonPlayPromotions"
+            style="@style/PlayPromotionButton"
+            android:text="@string/button_play_promotions"
+            app:icon="@drawable/ic_play"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/labelOrTh"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.34"
+            app:onClickNavigate="@{@id/action_promotionFragment_to_videosFragment}" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelOrTh"
+            style="@style/NormalTextTh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_or_th"
+            app:layout_constraintBottom_toTopOf="@id/labelOrEn"
+            app:layout_constraintEnd_toStartOf="@id/imageQrCode"
+            app:layout_constraintStart_toEndOf="@id/buttonPlayPromotions"
+            app:layout_constraintTop_toTopOf="@id/buttonPlayPromotions"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelOrEn"
+            style="@style/NormalTextEn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/buttonPlayPromotions"
+            app:layout_constraintEnd_toEndOf="@id/labelOrTh"
+            app:layout_constraintStart_toStartOf="@id/labelOrTh"
+            app:layout_constraintTop_toBottomOf="@id/labelOrTh"
+            app:textWithBracket="@{@string/label_or_en}"
+            tools:text="@string/label_or_en" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelScanTh"
+            style="@style/NormalTextTh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_scan_promotion_th"
+            app:layout_constraintBottom_toTopOf="@id/labelScanEn"
+            app:layout_constraintEnd_toEndOf="@id/imageQrCode"
+            app:layout_constraintStart_toStartOf="@id/imageQrCode"
+            app:layout_constraintTop_toTopOf="@id/buttonPlayPromotions"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelScanEn"
+            style="@style/NormalTextEn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/imageQrCode"
+            app:layout_constraintEnd_toEndOf="@id/labelScanTh"
+            app:layout_constraintStart_toStartOf="@id/labelScanTh"
+            app:layout_constraintTop_toBottomOf="@id/labelScanTh"
+            app:textWithBracket="@{@string/label_scan_promotion_en}"
+            tools:text="@string/label_scan_promotion_en" />
+
+        <ImageView
+            android:id="@+id/imageQrCode"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/content_desc_qr_promotion"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="@id/buttonPlayPromotions"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/labelOrTh"
+            app:layout_constraintTop_toBottomOf="@id/labelScanEn"
+            app:qrCodeString="@{viewModel.qrCode}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

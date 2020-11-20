@@ -20,6 +20,9 @@
         <action
             android:id="@+id/action_homeFragment_to_contactStaffFragment"
             app:destination="@id/contactStaffFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_promotionFragment"
+            app:destination="@id/promotionFragment" />
     </fragment>
     <fragment
         android:id="@+id/passwordFragment"
@@ -136,6 +139,9 @@
         <action
             android:id="@+id/action_videosFragment_to_videoEditFragment"
             app:destination="@id/videoEditFragment" />
+        <action
+            android:id="@+id/action_videosFragment_to_videoPlayFragment"
+            app:destination="@id/videoPlayFragment" />
     </fragment>
     <fragment
         android:id="@+id/videoEditFragment"
@@ -151,4 +157,26 @@
         tools:layout="@layout/fragment_contact_staff"
         android:name="com.robosolutions.temixtopsmarket.ui.staff.ContactStaffFragment"
         android:label="ContactStaffFragment" />
+    <fragment
+        android:id="@+id/promotionFragment"
+        android:name="com.robosolutions.temixtopsmarket.ui.video.PromotionFragment"
+        android:label="fragment_promotion"
+        tools:layout="@layout/fragment_promotion" >
+        <action
+            android:id="@+id/action_promotionFragment_to_videosFragment"
+            app:destination="@id/videosFragment" >
+            <argument
+                android:name="isEditMode"
+                android:defaultValue="false" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/videoPlayFragment"
+        tools:layout="@layout/fragment_video_play"
+        android:name="com.robosolutions.temixtopsmarket.ui.video.VideoPlayFragment"
+        android:label="VideoPlayFragment" >
+        <argument
+            android:name="videoId"
+            app:argType="string" />
+    </fragment>
 </navigation>

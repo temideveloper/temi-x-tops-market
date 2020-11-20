@@ -114,6 +114,14 @@
         <item name="iconPadding">@dimen/settings_button_icon_padding</item>
     </style>
 
+    <style name="PlayPromotionButton" parent="OutlinedAppButton">
+        <item name="iconGravity">top</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="iconSize">@dimen/play_promotion_icon</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="layout_constraintDimensionRatio">1.2</item>
+    </style>
+
     <style name="HorizontalLine">
         <item name="android:layout_height">@dimen/horizontal_line_height</item>
         <item name="android:layout_width">@dimen/horizontal_line_width</item>

@@ -14,7 +14,7 @@ import com.robosolutions.temixtopsmarket.ui.activity.MainActivityViewModel
 import com.robosolutions.temixtopsmarket.utils.tryAssignBinding
 
 abstract class BindingFragment<T : ViewDataBinding> : Fragment() {
-    protected val mainViewModel by activityViewModels<MainActivityViewModel>()
+    private val mainViewModel by activityViewModels<MainActivityViewModel>()
 
     private lateinit var binding: T
 
@@ -79,4 +79,8 @@ abstract class BindingFragment<T : ViewDataBinding> : Fragment() {
         // Set shared view model
         tryAssignBinding("setSharedModel", mainViewModel::class.java, binding, mainViewModel)
     }
+
+    protected fun updateThaiTitle(title: String) = mainViewModel.updateHeaderThai(title)
+
+    protected fun updateEnglishTitle(title: String) = mainViewModel.updateHeaderEnglish(title)
 }

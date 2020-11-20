@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.robosolutions.temixtopsmarket.ui.video.VideoPlayFragment" />
+
+        <variable
+            name="viewModel"
+            type="com.robosolutions.temixtopsmarket.ui.video.VideoPlayFragmentViewModel" />
+    </data>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.video.VideoPlayFragment">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            android:transitionName="@string/transition_name_video_details">
+
+            <com.google.android.exoplayer2.ui.StyledPlayerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:videoFile="@{viewModel.videoToPlay}"
+                app:videoPlayer="@{fragment.player.player}" />
+        </com.google.android.material.card.MaterialCardView>
+    </FrameLayout>
+</layout>
