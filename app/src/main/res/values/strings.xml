@@ -1,8 +1,6 @@
 <resources>
     <string name="app_name">Temi x Tops Market</string>
 
-    <string name="label_or_en">OR</string>
-    <string name="label_or_th">หรือ</string>
     <string name="label_scan_promotion_en"><b>Scan</b> to view in mobile</string>
     <string name="label_scan_promotion_th"><b>สแกน</b>เพื่อดูในโทรศัพท์มือถือ</string>
 

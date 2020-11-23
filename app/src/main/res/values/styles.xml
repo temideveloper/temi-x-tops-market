@@ -13,26 +13,24 @@
         <item name="strokeWidth">0dp</item>
     </style>
 
-    <style name="HeaderTextTh" parent="GillSansTextHeadline5">
+    <style name="HeaderTextEn" parent="GillSansTextHeadline5">
         <item name="android:textAlignment">center</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">@dimen/text_large_th</item>
-    </style>
-
-    <style name="HeaderTextEn" parent="GillSansTextHeadline4">
-        <item name="android:textAlignment">center</item>
         <item name="android:textSize">@dimen/text_large_en</item>
     </style>
 
-    <style name="NormalTextTh" parent="GillSansTextBody1">
-        <item name="android:textSize">@dimen/text_normal_th</item>
+    <style name="HeaderTextTh" parent="GillSansTextHeadline4">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">@dimen/text_large_th</item>
     </style>
 
-    <style name="NormalTextEn" parent="GillSansTextCaption">
+    <style name="NormalTextEn" parent="GillSansTextBody1">
         <item name="android:textSize">@dimen/text_normal_en</item>
     </style>
 
-    <style name="SettingsTitleText" parent="GillSansTextHeadline5" />
+    <style name="NormalTextTh" parent="GillSansTextCaption">
+        <item name="android:textSize">@dimen/text_normal_th</item>
+    </style>
 
     <style name="ContactStaffNameText" parent="GillSansTextHeadline2">
         <item name="android:textColor">?android:attr/textColorPrimary</item>
@@ -51,8 +49,10 @@
         <item name="android:textAlignment">center</item>
     </style>
 
+    <style name="SettingsTitleText" parent="GillSansTextHeadline5" />
+
     <style name="SettingsTextDescription" parent="GillSansTextCaption">
-        <item name="android:textSize">@dimen/text_normal_en</item>
+        <item name="android:textSize">@dimen/text_normal_th</item>
     </style>
 
     <style name="SettingsTips" parent="SettingsTextDescription">
@@ -60,7 +60,7 @@
     </style>
 
     <style name="AppButton" parent="Widget.MaterialComponents.Button">
-        <item name="android:textSize">@dimen/text_normal_th</item>
+        <item name="android:textSize">@dimen/text_normal_en</item>
         <item name="paddingStart">@dimen/app_button_padding_horizontal</item>
         <item name="paddingEnd">@dimen/app_button_padding_horizontal</item>
         <item name="android:paddingTop">@dimen/app_button_padding_vertical</item>
@@ -72,7 +72,7 @@
     </style>
 
     <style name="AdminAppButton" parent="AppButton">
-        <item name="android:textSize">@dimen/text_normal_en</item>
+        <item name="android:textSize">@dimen/text_normal_th</item>
     </style>
 
     <style name="HomeScreenButton" parent="AppButton">
@@ -83,7 +83,7 @@
     </style>
 
     <style name="OutlinedAppButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
-        <item name="android:textSize">@dimen/text_normal_th</item>
+        <item name="android:textSize">@dimen/text_normal_en</item>
         <item name="paddingStart">@dimen/app_button_padding_horizontal</item>
         <item name="paddingEnd">@dimen/app_button_padding_horizontal</item>
         <item name="android:paddingTop">@dimen/app_button_padding_vertical</item>
@@ -95,11 +95,11 @@
     </style>
 
     <style name="AdminOutlinedAppButton" parent="OutlinedAppButton">
-        <item name="android:textSize">@dimen/text_normal_en</item>
+        <item name="android:textSize">@dimen/text_normal_th</item>
     </style>
 
     <style name="TextAppButton" parent="Widget.MaterialComponents.Button.TextButton">
-        <item name="android:textSize">@dimen/text_normal_th</item>
+        <item name="android:textSize">@dimen/text_normal_en</item>
         <item name="paddingStart">@dimen/app_button_padding_horizontal</item>
         <item name="paddingEnd">@dimen/app_button_padding_horizontal</item>
         <item name="android:paddingTop">@dimen/app_button_padding_vertical</item>
@@ -111,7 +111,7 @@
 
     <style name="SettingsSelectButton" parent="TextAppButton">
         <item name="android:gravity">start|center_vertical</item>
-        <item name="android:textSize">@dimen/text_normal_en</item>
+        <item name="android:textSize">@dimen/text_normal_th</item>
         <item name="iconSize">@dimen/settings_button_icon_size</item>
         <item name="iconPadding">@dimen/settings_button_icon_padding</item>
     </style>

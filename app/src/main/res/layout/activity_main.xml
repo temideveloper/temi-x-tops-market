@@ -32,29 +32,30 @@
             app:layout_constraintTop_toTopOf="@id/textTitleTh" />
 
         <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textTitleEn"
+            style="@style/HeaderTextEn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.titleEnglish}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Title Text" />
+        
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/textTitleTh"
             style="@style/HeaderTextTh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|top"
-            android:text="@{viewModel.titleThai}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="ข้อความชื่อเรื่อง" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/textTitleEn"
-            style="@style/HeaderTextEn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin_header_to_fragment_container"
-            android:text="@{viewModel.titleEnglish}"
+            android:text="@{viewModel.titleThai}"
             app:layout_constraintBottom_toTopOf="@id/navHostFragment"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textTitleTh"
-            tools:text="Title Text" />
+            app:layout_constraintTop_toBottomOf="@id/textTitleEn"
+            tools:text="ข้อความชื่อเรื่อง" />
+
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonHome"
@@ -75,7 +76,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textTitleEn"
+            app:layout_constraintTop_toBottomOf="@id/textTitleTh"
             app:navGraph="@navigation/nav_graph" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
