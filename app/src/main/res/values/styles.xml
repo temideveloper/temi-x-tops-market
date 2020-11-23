@@ -13,45 +13,45 @@
         <item name="strokeWidth">0dp</item>
     </style>
 
-    <style name="HeaderTextTh" parent="TextAppearance.MaterialComponents.Headline5">
+    <style name="HeaderTextTh" parent="GillSansTextHeadline5">
         <item name="android:textAlignment">center</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/text_large_th</item>
     </style>
 
-    <style name="HeaderTextEn" parent="TextAppearance.MaterialComponents.Headline4">
+    <style name="HeaderTextEn" parent="GillSansTextHeadline4">
         <item name="android:textAlignment">center</item>
         <item name="android:textSize">@dimen/text_large_en</item>
     </style>
 
-    <style name="NormalTextTh" parent="TextAppearance.MaterialComponents.Body1">
+    <style name="NormalTextTh" parent="GillSansTextBody1">
         <item name="android:textSize">@dimen/text_normal_th</item>
     </style>
 
-    <style name="NormalTextEn" parent="TextAppearance.MaterialComponents.Caption">
+    <style name="NormalTextEn" parent="GillSansTextCaption">
         <item name="android:textSize">@dimen/text_normal_en</item>
     </style>
 
-    <style name="SettingsTitleText" parent="TextAppearance.MaterialComponents.Headline5" />
+    <style name="SettingsTitleText" parent="GillSansTextHeadline5" />
 
-    <style name="ContactStaffNameText" parent="TextAppearance.MaterialComponents.Headline2">
+    <style name="ContactStaffNameText" parent="GillSansTextHeadline2">
         <item name="android:textColor">?android:attr/textColorPrimary</item>
         <item name="android:textSize">@dimen/text_normal_th</item>
     </style>
 
-    <style name="VideoTitleText" parent="TextAppearance.MaterialComponents.Headline1">
+    <style name="VideoTitleText" parent="GillSansTextHeadline1">
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textAlignment">center</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/text_normal_en</item>
     </style>
 
-    <style name="VideoSummaryText" parent="TextAppearance.MaterialComponents.Caption">
+    <style name="VideoSummaryText" parent="GillSansTextCaption">
         <item name="android:textSize">@dimen/text_small_en</item>
         <item name="android:textAlignment">center</item>
     </style>
 
-    <style name="SettingsTextDescription" parent="TextAppearance.MaterialComponents.Caption">
+    <style name="SettingsTextDescription" parent="GillSansTextCaption">
         <item name="android:textSize">@dimen/text_normal_en</item>
     </style>
 
@@ -68,6 +68,7 @@
         <item name="cornerRadius">@dimen/app_button_corner_radius</item>
         <item name="android:layout_width">@dimen/app_button_equality_width</item>
         <item name="android:layout_height">@dimen/app_button_equality_height</item>
+        <item name="android:fontFamily">@font/app_font</item>
     </style>
 
     <style name="AdminAppButton" parent="AppButton">
@@ -77,8 +78,8 @@
     <style name="HomeScreenButton" parent="AppButton">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">0dp</item>
-        <item name="layout_constraintDimensionRatio">1.7</item>
-        <item name="layout_constraintWidth_percent">0.275</item>
+        <item name="layout_constraintDimensionRatio">1.8</item>
+        <item name="layout_constraintWidth_percent">0.3</item>
     </style>
 
     <style name="OutlinedAppButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
@@ -90,6 +91,7 @@
         <item name="cornerRadius">@dimen/app_button_corner_radius</item>
         <item name="android:layout_width">@dimen/app_button_equality_width</item>
         <item name="android:layout_height">@dimen/app_button_equality_height</item>
+        <item name="android:fontFamily">@font/app_font</item>
     </style>
 
     <style name="AdminOutlinedAppButton" parent="OutlinedAppButton">

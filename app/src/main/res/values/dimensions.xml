@@ -27,7 +27,7 @@
 
     <dimen name="text_mini_en">16sp</dimen>
     <dimen name="text_small_en">18sp</dimen>
-    <dimen name="text_normal_th">30sp</dimen>
+    <dimen name="text_normal_th">28sp</dimen>
     <dimen name="text_normal_en">20sp</dimen>
     <dimen name="text_large_th">38sp</dimen>
     <dimen name="text_large_en">24sp</dimen>

@@ -26,6 +26,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonPromotion"
+            android:text="@string/button_play_promotions"
             style="@style/HomeScreenButton"
             app:layout_constraintBottom_toTopOf="@id/buttonContactStaff"
             app:layout_constraintEnd_toEndOf="parent"
