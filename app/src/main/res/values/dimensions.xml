@@ -27,6 +27,7 @@
 
     <dimen name="play_promotion_icon">160dp</dimen>
 
+    <dimen name="text_minimal_en">8sp</dimen>
     <dimen name="text_mini_en">16sp</dimen>
     <dimen name="text_small_en">18sp</dimen>
     <dimen name="text_normal_th">20sp</dimen>

@@ -26,6 +26,9 @@
         <action
             android:id="@+id/action_homeFragment_to_checkInFragment"
             app:destination="@id/checkInFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
     </fragment>
     <fragment
         android:id="@+id/passwordFragment"
@@ -187,4 +190,9 @@
         tools:layout="@layout/fragment_check_in"
         android:name="com.robosolutions.temixtopsmarket.ui.checkin.CheckInFragment"
         android:label="CheckInFragment" />
+    <fragment
+        android:id="@+id/mapFragment"
+        tools:layout="@layout/fragment_map"
+        android:name="com.robosolutions.temixtopsmarket.ui.location.MapFragment"
+        android:label="MapFragment" />
 </navigation>

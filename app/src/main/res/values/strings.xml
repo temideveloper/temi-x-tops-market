@@ -33,13 +33,15 @@
     <string name="title_nav_location_en">Navigation Locations</string>
     <string name="title_nav_location_th">ตำแหน่งการนำทาง</string>
 
+    <string name="title_store_navigation_en">Store Navigation</string>
+    <string name="title_store_navigation_th">การนำทางของร้านค้า</string>
     <string name="title_promotions_en">Promotions</string>
     <string name="title_promotions_th">โปรโมชั่น</string>
     <string name="title_contact_staff_en">Contact Staff</string>
     <string name="title_contact_staff_th">ติดต่อเจ้าหน้าที่</string>
 
+    <string name="button_store_navigation">Store Navigation</string>
     <string name="button_contact_staff">Contact Us</string>
-
     <string name="button_play_promotions">Promotions</string>
 
     <string name="content_desc_qr_promotion">QR Code to see promotions</string>

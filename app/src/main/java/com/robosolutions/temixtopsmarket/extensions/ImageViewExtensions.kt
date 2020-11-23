@@ -16,6 +16,7 @@ import java.io.File
 fun ImageView.glideUrlSrc(url: String?, fallback: Drawable) {
     Glide.with(context)
         .load(url?.let { Uri.parse(url) })
+        .signature(ObjectKey(url ?: ""))
         .placeholder(fallback)
         .error(fallback)
         .fallback(fallback)
@@ -24,6 +25,14 @@ fun ImageView.glideUrlSrc(url: String?, fallback: Drawable) {
 
 @BindingAdapter("srcGlideId")
 fun ImageView.glideSrcId(id: Int?) {
+    id ?: return
+    Glide.with(context)
+        .load(id)
+        .into(this)
+}
+
+@BindingAdapter("srcGlideDrawable")
+fun ImageView.glideSrcDrawable(id: Drawable?) {
     id ?: return
     Glide.with(context)
         .load(id)

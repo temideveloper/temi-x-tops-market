@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.robosolutions.temixtopsmarket.ui.location.MapFragmentViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.location.MapFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/empty_map"
+            app:layout_constraintDimensionRatio="1.1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/LocationTextButton"
+                android:layout_width="300dp"
+                android:layout_height="150dp"
+                android:enabled='@{viewModel.zones.zoneOne != ""}'
+                android:text="@{viewModel.zones.zoneOne}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.03"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.15"
+                tools:text="Zone 1" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/LocationTextButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:enabled='@{viewModel.zones.zoneTwo != ""}'
+                android:text="@{viewModel.zones.zoneTwo}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.54"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.33"
+                tools:text="Zone 2" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/LocationTextButton"
+                android:layout_width="45dp"
+                android:layout_height="150dp"
+                android:enabled='@{viewModel.zones.zoneThree != ""}'
+                android:text="@{viewModel.zones.zoneThree}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.58"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.07"
+                tools:text="Zone 3" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/LocationTextButton"
+                android:layout_width="100dp"
+                android:layout_height="220dp"
+                android:enabled='@{viewModel.zones.zoneFour != ""}'
+                android:text="@{viewModel.zones.zoneFour}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.72"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0"
+                tools:text="Zone 4" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/LocationTextButton"
+                android:layout_width="76dp"
+                android:layout_height="80dp"
+                android:enabled='@{viewModel.zones.zoneFive != ""}'
+                android:text="@{viewModel.zones.zoneFive}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.86"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0"
+                tools:text="Zone 5" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/LocationTextButton"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:enabled='@{viewModel.zones.zoneSix != ""}'
+                android:text="@{viewModel.zones.zoneSix}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0"
+                tools:text="Zone 6" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/LocationTextButton"
+                android:layout_width="130dp"
+                android:layout_height="240dp"
+                android:enabled='@{viewModel.zones.zoneSeven != ""}'
+                android:text="@{viewModel.zones.zoneSeven}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.62"
+                tools:text="Zone 7" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/LocationTextButton"
+                android:layout_width="90dp"
+                android:layout_height="100dp"
+                android:enabled='@{viewModel.zones.zoneEight != ""}'
+                android:text="@{viewModel.zones.zoneEight}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.225"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.46"
+                tools:text="Zone 8" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/LocationTextButton"
+                android:layout_width="150dp"
+                android:layout_height="145dp"
+                android:enabled='@{viewModel.zones.zoneNine != ""}'
+                android:text="@{viewModel.zones.zoneNine}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.25"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.71"
+                tools:text="Zone 9" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/LocationTextButton"
+                android:layout_width="150dp"
+                android:layout_height="80dp"
+                android:enabled='@{viewModel.zones.zoneTen != ""}'
+                android:text="@{viewModel.zones.zoneTen}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.44"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.45"
+                tools:text="Zone 10" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/LocationTextButton"
+                android:layout_width="57dp"
+                android:layout_height="80dp"
+                android:enabled='@{viewModel.zones.zoneEleven != ""}'
+                android:text="@{viewModel.zones.zoneEleven}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.67"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.435"
+                tools:text="Zone 11" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/LocationTextButton"
+                android:layout_width="57dp"
+                android:layout_height="80dp"
+                android:enabled='@{viewModel.zones.zoneTwelve != ""}'
+                android:text="@{viewModel.zones.zoneTwelve}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.76"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.435"
+                tools:text="Zone 12" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/LocationTextButton"
+                android:layout_width="100dp"
+                android:layout_height="130dp"
+                android:enabled='@{viewModel.zones.zoneThirteen != ""}'
+                android:text="@{viewModel.zones.zoneThirteen}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.74"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.69"
+                tools:text="Zone 13" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/LocationTextButton"
+                android:layout_width="130dp"
+                android:layout_height="245dp"
+                android:enabled='@{viewModel.zones.zoneFourteen != ""}'
+                android:text="@{viewModel.zones.zoneFourteen}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.24"
+                tools:text="Zone 14" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/LocationTextButton"
+                android:layout_width="150dp"
+                android:layout_height="110dp"
+                android:enabled='@{viewModel.zones.zoneFifteen != ""}'
+                android:text="@{viewModel.zones.zoneFifteen}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0"
+                tools:text="Zone 15" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/LocationTextButton"
+                android:layout_width="210dp"
+                android:layout_height="60dp"
+                android:enabled='@{viewModel.zones.zoneSixteen != ""}'
+                android:text="@{viewModel.zones.zoneSixteen}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.43"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.855"
+                tools:text="Zone 16" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/LocationTextButton"
+                android:layout_width="180dp"
+                android:layout_height="60dp"
+                android:enabled='@{viewModel.zones.zoneSeventeen != ""}'
+                android:text="@{viewModel.zones.zoneSeventeen}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.86"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.855"
+                tools:text="Zone 17" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

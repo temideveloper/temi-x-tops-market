@@ -117,6 +117,13 @@
         <item name="android:layout_height">@dimen/app_button_equality_height</item>
     </style>
 
+    <style name="LocationTextButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="autoSizeMinTextSize">@dimen/text_minimal_en</item>
+        <item name="autoSizeTextType">uniform</item>
+        <item name="autoSizeMaxTextSize">@dimen/text_small_en</item>
+    </style>
+
     <style name="SettingsSelectButton" parent="TextAppButton">
         <item name="android:gravity">start|center_vertical</item>
         <item name="android:textSize">@dimen/text_normal_th</item>
