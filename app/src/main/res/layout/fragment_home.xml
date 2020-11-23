@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.robosolutions.temixtopsmarket.ui.home.HomeFragment" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -12,6 +19,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:contentDescription="@string/content_desc_food_hall_logo"
+            android:onClick="@{v -> fragment.onClickLogo(v)}"
             android:src="@drawable/logo_central"
             app:layout_constraintDimensionRatio="1"
             app:layout_constraintStart_toStartOf="parent"
@@ -59,15 +67,7 @@
             app:layout_constraintEnd_toEndOf="@id/labelWelcomeTitleEn"
             app:layout_constraintStart_toStartOf="@id/labelWelcomeTitleEn"
             app:layout_constraintTop_toBottomOf="@id/labelWelcomeTitleTh" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/buttonAdminPanel"
-            style="@style/ImageButton"
-            app:icon="@drawable/ic_admin_panel"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:onClickNavigate="@{@id/action_homeFragment_to_passwordFragment}" />
-
+        
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonCheckIn"
             style="@style/HomeScreenButton"
