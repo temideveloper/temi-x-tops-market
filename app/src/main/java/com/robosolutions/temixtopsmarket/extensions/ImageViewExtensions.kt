@@ -22,6 +22,14 @@ fun ImageView.glideUrlSrc(url: String?, fallback: Drawable) {
         .into(this)
 }
 
+@BindingAdapter("srcGlideId")
+fun ImageView.glideSrcId(id: Int?) {
+    id ?: return
+    Glide.with(context)
+        .load(id)
+        .into(this)
+}
+
 /**
  * Loads thumbnail image for a video.
  *

@@ -22,6 +22,9 @@ class MainActivityViewModel @ViewModelInject constructor(
     private val _titleThai = MutableStateFlow("")
     val titleThai = _titleThai.asLiveData()
 
+    private val _headerImageId = MutableStateFlow<Int?>(null)
+    val headerImageId = _headerImageId.asLiveData()
+
     private val _contentPadding = MutableStateFlow(R.dimen.zero_dp)
     val contentPadding = _contentPadding.map { context.resources.getDimension(it) }.asLiveData()
 
@@ -36,7 +39,7 @@ class MainActivityViewModel @ViewModelInject constructor(
 
     fun updateHeaderEnglish(title: String) = _titleEnglish updateTo title
 
-    fun updateContentPadding(dimenId: Int?) {
-        _contentPadding updateTo (dimenId ?: R.dimen.zero_dp)
-    }
+    fun updateHeaderImageId(id: Int?) = _headerImageId updateTo id
+
+    fun updateContentPadding(dimenId: Int?) = _contentPadding updateTo (dimenId ?: R.dimen.zero_dp)
 }

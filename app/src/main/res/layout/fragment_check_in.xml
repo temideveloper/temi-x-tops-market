@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.robosolutions.temixtopsmarket.ui.checkin.CheckInFragmentViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.checkin.CheckInFragment">
+
+        <ImageView
+            android:id="@+id/imageQrCode"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/content_desc_qr_thai_chana"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintEnd_toStartOf="@id/labelScanEn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.4"
+            app:qrCodeString="@{viewModel.qrCode}"
+            tools:src="@android:color/darker_gray" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelScanEn"
+            style="@style/NormalTextEn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_check_in_content_en"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@id/labelScanTh"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageQrCode"
+            app:layout_constraintTop_toTopOf="@id/imageQrCode"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelScanTh"
+            style="@style/NormalTextTh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/label_check_in_content_th"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@id/labelCloseIn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageQrCode"
+            app:layout_constraintTop_toBottomOf="@id/labelScanEn" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelCloseIn"
+            style="@style/TipsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:text="@{@string/label_auto_close_in(viewModel.currentCountdown)}"
+            app:layout_constraintBottom_toBottomOf="@id/imageQrCode"
+            app:layout_constraintEnd_toEndOf="@id/labelScanEn"
+            app:layout_constraintStart_toStartOf="@id/labelScanEn"
+            app:layout_constraintTop_toBottomOf="@id/labelScanTh"
+            tools:text="@string/label_auto_close_in" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

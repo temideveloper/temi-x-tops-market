@@ -23,6 +23,9 @@
         <action
             android:id="@+id/action_homeFragment_to_promotionFragment"
             app:destination="@id/promotionFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_checkInFragment"
+            app:destination="@id/checkInFragment" />
     </fragment>
     <fragment
         android:id="@+id/passwordFragment"
@@ -179,4 +182,9 @@
             android:name="videoId"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/checkInFragment"
+        tools:layout="@layout/fragment_check_in"
+        android:name="com.robosolutions.temixtopsmarket.ui.checkin.CheckInFragment"
+        android:label="CheckInFragment" />
 </navigation>

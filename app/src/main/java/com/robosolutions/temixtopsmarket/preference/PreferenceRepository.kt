@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.datastore.createDataStore
 import com.robosolutions.temixtopsmarket.*
 import com.robosolutions.temixtopsmarket.extensions.getInt
+import com.robosolutions.temixtopsmarket.extensions.nonZeroOr
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
@@ -65,14 +66,13 @@ class PreferenceRepository @Inject constructor(@ApplicationContext context: Cont
     val delays = preference.map { it.delays }
         .map {
             it.toBuilder().apply {
-                autoReturn =
-                    autoReturn.coerceAtLeast(context.getInt(R.integer.default_auto_return_ms))
+                autoReturn = autoReturn nonZeroOr context.getInt(R.integer.default_auto_return_ms)
 
                 checkInReturn =
-                    checkInReturn.coerceAtLeast(context.getInt(R.integer.default_check_in_return_ms))
+                    checkInReturn nonZeroOr context.getInt(R.integer.default_check_in_return_ms)
 
                 excuseMeInterval =
-                    excuseMeInterval.coerceAtLeast(context.getInt(R.integer.default_excuse_me_interval_ms))
+                    excuseMeInterval nonZeroOr context.getInt(R.integer.default_excuse_me_interval_ms)
             }.build()
         }
 
@@ -93,7 +93,7 @@ class PreferenceRepository @Inject constructor(@ApplicationContext context: Cont
     suspend fun saveZoneTwo(location: String) = saveLocations { setZoneTwo(location) }
 
     suspend fun saveZoneThree(location: String) = saveLocations { setZoneThree(location) }
-    
+
     suspend fun saveZoneFour(location: String) = saveLocations { setZoneFour(location) }
 
     private suspend fun saveLocations(block: Locations.Builder.() -> Locations.Builder) {

@@ -26,11 +26,11 @@ fun MutableStateFlow<Int>.decrement() {
  * @param onTimesUp The action to do when the timer is up.
  */
 fun timer(seconds: Int, onElapse: (Int) -> Unit = {}, onTimesUp: (Int) -> Unit = {}) =
-    (seconds downTo 0)
+    (seconds downTo 1)
         .asFlow()
         .onEach {
-            delay(1000)
             onElapse(it)
+            delay(1000)
         }.onCompletion {
             onTimesUp(seconds)
         }.cancellable()

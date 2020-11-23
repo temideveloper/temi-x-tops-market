@@ -29,6 +29,9 @@ abstract class BindingFragment<T : ViewDataBinding> : Fragment() {
     /** Thai title string resource id. */
     open val titleIdThai: Int? = null
 
+    /** Header image id to use. */
+    open val headerImage: Int? = null
+
     /** Padding for the content of the screen. */
     open val contentPadding: Int? = R.dimen.content_padding
 
@@ -37,12 +40,14 @@ abstract class BindingFragment<T : ViewDataBinding> : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Update title
-        mainViewModel.updateHeaderTitle(titleIdEn, titleIdThai)
+        mainViewModel.run {
+            // Update header
+            updateHeaderTitle(titleIdEn, titleIdThai)
+            updateHeaderImageId(headerImage)
+            updateHeader(useHeader)
 
-        mainViewModel.updateHeader(useHeader)
-
-        mainViewModel.updateContentPadding(contentPadding)
+            updateContentPadding(this@BindingFragment.contentPadding)
+        }
 
         binding = DataBindingUtil.inflate(inflater, layoutId, container, false)
         binding.executePendingBindings {

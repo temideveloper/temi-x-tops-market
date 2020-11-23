@@ -14,3 +14,15 @@ fun Int.toDuration(): Triple<Int, Int, Int> {
 
     return Triple(hours, minutes, seconds)
 }
+
+/**
+ * Returns this value only if this value is not zero. Otherwise, return the fallback value.
+ *
+ * @param other The fallback value. It must not be zero.
+ * @return A non-zero value.
+ */
+infix fun Int.nonZeroOr(other: Int): Int {
+    require(other != 0)
+
+    return if (this == 0) other else this
+}
