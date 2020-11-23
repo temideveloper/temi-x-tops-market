@@ -8,6 +8,58 @@
         android:layout_height="match_parent"
         tools:context=".ui.home.HomeFragment">
 
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/content_desc_food_hall_logo"
+            android:src="@drawable/logo_central"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.1" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelWelcomeTitleEn"
+            style="@style/HeaderTextEn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_welcome_title_en"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelWelcomeSubtitleEn"
+            style="@style/HeaderTextEn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_welcome_subtitle_en"
+            android:textSize="@dimen/text_normal_en"
+            app:layout_constraintEnd_toEndOf="@id/labelWelcomeTitleEn"
+            app:layout_constraintStart_toStartOf="@id/labelWelcomeTitleEn"
+            app:layout_constraintTop_toBottomOf="@id/labelWelcomeTitleEn" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelWelcomeTitleTh"
+            style="@style/HeaderTextTh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/label_welcome_title_th"
+            app:layout_constraintEnd_toEndOf="@id/labelWelcomeTitleEn"
+            app:layout_constraintStart_toStartOf="@id/labelWelcomeTitleEn"
+            app:layout_constraintTop_toBottomOf="@id/labelWelcomeSubtitleEn" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelWelcomeSubtitleTh"
+            style="@style/NormalTextTh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_welcome_subtitle_th"
+            app:layout_constraintEnd_toEndOf="@id/labelWelcomeTitleEn"
+            app:layout_constraintStart_toStartOf="@id/labelWelcomeTitleEn"
+            app:layout_constraintTop_toBottomOf="@id/labelWelcomeTitleTh" />
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonAdminPanel"
             style="@style/ImageButton"
@@ -22,16 +74,28 @@
             app:layout_constraintBottom_toTopOf="@+id/buttonNavigation"
             app:layout_constraintEnd_toStartOf="@id/buttonPromotion"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/buttonAdminPanel" />
+            app:layout_constraintTop_toBottomOf="@id/labelWelcomeSubtitleTh" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginHorizontal="36dp"
+            android:contentDescription="@string/content_desc_thai_chana_logo"
+            android:src="@drawable/ic_thai_chana"
+            app:layout_constraintBottom_toBottomOf="@id/buttonCheckIn"
+            app:layout_constraintEnd_toEndOf="@id/buttonCheckIn"
+            app:layout_constraintStart_toStartOf="@id/buttonCheckIn"
+            app:layout_constraintTop_toTopOf="@id/buttonCheckIn" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonPromotion"
-            android:text="@string/button_play_promotions"
             style="@style/HomeScreenButton"
+            android:text="@string/button_play_promotions"
+            app:icon="@drawable/ic_promotion"
             app:layout_constraintBottom_toTopOf="@id/buttonContactStaff"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/buttonCheckIn"
-            app:layout_constraintTop_toBottomOf="@id/buttonAdminPanel"
+            app:layout_constraintTop_toBottomOf="@id/labelWelcomeSubtitleTh"
             app:onClickNavigate="@{@id/action_homeFragment_to_promotionFragment}" />
 
         <com.google.android.material.button.MaterialButton
@@ -46,6 +110,7 @@
             android:id="@+id/buttonContactStaff"
             style="@style/HomeScreenButton"
             android:text="@string/button_contact_staff"
+            app:icon="@drawable/ic_video_call"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/buttonNavigation"

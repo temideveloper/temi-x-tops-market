@@ -17,28 +17,15 @@
         tools:context=".ui.staff.ContactStaffFragment">
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/titleNeedHelpTh"
-            style="@style/NormalTextTh"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/label_contact_staff_sub_th"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/titleNeedHelpEn"
+            android:id="@+id/textContentEn"
             style="@style/NormalTextEn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
+            android:text="@string/label_contact_staff_content_en"
+            android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/titleNeedHelpTh"
-            app:textWithBracket="@{@string/label_contact_staff_sub_en}"
-            tools:text="@string/label_contact_staff_sub_en" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/textContentTh"
@@ -50,19 +37,7 @@
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/titleNeedHelpEn" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/textContentEn"
-            style="@style/NormalTextEn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textContentTh"
-            app:textWithBracket="@{@string/label_contact_staff_content_en}"
-            tools:text="@string/label_contact_staff_content_en" />
+            app:layout_constraintTop_toBottomOf="@id/textContentEn" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"

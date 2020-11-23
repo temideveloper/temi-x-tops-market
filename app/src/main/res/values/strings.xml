@@ -1,13 +1,16 @@
 <resources>
     <string name="app_name">Temi x Tops Market</string>
 
+    <string name="label_welcome_title_en">Welcome to CENTRAL FOOD HALL</string>
+    <string name="label_welcome_title_th">ยินดีต้อนรับสู่ห้องอาหารกลาง</string>
+    <string name="label_welcome_subtitle_en">How may I Help You?</string>
+    <string name="label_welcome_subtitle_th">ฉันจะช่วยคุณได้อย่างไร</string>
+
     <string name="label_scan_promotion_en"><b>Scan</b> to view in mobile</string>
     <string name="label_scan_promotion_th"><b>สแกน</b>เพื่อดูในโทรศัพท์มือถือ</string>
 
-    <string name="label_contact_staff_sub_en"><b>Need help?</b></string>
-    <string name="label_contact_staff_sub_th"><b>ต้องการความช่วยเหลือ?</b></string>
-    <string name="label_contact_staff_content_th">คุณสามารถแตะรายชื่อติดต่อด้านล่างเพื่อให้เจ้าหน้าที่ของเราช่วยเหลือคุณในการสนทนาทางวิดีโอ</string>
-    <string name="label_contact_staff_content_en">You can tap on the contacts below for our staff to assist you on a video call</string>
+    <string name="label_contact_staff_content_th"><b>ต้องการความช่วยเหลือ?</b>\nคุณสามารถแตะรายชื่อติดต่อด้านล่างเพื่อให้เจ้าหน้าที่ของเราช่วยเหลือคุณในการสนทนาทางวิดีโอ</string>
+    <string name="label_contact_staff_content_en"><b>Need help?</b>\nYou can tap on below contact for our staff to assist you on a video call</string>
 
     <string name="title_admin_panel_en">Admin Panel</string>
     <string name="title_admin_panel_th">แผงธุรการ</string>
@@ -29,13 +32,13 @@
     <string name="title_contact_staff_en">Contact Staff</string>
     <string name="title_contact_staff_th">ติดต่อเจ้าหน้าที่</string>
 
-    <string name="button_contact_staff">ติดต่อเจ้าหน้าที่\n(Contact Staff)</string>
+    <string name="button_contact_staff">Contact Us</string>
 
-    <string name="button_play_promotions">เล่นโปรโมชั่น\n(Play Promotions)</string>
-
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="button_play_promotions">Promotions</string>
 
     <string name="content_desc_qr_promotion">QR Code to see promotions</string>
+    <string name="content_desc_thai_chana_logo">Thai chana logo</string>
+    <string name="content_desc_food_hall_logo">Central food hall logo</string>
 
     <string name="transition_name_video">video_%1$s</string>
     <string name="transition_name_video_details">video details</string>
