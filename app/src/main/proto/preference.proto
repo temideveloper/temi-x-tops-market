@@ -72,4 +72,17 @@ message Locations {
   string zoneTwo = 2;
   string zoneThree = 3;
   string zoneFour = 4;
+  string zoneFive = 5;
+  string zoneSix = 6;
+  string zoneSeven = 7;
+  string zoneEight = 8;
+  string zoneNine = 9;
+  string zoneTen = 10;
+  string zoneEleven = 11;
+  string zoneTwelve = 12;
+  string zoneThirteen = 13;
+  string zoneFourteen = 14;
+  string zoneFifteen = 15;
+  string zoneSixteen = 16;
+  string zoneSeventeen = 17;
 }

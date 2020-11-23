@@ -96,6 +96,32 @@ class PreferenceRepository @Inject constructor(@ApplicationContext context: Cont
 
     suspend fun saveZoneFour(location: String) = saveLocations { setZoneFour(location) }
 
+    suspend fun saveZoneFive(location: String) = saveLocations { setZoneFive(location) }
+
+    suspend fun saveZoneSix(location: String) = saveLocations { setZoneSix(location) }
+
+    suspend fun saveZoneSeven(location: String) = saveLocations { setZoneSeven(location) }
+
+    suspend fun saveZoneEight(location: String) = saveLocations { setZoneEight(location) }
+
+    suspend fun saveZoneNine(location: String) = saveLocations { setZoneNine(location) }
+
+    suspend fun saveZoneTen(location: String) = saveLocations { setZoneTen(location) }
+
+    suspend fun saveZoneEleven(location: String) = saveLocations { setZoneEleven(location) }
+
+    suspend fun saveZoneTwelve(location: String) = saveLocations { setZoneTwelve(location) }
+
+    suspend fun saveZoneThirteen(location: String) = saveLocations { setZoneThirteen(location) }
+
+    suspend fun saveZoneFourteen(location: String) = saveLocations { setZoneFourteen(location) }
+
+    suspend fun saveZoneFifteen(location: String) = saveLocations { setZoneFifteen(location) }
+
+    suspend fun saveZoneSixteen(location: String) = saveLocations { setZoneSixteen(location) }
+
+    suspend fun saveZoneSeventeen(location: String) = saveLocations { setZoneSeventeen(location) }
+
     private suspend fun saveLocations(block: Locations.Builder.() -> Locations.Builder) {
         savePreference { setLocations(block(locations.toBuilder()).build()) }
     }

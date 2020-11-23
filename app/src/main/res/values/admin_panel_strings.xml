@@ -38,13 +38,22 @@
     <string name="label_auto_return_loc_desc">Where to return after temi escorts the user in store navigation</string>
 
     <string name="label_zone_one_title">Zone 1</string>
-    <string name="label_zone_one_desc">Location to visit for zone one</string>
     <string name="label_zone_two_title">Zone 2</string>
-    <string name="label_zone_two_desc">Location to visit for zone two</string>
     <string name="label_zone_three_title">Zone 3</string>
-    <string name="label_zone_three_desc">Location to visit for zone three</string>
     <string name="label_zone_four_title">Zone 4</string>
-    <string name="label_zone_four_desc">Location to visit for zone four</string>
+    <string name="label_zone_five_title">Zone 5</string>
+    <string name="label_zone_six_title">Zone 6</string>
+    <string name="label_zone_seven_title">Zone 7</string>
+    <string name="label_zone_eight_title">Zone 8</string>
+    <string name="label_zone_nine_title">Zone 9</string>
+    <string name="label_zone_ten_title">Zone 10</string>
+    <string name="label_zone_eleven_title">Zone 11</string>
+    <string name="label_zone_twelve_title">Zone 12</string>
+    <string name="label_zone_thirteen_title">Zone 13</string>
+    <string name="label_zone_fourteen_title">Zone 14</string>
+    <string name="label_zone_fifteen_title">Zone 15</string>
+    <string name="label_zone_sixteen_title">Zone 16</string>
+    <string name="label_zone_seventeen_title">Zone 17</string>
 
     <string name="label_video_title">Title</string>
     <string name="label_video_summary">Summary</string>
@@ -85,4 +94,5 @@
 
     <string name="content_desc_add_video">Add a new promotion video</string>
     <string name="content_desc_video">Promotion video</string>
+    <string name="content_desc_map">Numbered map to tell which zone is which number</string>
 </resources>
