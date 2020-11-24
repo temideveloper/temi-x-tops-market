@@ -1,2 +1,3 @@
+include ':temi-sdk'
 include ':app'
 rootProject.name = "Temi x Tops Market"

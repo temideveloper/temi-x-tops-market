@@ -15,6 +15,19 @@
     <string name="label_scan_promotion_en"><b>Scan</b> to view in mobile</string>
     <string name="label_scan_promotion_th"><b>สแกน</b>เพื่อดูในโทรศัพท์มือถือ</string>
 
+    <string name="label_follow_me_en">Please follow me to</string>
+    <string name="label_follow_me_th">ฝากติดตามด้วยนะครับ</string>
+
+    <string name="label_thank_you_en">Thank You</string>
+    <string name="label_thank_you_th">ขอบคุณ</string>
+
+    <string name="label_arrived_en">We have arrived at %1$s, what would you like to do next?</string>
+    <string name="label_arrived_th">เรามาถึงที่ %1$s, สิ่งที่คุณต้องการจะทำต่อไปหรือไม่?</string>
+    <string name="label_returning_in">Returning in %1$s Seconds</string>
+
+    <string name="label_see_you_en">See you again at the entrance</string>
+    <string name="label_see_you_th">เจอกันใหม่ตอนเข้า</string>
+
     <string name="label_contact_staff_content_th"><b>ต้องการความช่วยเหลือ?</b>\nคุณสามารถแตะรายชื่อติดต่อด้านล่างเพื่อให้เจ้าหน้าที่ของเราช่วยเหลือคุณในการสนทนาทางวิดีโอ</string>
     <string name="label_contact_staff_content_en"><b>Need help?</b>\nYou can tap on below contact for our staff to assist you on a video call</string>
 
@@ -35,6 +48,8 @@
 
     <string name="title_store_navigation_en">Store Navigation</string>
     <string name="title_store_navigation_th">การนำทางของร้านค้า</string>
+    <string name="title_navigation_en">Navigation</string>
+    <string name="title_navigation_th">การนำทาง</string>
     <string name="title_promotions_en">Promotions</string>
     <string name="title_promotions_th">โปรโมชั่น</string>
     <string name="title_contact_staff_en">Contact Staff</string>
@@ -43,6 +58,9 @@
     <string name="button_store_navigation">Store Navigation</string>
     <string name="button_contact_staff">Contact Us</string>
     <string name="button_play_promotions">Promotions</string>
+    <string name="button_next_zone">Next Zone</string>
+    <string name="button_other_task">View Other Tasks</string>
+    <string name="button_send_back">Send Robot Back</string>
 
     <string name="content_desc_qr_promotion">QR Code to see promotions</string>
     <string name="content_desc_qr_thai_chana">QR Code to check in via thai chana</string>
@@ -52,5 +70,7 @@
 
     <string name="transition_name_video">video_%1$s</string>
     <string name="transition_name_video_details">video details</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

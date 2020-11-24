@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.robosolutions.temixtopsmarket.ui.location.NavigatingFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/parentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.location.NavigatingFragment">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelFollowMeEn"
+            style="@style/NormalTextEn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_follow_me_en"
+            android:textSize="60sp"
+            app:layout_constraintBottom_toTopOf="@id/labelZoneName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelZoneName"
+            style="@style/GillSansTextHeadline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textCapWords"
+            android:text="@{fragment.args.location}"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="80sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/labelFollowMeTh"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelFollowMeEn"
+            tools:text="Zone 1" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/labelFollowMeTh"
+            style="@style/NormalTextTh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_follow_me_th"
+            android:textSize="@dimen/text_large_en"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelZoneName" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

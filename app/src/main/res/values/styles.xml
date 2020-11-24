@@ -122,6 +122,7 @@
         <item name="autoSizeMinTextSize">@dimen/text_minimal_en</item>
         <item name="autoSizeTextType">uniform</item>
         <item name="autoSizeMaxTextSize">@dimen/text_small_en</item>
+        <item name="autoSizeStepGranularity">1sp</item>
     </style>
 
     <style name="SettingsSelectButton" parent="TextAppButton">

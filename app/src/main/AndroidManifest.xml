@@ -34,6 +34,10 @@
         <meta-data
             android:name="com.robotemi.sdk.metadata.KIOSK"
             android:value="TRUE" />
+
+        <meta-data
+            android:name="@string/metadata_permissions"
+            android:value="com.robotemi.permission.settings" />
     </application>
 
 </manifest>

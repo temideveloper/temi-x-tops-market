@@ -6,6 +6,10 @@
     <data>
 
         <variable
+            name="fragment"
+            type="com.robosolutions.temixtopsmarket.ui.location.MapFragment" />
+
+        <variable
             name="viewModel"
             type="com.robosolutions.temixtopsmarket.ui.location.MapFragmentViewModel" />
     </data>
@@ -28,6 +32,7 @@
                 android:layout_width="300dp"
                 android:layout_height="150dp"
                 android:enabled='@{viewModel.zones.zoneOne != ""}'
+                android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneOne}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -42,6 +47,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:enabled='@{viewModel.zones.zoneTwo != ""}'
+                android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneTwo}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -56,6 +62,7 @@
                 android:layout_width="45dp"
                 android:layout_height="150dp"
                 android:enabled='@{viewModel.zones.zoneThree != ""}'
+                android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneThree}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -70,6 +77,7 @@
                 android:layout_width="100dp"
                 android:layout_height="220dp"
                 android:enabled='@{viewModel.zones.zoneFour != ""}'
+                android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneFour}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -84,6 +92,7 @@
                 android:layout_width="76dp"
                 android:layout_height="80dp"
                 android:enabled='@{viewModel.zones.zoneFive != ""}'
+                android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneFive}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -98,6 +107,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:enabled='@{viewModel.zones.zoneSix != ""}'
+                android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneSix}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -112,6 +122,7 @@
                 android:layout_width="130dp"
                 android:layout_height="240dp"
                 android:enabled='@{viewModel.zones.zoneSeven != ""}'
+                android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneSeven}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -126,6 +137,7 @@
                 android:layout_width="90dp"
                 android:layout_height="100dp"
                 android:enabled='@{viewModel.zones.zoneEight != ""}'
+                android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneEight}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -140,6 +152,7 @@
                 android:layout_width="150dp"
                 android:layout_height="145dp"
                 android:enabled='@{viewModel.zones.zoneNine != ""}'
+                android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneNine}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -154,6 +167,7 @@
                 android:layout_width="150dp"
                 android:layout_height="80dp"
                 android:enabled='@{viewModel.zones.zoneTen != ""}'
+                android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneTen}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -168,6 +182,7 @@
                 android:layout_width="57dp"
                 android:layout_height="80dp"
                 android:enabled='@{viewModel.zones.zoneEleven != ""}'
+                android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneEleven}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -182,6 +197,7 @@
                 android:layout_width="57dp"
                 android:layout_height="80dp"
                 android:enabled='@{viewModel.zones.zoneTwelve != ""}'
+                android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneTwelve}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -196,6 +212,7 @@
                 android:layout_width="100dp"
                 android:layout_height="130dp"
                 android:enabled='@{viewModel.zones.zoneThirteen != ""}'
+                android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneThirteen}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -210,6 +227,7 @@
                 android:layout_width="130dp"
                 android:layout_height="245dp"
                 android:enabled='@{viewModel.zones.zoneFourteen != ""}'
+                android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneFourteen}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -224,6 +242,7 @@
                 android:layout_width="150dp"
                 android:layout_height="110dp"
                 android:enabled='@{viewModel.zones.zoneFifteen != ""}'
+                android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneFifteen}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -238,6 +257,7 @@
                 android:layout_width="210dp"
                 android:layout_height="60dp"
                 android:enabled='@{viewModel.zones.zoneSixteen != ""}'
+                android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneSixteen}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -252,6 +272,7 @@
                 android:layout_width="180dp"
                 android:layout_height="60dp"
                 android:enabled='@{viewModel.zones.zoneSeventeen != ""}'
+                android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneSeventeen}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

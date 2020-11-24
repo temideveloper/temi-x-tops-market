@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context=".ui.location.ReturningFragment">
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/HeaderTextEn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_see_you_en"
+            android:textSize="60sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/HeaderTextTh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/label_see_you_th"
+            android:textSize="48sp" />
+    </LinearLayout>
+</layout>
