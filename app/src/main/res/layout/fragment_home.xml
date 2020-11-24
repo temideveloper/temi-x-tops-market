@@ -6,6 +6,10 @@
     <data>
 
         <variable
+            name="sharedModel"
+            type="com.robosolutions.temixtopsmarket.ui.activity.MainActivityViewModel" />
+
+        <variable
             name="fragment"
             type="com.robosolutions.temixtopsmarket.ui.home.HomeFragment" />
     </data>
@@ -32,6 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/label_welcome_title_en"
+            app:canVisible="@{sharedModel.shouldShowGreetMessage}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -54,6 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/label_welcome_title_th"
+            app:canVisible="@{sharedModel.shouldShowGreetMessage}"
             app:layout_constraintEnd_toEndOf="@id/labelWelcomeTitleEn"
             app:layout_constraintStart_toStartOf="@id/labelWelcomeTitleEn"
             app:layout_constraintTop_toBottomOf="@id/labelWelcomeSubtitleEn" />

@@ -14,7 +14,7 @@ import com.robosolutions.temixtopsmarket.ui.activity.MainActivityViewModel
 import com.robosolutions.temixtopsmarket.utils.tryAssignBinding
 
 abstract class BindingFragment<T : ViewDataBinding> : Fragment() {
-    private val mainViewModel by activityViewModels<MainActivityViewModel>()
+    protected val mainViewModel by activityViewModels<MainActivityViewModel>()
 
     private lateinit var binding: T
 

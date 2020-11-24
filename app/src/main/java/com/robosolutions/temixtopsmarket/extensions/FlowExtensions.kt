@@ -74,3 +74,13 @@ fun <A, B> Flow<A>.combineToPair(secondFlow: Flow<B>) = combine(secondFlow) { fi
 fun <A, B, C> Flow<A>.combineToTriple(secondFlow: Flow<B>, thirdFlow: Flow<C>) =
     combineToPair(secondFlow)
         .combine(thirdFlow) { (first, second), third -> Triple(first, second, third) }
+
+/**
+ * Use a second flow that acts as an on-off switch for the first flow.
+ *
+ * @param condition The flow that acts as an on-off switch.
+ */
+fun <T> Flow<T>.emitIf(condition: Flow<Boolean>) =
+    combineToPair(condition)
+        .filter { (_, condition) -> condition }
+        .map { (content, _) -> content }

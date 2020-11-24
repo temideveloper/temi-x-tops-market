@@ -26,26 +26,4 @@ class SpeechFragment : BindingViewModelFragment<FragmentSpeechBinding, SpeechFra
             saveExcuseMe(editTextExcuseMe.textString)
         }
     }
-
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-
-//        tts = TextToSpeech(requireContext().applicationContext) { status ->
-//            if (status != TextToSpeech.SUCCESS) {
-//                return@TextToSpeech
-//            }
-//
-//            if (tts.isLanguageAvailable(localeThai()) == TextToSpeech.LANG_AVAILABLE) {
-//                Timber.d("Thai is supported!")
-//                tts.language = localeThai()
-//                tts.speak("สวัสดีชาวโลก!", TextToSpeech.QUEUE_FLUSH, null, "abc")
-//            } else {
-//                Timber.d("Thai is not supported!")
-//            }
-//        }
 }
-
-//    private fun localeThai() = Locale.Builder()
-//        .setLanguage("th")
-//        .build()
-//}
