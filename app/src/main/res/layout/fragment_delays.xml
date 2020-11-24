@@ -7,9 +7,8 @@
             name="fragment"
             type="com.robosolutions.temixtopsmarket.ui.delays.DelaysFragment" />
 
-        <variable
-            name="viewModel"
-            type="com.robosolutions.temixtopsmarket.ui.delays.DelaysFragmentViewModel" />
+        <variable name="sharedModel"
+                  type="com.robosolutions.temixtopsmarket.ui.activity.MainActivityViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -46,7 +45,7 @@
             app:layout_constraintBottom_toBottomOf="@id/labelDescAutoReturn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/labelTitleAutoReturn"
-            app:textDuration="@{viewModel.delays.autoReturn}"
+            app:textDuration="@{sharedModel.delays.autoReturn}"
             app:textDurationDefault="@{@integer/default_auto_return_ms}"
             tools:text="1 minutes 30 seconds" />
 
@@ -79,7 +78,7 @@
             app:layout_constraintBottom_toBottomOf="@id/labelDescCheckInReturn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/labelTitleCheckInReturn"
-            app:textDuration="@{viewModel.delays.checkInReturn}"
+            app:textDuration="@{sharedModel.delays.checkInReturn}"
             app:textDurationDefault="@{@integer/default_check_in_return_ms}"
             tools:text="1 minutes 30 seconds" />
 
@@ -112,7 +111,7 @@
             app:layout_constraintBottom_toBottomOf="@id/labelDescExcuseInterval"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/labelTitleExcuseInterval"
-            app:textDuration="@{viewModel.delays.excuseMeInterval}"
+            app:textDuration="@{sharedModel.delays.excuseMeInterval}"
             app:textDurationDefault="@{@integer/default_excuse_me_interval_ms}"
             tools:text="1 minutes 30 seconds" />
 

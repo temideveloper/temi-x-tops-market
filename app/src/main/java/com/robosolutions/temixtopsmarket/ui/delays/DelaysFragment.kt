@@ -7,39 +7,38 @@ import com.robosolutions.temixtopsmarket.R
 import com.robosolutions.temixtopsmarket.databinding.FragmentDelaysBinding
 import com.robosolutions.temixtopsmarket.extensions.getByFragmentResult
 import com.robosolutions.temixtopsmarket.extensions.getDuration
+import com.robosolutions.temixtopsmarket.ui.base.BindingFragment
 import com.robosolutions.temixtopsmarket.ui.base.BindingViewModelFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class DelaysFragment : BindingViewModelFragment<FragmentDelaysBinding, DelaysFragmentViewModel>() {
+class DelaysFragment : BindingFragment<FragmentDelaysBinding>() {
 
     override val layoutId = R.layout.fragment_delays
 
     override val titleIdEn = R.string.title_delays_en
     override val titleIdThai = R.string.title_delays_th
 
-    override val viewModel by viewModels<DelaysFragmentViewModel>()
-
     fun chooseAutoReturnDelay(v: View) = lifecycleScope.launch {
         val newDuration =
-            getDurationFromDialog(v, viewModel.delays.value?.autoReturn) ?: return@launch
+            getDurationFromDialog(v, mainViewModel.delays.value?.autoReturn) ?: return@launch
 
-        viewModel.saveAutoReturnDelay(newDuration)
+        mainViewModel.saveAutoReturnDelay(newDuration)
     }
 
     fun chooseCheckInReturnDelay(v: View) = lifecycleScope.launch {
         val newDuration =
-            getDurationFromDialog(v, viewModel.delays.value?.checkInReturn) ?: return@launch
+            getDurationFromDialog(v, mainViewModel.delays.value?.checkInReturn) ?: return@launch
 
-        viewModel.saveCheckInReturnDelay(newDuration)
+        mainViewModel.saveCheckInReturnDelay(newDuration)
     }
 
     fun chooseExcuseMeInterval(v: View) = lifecycleScope.launch {
         val newDuration =
-            getDurationFromDialog(v, viewModel.delays.value?.excuseMeInterval) ?: return@launch
+            getDurationFromDialog(v, mainViewModel.delays.value?.excuseMeInterval) ?: return@launch
 
-        viewModel.saveExcuseMeInterval(newDuration)
+        mainViewModel.saveExcuseMeInterval(newDuration)
     }
 
     private suspend fun getDurationFromDialog(v: View, currentDurationMs: Int?) =

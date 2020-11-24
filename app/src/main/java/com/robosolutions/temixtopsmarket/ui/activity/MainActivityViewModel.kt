@@ -2,21 +2,49 @@ package com.robosolutions.temixtopsmarket.ui.activity
 
 import android.content.Context
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.robosolutions.temixtopsmarket.R
 import com.robosolutions.temixtopsmarket.extensions.updateTo
 import com.robosolutions.temixtopsmarket.preference.PreferenceRepository
+import com.robosolutions.temixtopsmarket.ui.base.AppViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
 class MainActivityViewModel @ViewModelInject constructor(
     @ApplicationContext private val context: Context,
-    repository: PreferenceRepository
-) : ViewModel() {
-    val detectRange = repository.general.map { it.detectionRange }.asLiveData()
+    private val repository: PreferenceRepository,
+) : AppViewModel() {
+    // General Settings
+    private val _general = repository.general
+
+    val detectRange = _general.map { it.detectionRange }
+
+    val autoReturnLocation = _general.map { it.autoReturnLocation }
+
+    val general = _general.asLiveData()
+
+    fun saveDetectionRange(range: Float) = viewModelLaunch { repository.saveDetectionRange(range) }
+
+    fun saveAutoReturnLocation(location: String) =
+        viewModelLaunch { repository.saveAutoReturnLocation(location) }
+
+    // Delay Settings
+    private val _delays = repository.delays
+
+    val autoReturnDelay = _delays.map { it.autoReturn }
+
+    val delays = _delays.asLiveData()
+
+    fun saveAutoReturnDelay(delayMs: Int) =
+        viewModelLaunch { repository.saveAutoReturnDelay(delayMs) }
+
+    fun saveCheckInReturnDelay(delayMs: Int) =
+        viewModelLaunch { repository.saveCheckInReturnDelay(delayMs) }
+
+    fun saveExcuseMeInterval(delayMs: Int) =
+        viewModelLaunch { repository.saveExcuseMeInterval(delayMs) }
 
     private val _ttsRequest = MutableSharedFlow<String>()
     val ttsRequest = _ttsRequest.asLiveData()
@@ -91,4 +119,9 @@ class MainActivityViewModel @ViewModelInject constructor(
             -1
         }
     }
+
+    private val _lastLocation = MutableStateFlow("")
+    val lastLocation: StateFlow<String> = _lastLocation
+
+    fun updateLastLocation(last: String) = _lastLocation updateTo last
 }

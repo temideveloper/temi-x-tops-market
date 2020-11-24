@@ -6,6 +6,7 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.asLiveData
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.robosolutions.temixtopsmarket.R
@@ -15,6 +16,7 @@ import com.robosolutions.temixtopsmarket.extensions.executePendingBindings
 import com.robosolutions.temixtopsmarket.extensions.robot
 import com.robosolutions.temixtopsmarket.utils.isNightMode
 import com.robosolutions.temixtopsmarket.utils.switchNightMode
+import com.robotemi.sdk.listeners.OnGoToLocationStatusChangedListener
 import com.robotemi.sdk.listeners.OnRobotReadyListener
 import com.robotemi.sdk.listeners.OnUserInteractionChangedListener
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,7 +25,8 @@ import java.util.*
 
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity(), OnRobotReadyListener, OnUserInteractionChangedListener {
+class MainActivity : AppCompatActivity(), OnRobotReadyListener, OnUserInteractionChangedListener,
+    OnGoToLocationStatusChangedListener {
 
     private val mainViewModel by viewModels<MainActivityViewModel>()
 
@@ -58,9 +61,10 @@ class MainActivity : AppCompatActivity(), OnRobotReadyListener, OnUserInteractio
                 Timber.w("Failed to initialize tts! Please restart the application")
             }
         }
-        
+
         robot.addOnRobotReadyListener(this)
         robot.addOnUserInteractionChangedListener(this)
+        robot.addOnGoToLocationStatusChangedListener(this)
 
         if (!isNightMode) switchNightMode(true)
 
@@ -70,14 +74,14 @@ class MainActivity : AppCompatActivity(), OnRobotReadyListener, OnUserInteractio
             viewModel = mainViewModel
         }
 
-        mainViewModel.detectRange.observe(this) { radius ->
-            robot.setDetectionModeOn(true, radius)
-
-            Timber.d("User detection set at $radius m")
+        mainViewModel.detectRange.asLiveData().observe(this) {
+            robot.setDetectionModeOn(true, it)
+            Timber.d("User detection set at $it m")
         }
 
         mainViewModel.ttsRequest.observe(this) { message ->
             Timber.d("TTS: $message")
+
             tts.speak(message, TextToSpeech.QUEUE_FLUSH, null, UUID.randomUUID().toString())
         }
     }
@@ -99,6 +103,7 @@ class MainActivity : AppCompatActivity(), OnRobotReadyListener, OnUserInteractio
 
         robot.removeOnRobotReadyListener(this)
         robot.removeOnUserInteractionChangedListener(this)
+        robot.removeOnGoToLocationStatusChangedListener(this)
     }
 
     private fun localeThai() = Locale.Builder()
@@ -126,6 +131,19 @@ class MainActivity : AppCompatActivity(), OnRobotReadyListener, OnUserInteractio
 
         if (!isInteracting) {
             mainViewModel.updateHasNavigated(false)
+        }
+    }
+
+    override fun onGoToLocationStatusChanged(
+        location: String,
+        status: String,
+        descriptionId: Int,
+        description: String
+    ) {
+        when (status) {
+            OnGoToLocationStatusChangedListener.COMPLETE ->
+                mainViewModel.updateLastLocation(location)
+            OnGoToLocationStatusChangedListener.START -> mainViewModel.updateLastLocation("")
         }
     }
 }

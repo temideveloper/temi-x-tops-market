@@ -4,6 +4,10 @@
     <data>
 
         <variable
+            name="sharedModel"
+            type="com.robosolutions.temixtopsmarket.ui.activity.MainActivityViewModel" />
+
+        <variable
             name="viewModel"
             type="com.robosolutions.temixtopsmarket.ui.general.GeneralFragmentViewModel" />
     </data>
@@ -39,14 +43,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:stepSize="0.1"
-            android:value="@{viewModel.general.detectionRange == 0 ? 1f : viewModel.general.detectionRange}"
+            android:value="@{sharedModel.general.detectionRange == 0 ? 1f : sharedModel.general.detectionRange}"
             android:valueFrom="0.5"
             android:valueTo="2.0"
             app:layout_constraintBottom_toBottomOf="@id/labelDescUserDetection"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/labelTitleUserDetection"
             app:layout_constraintWidth_percent="0.4"
-            app:onValueChange="@{value -> viewModel.saveDetectionRange(value)}" />
+            app:onValueChange="@{value -> sharedModel.saveDetectionRange(value)}" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/labelTitleAutoReturnLoc"
@@ -86,8 +90,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="none"
                 app:content="@{viewModel.locations}"
-                app:onTextChange="@{text -> viewModel.saveAutoReturnLocation(text)}"
-                app:textNoFilter="@{viewModel.general.autoReturnLocation}" />
+                app:onTextChange="@{text -> sharedModel.saveAutoReturnLocation(text)}"
+                app:textNoFilter="@{sharedModel.general.autoReturnLocation}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
