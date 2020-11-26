@@ -27,9 +27,9 @@
             android:id="@+id/buttonBack"
             style="@style/ImageButton"
             android:onClick="onClickBack"
-            app:icon="@drawable/ic_back"
+            app:icon="@drawable/ic_cancel"
             app:layout_constraintBottom_toBottomOf="@id/textTitleEn"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/textTitleTh" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -76,7 +76,7 @@
             android:onClick="onClickHome"
             app:icon="@drawable/ic_home"
             app:layout_constraintBottom_toBottomOf="@id/textTitleEn"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/textTitleTh" />
 
         <androidx.fragment.app.FragmentContainerView
