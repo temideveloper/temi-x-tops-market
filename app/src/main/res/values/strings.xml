@@ -71,6 +71,8 @@
     <string name="transition_name_video">video_%1$s</string>
     <string name="transition_name_video_details">video details</string>
 
+    <string name="snack_bar_settings_permission_denied">You denied the permission! Please restart the app for full functionality</string>
+
     <string name="tts_complete_greeting">ยินดีต้อนรับสู่ CENTRAL Food Hall ฉันจะช่วยคุณได้อย่างไร?</string>
     <string name="tts_partial_greeting">โปรดเลือกงาน</string>
 

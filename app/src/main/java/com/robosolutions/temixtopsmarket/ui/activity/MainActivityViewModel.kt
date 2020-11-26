@@ -5,6 +5,7 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.robosolutions.temixtopsmarket.R
+import com.robosolutions.temixtopsmarket.extensions.combineToPair
 import com.robosolutions.temixtopsmarket.extensions.singleLatest
 import com.robosolutions.temixtopsmarket.extensions.updateTo
 import com.robosolutions.temixtopsmarket.preference.PreferenceRepository
@@ -17,10 +18,16 @@ class MainActivityViewModel @ViewModelInject constructor(
     @ApplicationContext private val context: Context,
     private val repository: PreferenceRepository,
 ) : AppViewModel() {
+    private val hasSettingsPermission = MutableStateFlow(false)
+
+    fun updateSettingsPermission(isGranted: Boolean) = hasSettingsPermission updateTo isGranted
+
     // General Settings
     private val _general = repository.general
 
-    val detectRange = _general.map { it.detectionRange }
+    val detectRange = _general.map { it.detectionRange }.combineToPair(hasSettingsPermission)
+        .filter { (_, hasPermission) -> hasPermission }
+        .map { (range, _) -> range }
 
     val autoReturnLocation = _general.map { it.autoReturnLocation }
 
@@ -68,6 +75,11 @@ class MainActivityViewModel @ViewModelInject constructor(
             _ttsRequest.emit(message.format(*args))
         }
     }
+
+    private val _snackBarRequest = MutableSharedFlow<String>()
+    val snackBarRequest = _snackBarRequest.asLiveData()
+
+    fun requestSnackBar(id: Int) = _snackBarRequest launchAndEmit context.getString(id)
 
     private val _displayHeader = MutableStateFlow(false)
     val displayHeader = _displayHeader.asLiveData()

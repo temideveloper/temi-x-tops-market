@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.asLiveData
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.robosolutions.temixtopsmarket.R
 import com.robosolutions.temixtopsmarket.databinding.ActivityMainBinding
 import com.robosolutions.temixtopsmarket.extensions.completeHideTopBar
@@ -19,14 +20,20 @@ import com.robosolutions.temixtopsmarket.utils.switchNightMode
 import com.robotemi.sdk.listeners.OnGoToLocationStatusChangedListener
 import com.robotemi.sdk.listeners.OnRobotReadyListener
 import com.robotemi.sdk.listeners.OnUserInteractionChangedListener
+import com.robotemi.sdk.permission.OnRequestPermissionResultListener
+import com.robotemi.sdk.permission.Permission
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.activity_main.*
 import timber.log.Timber
 import java.util.*
 
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity(), OnRobotReadyListener, OnUserInteractionChangedListener,
-    OnGoToLocationStatusChangedListener {
+class MainActivity : AppCompatActivity(),
+    OnRobotReadyListener,
+    OnUserInteractionChangedListener,
+    OnGoToLocationStatusChangedListener,
+    OnRequestPermissionResultListener {
 
     private val mainViewModel by viewModels<MainActivityViewModel>()
 
@@ -63,6 +70,7 @@ class MainActivity : AppCompatActivity(), OnRobotReadyListener, OnUserInteractio
         }
 
         robot.addOnRobotReadyListener(this)
+        robot.addOnRequestPermissionResultListener(this)
         robot.addOnUserInteractionChangedListener(this)
         robot.addOnGoToLocationStatusChangedListener(this)
 
@@ -74,15 +82,23 @@ class MainActivity : AppCompatActivity(), OnRobotReadyListener, OnUserInteractio
             viewModel = mainViewModel
         }
 
-        mainViewModel.detectRange.asLiveData().observe(this) {
-            robot.setDetectionModeOn(true, it)
-            Timber.d("User detection set at $it m")
-        }
+        mainViewModel.run {
+            detectRange.asLiveData().observe(this@MainActivity) {
+                robot.setDetectionModeOn(true, it)
+                Timber.d("User detection set at $it m")
+            }
 
-        mainViewModel.ttsRequest.observe(this) { message ->
-            Timber.d("TTS: $message")
+            ttsRequest.observe(this@MainActivity) { message ->
+                Timber.d("TTS: $message")
 
-            tts.speak(message, TextToSpeech.QUEUE_FLUSH, null, UUID.randomUUID().toString())
+                tts.speak(message, TextToSpeech.QUEUE_FLUSH, null, UUID.randomUUID().toString())
+            }
+
+            snackBarRequest.observe(this@MainActivity) { message ->
+                Snackbar.make(parentLayout, message, Snackbar.LENGTH_LONG)
+                    .setAction(android.R.string.ok) { /* dismiss on click */ }
+                    .show()
+            }
         }
     }
 
@@ -104,6 +120,7 @@ class MainActivity : AppCompatActivity(), OnRobotReadyListener, OnUserInteractio
         robot.removeOnRobotReadyListener(this)
         robot.removeOnUserInteractionChangedListener(this)
         robot.removeOnGoToLocationStatusChangedListener(this)
+        robot.removeOnRequestPermissionResultListener(this)
     }
 
     private fun localeThai() = Locale.Builder()
@@ -122,6 +139,14 @@ class MainActivity : AppCompatActivity(), OnRobotReadyListener, OnUserInteractio
         if (!isReady) return
 
         robot.completeHideTopBar(this)
+
+        val permissionGranted = robot.checkSelfPermission(Permission.SETTINGS) == Permission.GRANTED
+
+        mainViewModel.updateSettingsPermission(permissionGranted)
+
+        if (!permissionGranted) {
+            robot.requestPermissions(listOf(Permission.SETTINGS), REQUEST_CODE)
+        }
     }
 
     override fun onUserInteraction(isInteracting: Boolean) {
@@ -143,7 +168,29 @@ class MainActivity : AppCompatActivity(), OnRobotReadyListener, OnUserInteractio
         when (status) {
             OnGoToLocationStatusChangedListener.COMPLETE ->
                 mainViewModel.updateLastLocation(location)
-            OnGoToLocationStatusChangedListener.START -> mainViewModel.updateLastLocation("")
+            OnGoToLocationStatusChangedListener.GOING -> mainViewModel.updateLastLocation("")
         }
+    }
+
+    override fun onRequestPermissionResult(
+        permission: Permission,
+        grantResult: Int,
+        requestCode: Int
+    ) {
+        if (requestCode == REQUEST_CODE) {
+            if (grantResult == Permission.DENIED) {
+                Timber.d("Needs settings permission, but denied!")
+
+                mainViewModel.requestSnackBar(R.string.snack_bar_settings_permission_denied)
+            } else {
+                Timber.d("Settings permission accepted")
+            }
+
+            mainViewModel.updateSettingsPermission(grantResult == Permission.GRANTED)
+        }
+    }
+
+    companion object {
+        const val REQUEST_CODE = 1042
     }
 }
