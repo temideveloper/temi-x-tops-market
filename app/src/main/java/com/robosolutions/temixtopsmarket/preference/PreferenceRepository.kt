@@ -50,6 +50,8 @@ class PreferenceRepository @Inject constructor(@ApplicationContext context: Cont
         .map {
             it.toBuilder().apply {
                 if (detectionRange == 0.0f) detectionRange = 1f // Set default detection range
+
+                if (autoReturnLocation.isBlank()) autoReturnLocation = "home base"
             }.build()
         }
 
@@ -128,6 +130,13 @@ class PreferenceRepository @Inject constructor(@ApplicationContext context: Cont
 
     /** Contains URL for QR Codes. */
     val qrCodeUrls = preference.map { it.qrCodeUrls }
+        .map {
+            it.toBuilder().apply {
+                if (it.promotion.isBlank()) {
+                    promotion = "http://www.centralfoodhall.com/en/ourbrochure.html"
+                }
+            }.build()
+        }
 
     suspend fun saveThaiChanaUrl(url: String) = saveQrCode { setThaiChana(url) }
 
