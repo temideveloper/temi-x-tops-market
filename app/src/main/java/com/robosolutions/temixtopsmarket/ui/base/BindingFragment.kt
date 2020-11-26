@@ -20,6 +20,11 @@ abstract class BindingFragment<T : ViewDataBinding> : Fragment() {
 
     abstract val layoutId: Int
 
+    /** String resource id to speak when the fragment is created. */
+    open val entranceSpeechId: Int? = null
+
+    open val entranceSpeechArgs: Array<Any?>? = null
+
     /** Whether the screen should display the header part (title with back and home button). */
     open val useHeader = true
 
@@ -35,11 +40,19 @@ abstract class BindingFragment<T : ViewDataBinding> : Fragment() {
     /** Padding for the content of the screen. */
     open val contentPadding: Int? = R.dimen.content_padding
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        entranceSpeechId?.let {
+            mainViewModel.requestTts(it, *(entranceSpeechArgs ?: arrayOf()))
+        }
+    }
+
     final override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         mainViewModel.run {
             // Update header
             updateHeaderTitle(titleIdEn, titleIdThai)

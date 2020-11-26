@@ -26,6 +26,9 @@ class ArrivedFragment :
 
     val args by navArgs<ArrivedFragmentArgs>()
 
+    override val entranceSpeechId = R.string.tts_arrived
+    override val entranceSpeechArgs: Array<Any?>? by lazy { arrayOf(args.location) }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

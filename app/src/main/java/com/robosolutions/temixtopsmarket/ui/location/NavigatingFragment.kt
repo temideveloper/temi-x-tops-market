@@ -21,6 +21,9 @@ class NavigatingFragment : BindingFragment<FragmentNavigatingBinding>(),
 
     val args by navArgs<NavigatingFragmentArgs>()
 
+    override val entranceSpeechId = R.string.tts_navigating
+    override val entranceSpeechArgs: Array<Any?>? by lazy { arrayOf(args.location) }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

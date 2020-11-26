@@ -25,6 +25,8 @@ class MapFragment : BindingViewModelFragment<FragmentMapBinding, MapFragmentView
     override val titleIdEn = R.string.title_store_navigation_en
     override val titleIdThai = R.string.title_store_navigation_th
 
+    override val entranceSpeechId = R.string.tts_map
+
     override fun onBinding(binding: FragmentMapBinding) {
         super.onBinding(binding)
 
