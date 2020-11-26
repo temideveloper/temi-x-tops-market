@@ -7,8 +7,9 @@
             name="fragment"
             type="com.robosolutions.temixtopsmarket.ui.delays.DelaysFragment" />
 
-        <variable name="sharedModel"
-                  type="com.robosolutions.temixtopsmarket.ui.activity.MainActivityViewModel"/>
+        <variable
+            name="sharedModel"
+            type="com.robosolutions.temixtopsmarket.ui.activity.MainActivityViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -89,6 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/settings_margin_between_settings"
             android:text="@string/label_excuse_me_interval_title"
+            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/labelDescCheckInReturn" />
 
@@ -99,6 +101,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/settings_margin_between_title_desc"
             android:text="@string/label_excuse_me_interval_desc"
+            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="@id/labelTitleAutoReturn"
             app:layout_constraintTop_toBottomOf="@id/labelTitleExcuseInterval"
             app:layout_constraintWidth_percent="0.5" />
@@ -108,6 +111,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="@{v -> fragment.chooseExcuseMeInterval(v)}"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@id/labelDescExcuseInterval"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/labelTitleExcuseInterval"
@@ -124,6 +128,7 @@
         <View
             style="@style/HorizontalLine"
             android:layout_width="match_parent"
+            android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@id/labelTitleExcuseInterval"
             app:layout_constraintTop_toBottomOf="@id/labelDescCheckInReturn" />
 
