@@ -139,10 +139,22 @@ class PreferenceRepository @Inject constructor(@ApplicationContext context: Cont
 
     /** Contains TTS messages. */
     val speech = preference.map { it.speech }
+        .map {
+            it.toBuilder().apply {
+                if (greeting.isBlank()) {
+                    greeting = context.getString(R.string.tts_complete_greeting)
+                }
+
+                if (recurringGreeting.isBlank()) {
+                    recurringGreeting = context.getString(R.string.tts_partial_greeting)
+                }
+            }.build()
+        }
 
     suspend fun saveGreeting(message: String) = saveSpeech { setGreeting(message) }
 
-    suspend fun saveExcuseMe(message: String) = saveSpeech { setExcuseMe(message) }
+    suspend fun saveRecurringGreeting(message: String) =
+        saveSpeech { setRecurringGreeting(message) }
 
     private suspend fun saveSpeech(block: Speech.Builder.() -> Speech.Builder) {
         savePreference { setSpeech(block(speech.toBuilder()).build()) }

@@ -58,11 +58,6 @@ fun TextView.onTextChanged(block: TextChanged) {
     doOnTextChanged { text, _, _, _ -> block.onTextChange(text?.toString() ?: "") }
 }
 
-@BindingAdapter("textWithBracket")
-fun TextView.bracketText(value: String?) {
-    text = value?.let { "($it)" } ?: ""
-}
-
 interface TextChanged {
     fun onTextChange(text: String)
 }

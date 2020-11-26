@@ -29,8 +29,8 @@
 
     <string name="label_greeting_tts_title">Greeting</string>
     <string name="label_greeting_tts_desc">The message spoken to greet the user</string>
-    <string name="label_excuse_me_tts_title">\"Excuse Me\"</string>
-    <string name="label_excuse_me_tts_desc">The message spoken to ask user to move out of the way when temi is escorting the user</string>
+    <string name="label_excuse_me_tts_title">Recurring Greeting</string>
+    <string name="label_excuse_me_tts_desc">The message spoken when the user returns back to the home screen after interacting with the application</string>
 
     <string name="label_user_detection_title">User Detection Range</string>
     <string name="label_user_detection_desc">The range of user detection in meters</string>

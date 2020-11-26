@@ -63,8 +63,8 @@ message Speech {
   // TTS for greeting user
   string greeting = 1;
 
-  // TTS for asking user to make way
-  string excuseMe = 2;
+  // TTS for home screen when the user has been greeted before
+  string recurringGreeting = 2;
 }
 
 message Locations {

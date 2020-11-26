@@ -4,8 +4,8 @@
     <data>
 
         <variable
-            name="viewModel"
-            type="com.robosolutions.temixtopsmarket.ui.speech.SpeechFragmentViewModel" />
+            name="sharedModel"
+            type="com.robosolutions.temixtopsmarket.ui.activity.MainActivityViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -50,7 +50,8 @@
                 android:id="@+id/editTextGreeting"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@{viewModel.speech.greeting}" />
+                android:text="@{sharedModel.speech.greeting}"
+                app:onTextChange="@{text -> sharedModel.saveGreeting(text)}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textview.MaterialTextView
@@ -90,7 +91,8 @@
                 android:id="@+id/editTextExcuseMe"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@{viewModel.speech.excuseMe}" />
+                android:text="@{sharedModel.speech.recurringGreeting}"
+                app:onTextChange="@{text -> sharedModel.saveRecurringGreeting(text)}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <View

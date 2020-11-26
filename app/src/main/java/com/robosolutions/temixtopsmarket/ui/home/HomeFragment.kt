@@ -41,9 +41,9 @@ class HomeFragment : BindingViewModelFragment<FragmentHomeBinding, HomeFragmentV
 
     private fun greetUser() = lifecycleScope.launchWhenCreated {
         mainViewModel.run {
-            val greetingId = greetingTts.singleLatest()
+            val greeting = greetingTts.singleLatest()
 
-            if (greetingId != -1) mainViewModel.requestTts(greetingId)
+            if (greeting.isNotBlank()) mainViewModel.requestTts(greeting)
         }
     }
 

@@ -5,6 +5,7 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.robosolutions.temixtopsmarket.R
+import com.robosolutions.temixtopsmarket.extensions.singleLatest
 import com.robosolutions.temixtopsmarket.extensions.updateTo
 import com.robosolutions.temixtopsmarket.preference.PreferenceRepository
 import com.robosolutions.temixtopsmarket.ui.base.AppViewModel
@@ -46,12 +47,25 @@ class MainActivityViewModel @ViewModelInject constructor(
     fun saveExcuseMeInterval(delayMs: Int) =
         viewModelLaunch { repository.saveExcuseMeInterval(delayMs) }
 
+    // Speech Settings
+
+    private val _speech = repository.speech
+    val speech = _speech.asLiveData()
+
+    fun saveGreeting(message: String) = viewModelLaunch { repository.saveGreeting(message) }
+
+    fun saveRecurringGreeting(message: String) =
+        viewModelLaunch { repository.saveRecurringGreeting(message) }
+
     private val _ttsRequest = MutableSharedFlow<String>()
     val ttsRequest = _ttsRequest.asLiveData()
 
-    fun requestTts(stringId: Int, vararg args: Any?) = viewModelScope.launch {
+    fun requestTts(stringId: Int, vararg args: Any?) =
+        requestTts(context.getString(stringId), *args)
+
+    fun requestTts(message: String, vararg args: Any?) = viewModelScope.launch {
         if (ttsEngineReady.value) {
-            _ttsRequest.emit(context.getString(stringId, *args))
+            _ttsRequest.emit(message.format(*args))
         }
     }
 
@@ -111,12 +125,12 @@ class MainActivityViewModel @ViewModelInject constructor(
     val greetingTts = isInteracting.combine(hasNavigatedScreen) { interacting, navigated ->
         if (interacting) {
             if (!navigated) {
-                R.string.tts_complete_greeting
+                _speech.map { it.greeting }.singleLatest()
             } else {
-                R.string.tts_partial_greeting
+                _speech.map { it.recurringGreeting }.singleLatest()
             }
         } else {
-            -1
+            ""
         }
     }
 
