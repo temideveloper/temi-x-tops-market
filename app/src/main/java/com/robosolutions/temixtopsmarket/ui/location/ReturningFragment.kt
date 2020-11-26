@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.transition.MaterialFadeThrough
+import com.google.android.material.transition.MaterialSharedAxis
 import com.robosolutions.temixtopsmarket.R
 import com.robosolutions.temixtopsmarket.databinding.FragmentReturningBinding
 import com.robosolutions.temixtopsmarket.extensions.robot
@@ -23,6 +25,12 @@ class ReturningFragment :
 
     override val titleIdEn = R.string.title_navigation_en
     override val titleIdThai = R.string.title_navigation_th
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        enterTransition = MaterialFadeThrough()
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -45,8 +53,13 @@ class ReturningFragment :
         if (returnLocation.isNotBlank()) {
             robot.goTo(returnLocation)
         } else {
-            requireActivity().onBackPressed()
+            returnToHomeScreen()
         }
+    }
+
+    private fun returnToHomeScreen() {
+        returnTransition = MaterialSharedAxis(MaterialSharedAxis.Z, false)
+        requireActivity().onBackPressed()
     }
 
     override fun onGoToLocationStatusChanged(
@@ -57,7 +70,7 @@ class ReturningFragment :
     ) {
         when (status) {
             OnGoToLocationStatusChangedListener.ABORT -> robotReturn()
-            OnGoToLocationStatusChangedListener.COMPLETE -> requireActivity().onBackPressed()
+            OnGoToLocationStatusChangedListener.COMPLETE -> returnToHomeScreen()
         }
     }
 }

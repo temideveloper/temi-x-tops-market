@@ -6,6 +6,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
+import com.google.android.material.transition.MaterialFadeThrough
+import com.google.android.material.transition.MaterialSharedAxis
 import com.robosolutions.temixtopsmarket.R
 import com.robosolutions.temixtopsmarket.databinding.FragmentArrivedBinding
 import com.robosolutions.temixtopsmarket.extensions.navigate
@@ -29,6 +31,13 @@ class ArrivedFragment :
     override val entranceSpeechId = R.string.tts_arrived
     override val entranceSpeechArgs: Array<Any?>? by lazy { arrayOf(args.location) }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        enterTransition = MaterialFadeThrough()
+        returnTransition = MaterialFadeThrough()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -44,10 +53,13 @@ class ArrivedFragment :
     }
 
     fun onSendRobotBack(v: View) {
+        exitTransition = MaterialFadeThrough()
         v.navigate(R.id.action_arrivedFragment_to_returningFragment)
     }
 
     fun onViewOtherTask(v: View) {
+        // To home screen
+        returnTransition = MaterialSharedAxis(MaterialSharedAxis.Z, false)
         v.findNavController().popBackStack(R.id.homeFragment, false)
     }
 }

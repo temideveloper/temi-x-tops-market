@@ -23,6 +23,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:background="@drawable/empty_map"
+            android:transitionGroup="true"
             app:layout_constraintDimensionRatio="1.1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">

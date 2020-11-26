@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.transition.MaterialSharedAxis
 import com.robosolutions.temixtopsmarket.R
 import com.robosolutions.temixtopsmarket.databinding.FragmentHomeBinding
 import com.robosolutions.temixtopsmarket.extensions.navigate
@@ -37,6 +38,9 @@ class HomeFragment : BindingViewModelFragment<FragmentHomeBinding, HomeFragmentV
         super.onViewCreated(view, savedInstanceState)
 
         greetUser()
+
+        exitTransition = MaterialSharedAxis(MaterialSharedAxis.Z, true)
+        reenterTransition = MaterialSharedAxis(MaterialSharedAxis.Z, false)
     }
 
     private fun greetUser() = lifecycleScope.launchWhenCreated {

@@ -1,8 +1,11 @@
 package com.robosolutions.temixtopsmarket.ui.location
 
+import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import androidx.fragment.app.viewModels
+import com.google.android.material.transition.MaterialFadeThrough
+import com.google.android.material.transition.MaterialSharedAxis
 import com.robosolutions.temixtopsmarket.R
 import com.robosolutions.temixtopsmarket.databinding.FragmentMapBinding
 import com.robosolutions.temixtopsmarket.extensions.navigate
@@ -20,6 +23,16 @@ class MapFragment : BindingViewModelFragment<FragmentMapBinding, MapFragmentView
     override val titleIdThai = R.string.title_store_navigation_th
 
     override val entranceSpeechId = R.string.tts_map
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        enterTransition = MaterialSharedAxis(MaterialSharedAxis.Z, true)
+        returnTransition = MaterialSharedAxis(MaterialSharedAxis.Z, false)
+
+        exitTransition = MaterialFadeThrough()
+        reenterTransition = MaterialFadeThrough()
+    }
 
     fun onLocationSelected(v: View) {
         (v as Button).run {

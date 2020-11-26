@@ -1,8 +1,8 @@
 package com.robosolutions.temixtopsmarket.ui.video
 
 import android.os.Bundle
-import android.view.View
 import androidx.fragment.app.viewModels
+import com.google.android.material.transition.MaterialSharedAxis
 import com.robosolutions.temixtopsmarket.R
 import com.robosolutions.temixtopsmarket.databinding.FragmentPromotionBinding
 import com.robosolutions.temixtopsmarket.ui.base.BindingViewModelFragment
@@ -22,6 +22,13 @@ class PromotionFragment :
 
     @Inject
     lateinit var videoPlayer: LifecycleExoPlayer
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        enterTransition = MaterialSharedAxis(MaterialSharedAxis.Z, true)
+        returnTransition = MaterialSharedAxis(MaterialSharedAxis.Z, false)
+    }
 
     override fun onBinding(binding: FragmentPromotionBinding) {
         super.onBinding(binding)

@@ -3,6 +3,7 @@ package com.robosolutions.temixtopsmarket.ui.location
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.navArgs
+import com.google.android.material.transition.MaterialFadeThrough
 import com.robosolutions.temixtopsmarket.R
 import com.robosolutions.temixtopsmarket.databinding.FragmentNavigatingBinding
 import com.robosolutions.temixtopsmarket.extensions.navigate
@@ -23,6 +24,13 @@ class NavigatingFragment : BindingFragment<FragmentNavigatingBinding>(),
 
     override val entranceSpeechId = R.string.tts_navigating
     override val entranceSpeechArgs: Array<Any?>? by lazy { arrayOf(args.location) }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        enterTransition = MaterialFadeThrough()
+        exitTransition = MaterialFadeThrough()
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
