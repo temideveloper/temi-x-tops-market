@@ -137,6 +137,10 @@ class PreferenceRepository @Inject constructor(@ApplicationContext context: Cont
                 if (it.promotion.isBlank()) {
                     promotion = "http://www.centralfoodhall.com/en/ourbrochure.html"
                 }
+
+                if (it.thaiChana.isBlank()) {
+                    thaiChana = "https://qr.thaichana.com/?appId=0001&shopId=S0000006705"
+                }
             }.build()
         }
 
