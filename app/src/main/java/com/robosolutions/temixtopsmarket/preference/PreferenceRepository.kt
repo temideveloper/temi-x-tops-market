@@ -11,7 +11,9 @@ import kotlinx.coroutines.flow.map
 import timber.log.Timber
 import java.io.IOException
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class PreferenceRepository @Inject constructor(@ApplicationContext context: Context) {
     private val dataStore = context.createDataStore(DATA_STORE_NAME, PreferenceSerializer)
 
