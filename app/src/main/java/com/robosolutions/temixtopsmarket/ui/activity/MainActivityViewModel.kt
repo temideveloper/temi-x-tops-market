@@ -150,4 +150,15 @@ class MainActivityViewModel @ViewModelInject constructor(
     val lastLocation: StateFlow<String> = _lastLocation
 
     fun updateLastLocation(last: String) = _lastLocation updateTo last
+
+    private val isGoing = MutableStateFlow(false)
+
+    fun setTemiGoing(going: Boolean) = isGoing updateTo going
+
+    /** `true` when the user interaction changes only because of the user.
+     * This is because temi will change the user interaction to
+     * `true` when the robot is going to a location. */
+    val exactUserInteraction = isInteracting.combine(isGoing) { interacting, going ->
+        interacting && !going
+    }.asLiveData()
 }

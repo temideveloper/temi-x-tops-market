@@ -99,6 +99,10 @@ class MainActivity : AppCompatActivity(),
                     .setAction(android.R.string.ok) { /* dismiss on click */ }
                     .show()
             }
+
+            exactUserInteraction.observe(this@MainActivity) { userInteracts ->
+                if (userInteracts) robot.stopMovement()
+            }
         }
     }
 
@@ -166,8 +170,12 @@ class MainActivity : AppCompatActivity(),
         description: String
     ) {
         when (status) {
-            OnGoToLocationStatusChangedListener.COMPLETE ->
+            OnGoToLocationStatusChangedListener.START -> mainViewModel.setTemiGoing(true)
+            OnGoToLocationStatusChangedListener.COMPLETE -> {
                 mainViewModel.updateLastLocation(location)
+                mainViewModel.setTemiGoing(false)
+            }
+            OnGoToLocationStatusChangedListener.ABORT -> mainViewModel.setTemiGoing(false)
             OnGoToLocationStatusChangedListener.GOING -> mainViewModel.updateLastLocation("")
         }
     }
