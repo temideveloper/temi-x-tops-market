@@ -6,6 +6,7 @@ import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
+import com.google.android.material.transition.MaterialSharedAxis
 import com.robosolutions.temixtopsmarket.R
 import com.robosolutions.temixtopsmarket.databinding.FragmentPasswordBinding
 import com.robosolutions.temixtopsmarket.extensions.navigate
@@ -26,6 +27,13 @@ class PasswordFragment :
     override val viewModel by viewModels<PasswordFragmentViewModel>()
 
     override val layoutId = R.layout.fragment_password
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        enterTransition = MaterialSharedAxis(MaterialSharedAxis.Z, true)
+        returnTransition = MaterialSharedAxis(MaterialSharedAxis.Z, false)
+    }
 
     override fun onBinding(binding: FragmentPasswordBinding) {
         super.onBinding(binding)

@@ -21,13 +21,6 @@ class AdminFragment : BindingViewModelFragment<FragmentAdminBinding, AdminFragme
     override val titleIdEn = R.string.title_admin_panel_en
     override val titleIdThai = R.string.title_admin_panel_th
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        enterTransition = MaterialSharedAxis(MaterialSharedAxis.Z, true)
-        returnTransition = MaterialSharedAxis(MaterialSharedAxis.Z, false)
-    }
-
     fun showTemiTopBar() = lifecycleScope.launch {
         robot.showTopBar()
 
