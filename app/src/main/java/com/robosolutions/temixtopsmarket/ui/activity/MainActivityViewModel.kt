@@ -128,6 +128,7 @@ class MainActivityViewModel @ViewModelInject constructor(
 
     fun updateIsInteracting(interacting: Boolean) = isInteracting updateTo interacting
 
+
     fun updateHasNavigated(navigated: Boolean) = hasNavigatedScreen updateTo navigated
 
     private val ttsEngineReady = MutableStateFlow(false)
@@ -161,4 +162,7 @@ class MainActivityViewModel @ViewModelInject constructor(
     val exactUserInteraction = isInteracting.combine(isGoing) { interacting, going ->
         interacting && !going
     }.asLiveData()
+
+    // Map fragment state
+    var mapRevisited = false
 }

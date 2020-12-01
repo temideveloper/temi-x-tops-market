@@ -229,5 +229,9 @@
         android:id="@+id/returningFragment"
         android:name="com.robosolutions.temixtopsmarket.ui.location.ReturningFragment"
         android:label="fragment_returning"
-        tools:layout="@layout/fragment_returning" />
+        tools:layout="@layout/fragment_returning" >
+        <argument
+            android:name="returnLocation"
+            app:argType="string" />
+    </fragment>
 </navigation>

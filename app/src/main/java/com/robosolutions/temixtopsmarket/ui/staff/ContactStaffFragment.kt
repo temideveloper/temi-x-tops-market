@@ -32,6 +32,8 @@ class ContactStaffFragment :
     override val titleIdEn = R.string.title_contact_staff_en
     override val titleIdThai = R.string.title_contact_staff_th
 
+    override val entranceSpeechId = R.string.tts_contact_staff
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

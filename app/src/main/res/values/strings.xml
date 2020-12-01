@@ -8,12 +8,12 @@
     <string name="label_welcome_subtitle_en">How may I Help You?</string>
     <string name="label_welcome_subtitle_th">ฉันจะช่วยคุณได้อย่างไร</string>
 
-    <string name="label_check_in_content_en"><b>SCAN</b>\nthe QR code to check-in</string>
-    <string name="label_check_in_content_th"><b>สแกน</b>\nคิวอาร์โค้ดเพื่อเช็คอิน</string>
+    <string name="label_check_in_content_en"><b>Please scan</b> the QR code to check-in prior to entering the store.</string>
+    <string name="label_check_in_content_th"><b>กรุณาสแกน</b>คิวอาร์โค้ดเพื่อเช็คอินก่อนเข้าร้านค่ะ ขอบคุณค่ะ</string>
     <string name="label_auto_close_in">Closing in %1$s Seconds</string>
 
-    <string name="label_scan_promotion_en"><b>Scan</b> to view in mobile</string>
-    <string name="label_scan_promotion_th"><b>สแกน</b>เพื่อดูในโทรศัพท์มือถือ</string>
+    <string name="label_scan_promotion_en"><b>Please scan</b> the QR code to view our promotions</string>
+    <string name="label_scan_promotion_th"><b>กรุณาสแกน</b>คิวอาร์โค้ดเพื่อดูโปรโมชั่นสุดพิเศษของเราค่ะ </string>
 
     <string name="label_follow_me_en">Please follow me to</string>
     <string name="label_follow_me_th">ฝากติดตามด้วยนะครับ</string>
@@ -73,10 +73,15 @@
 
     <string name="snack_bar_settings_permission_denied">You denied the permission! Please restart the app for full functionality</string>
 
-    <string name="tts_complete_greeting">ยินดีต้อนรับสู่ CENTRAL Food Hall ฉันจะช่วยคุณได้อย่างไร?</string>
-    <string name="tts_partial_greeting">โปรดเลือกงาน</string>
+    <string name="tts_complete_greeting">สวัสดีค่ะ ยินดีต้อนรับสู่เซ็นทรัล ฟู้ด ฮอลล์ คุณมีอะไรให้สุขใจช่วยเหลือไหมคะ?</string>
+    <string name="tts_partial_greeting">คุณมีอะไรให้สุขใจช่วยอีกมั้ยคะ? สุขใจยินดีช่วยเหลือคุณเสมอค่ะ</string>
 
-    <string name="tts_map">คุณอยากไปที่ไหน?</string>
-    <string name="tts_navigating">โปรดติดตามฉันไปที่ %1$s</string>
-    <string name="tts_arrived">ขอบคุณเรามาถึงที่ %1$s. สิ่งที่คุณต้องการจะทำต่อไปหรือไม่?</string>
+    <string name="tts_map">สนใจไปช็อปที่โซนไหนดีคะ กรุณาเลือกได้เลยค่ะ</string>
+    <string name="tts_map_revisit">ุณต้องการไปช็อปอะไรต่อดีคะ? กรุณาเลือกโซนที่คุณต้องการไปได้เลยค่ะ</string>
+    <string name="tts_navigating">กรุณาเดินตามสุขใจมานะคะ เราจะไปโซน %1$s กันค่ะ</string>
+    <string name="tts_arrived">ขอบคุณค่ะ เรามาถึงโซน %1$s แล้วนะคะ คุณมีอะไรให้สุขใจช่วยต่อมั้ยคะ?</string>
+
+    <string name="tts_returning">เชิญช็อปให้สนุกนะคะ แล้วพบกับสุขใจอีกครั้งที่บริเวณ %1$s ค่ะ</string>
+
+    <string name="tts_contact_staff">หากคุณต้องการความช่วยเหลือและพูดคุยกับพนักงานของเรา กรุณาแตะที่รูปด้านล่างนะคะ</string>
 </resources>

@@ -16,6 +16,7 @@ import com.robosolutions.temixtopsmarket.extensions.timer
 import com.robosolutions.temixtopsmarket.ui.base.BindingViewModelFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class ArrivedFragment :
@@ -36,6 +37,8 @@ class ArrivedFragment :
 
         enterTransition = MaterialFadeThrough()
         returnTransition = MaterialFadeThrough()
+
+        mainViewModel.mapRevisited = true
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -52,9 +55,13 @@ class ArrivedFragment :
         }
     }
 
-    fun onSendRobotBack(v: View) {
+    fun onSendRobotBack(v: View) = lifecycleScope.launch {
         exitTransition = MaterialFadeThrough()
-        v.navigate(R.id.action_arrivedFragment_to_returningFragment)
+
+        val returnLocation = mainViewModel.autoReturnLocation.singleLatest()
+        val dir = ArrivedFragmentDirections.actionArrivedFragmentToReturningFragment(returnLocation)
+
+        v.navigate(dir)
     }
 
     fun onViewOtherTask(v: View) {

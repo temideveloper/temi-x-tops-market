@@ -70,6 +70,7 @@ class HomeFragment : BindingViewModelFragment<FragmentHomeBinding, HomeFragmentV
         super.onResume()
 
         logoClickCount = 0
+        mainViewModel.mapRevisited = false
 
         robot.addOnUserInteractionChangedListener(this)
     }

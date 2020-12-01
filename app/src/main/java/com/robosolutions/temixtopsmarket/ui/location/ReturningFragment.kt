@@ -2,29 +2,29 @@ package com.robosolutions.temixtopsmarket.ui.location
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.navArgs
 import com.google.android.material.transition.MaterialFadeThrough
 import com.google.android.material.transition.MaterialSharedAxis
 import com.robosolutions.temixtopsmarket.R
 import com.robosolutions.temixtopsmarket.databinding.FragmentReturningBinding
 import com.robosolutions.temixtopsmarket.extensions.robot
-import com.robosolutions.temixtopsmarket.extensions.singleLatest
-import com.robosolutions.temixtopsmarket.ui.base.BindingViewModelFragment
+import com.robosolutions.temixtopsmarket.ui.base.BindingFragment
 import com.robotemi.sdk.listeners.OnGoToLocationStatusChangedListener
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class ReturningFragment :
-    BindingViewModelFragment<FragmentReturningBinding, ReturningFragmentViewModel>(),
+class ReturningFragment : BindingFragment<FragmentReturningBinding>(),
     OnGoToLocationStatusChangedListener {
-    override val viewModel by viewModels<ReturningFragmentViewModel>()
+
+    private val args by navArgs<ReturningFragmentArgs>()
 
     override val layoutId = R.layout.fragment_returning
 
     override val titleIdEn = R.string.title_navigation_en
     override val titleIdThai = R.string.title_navigation_th
+
+    override val entranceSpeechId = R.string.tts_returning
+    override val entranceSpeechArgs: Array<Any?> by lazy { arrayOf(args.returnLocation) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,8 +47,8 @@ class ReturningFragment :
         robot.removeOnGoToLocationStatusChangedListener(this)
     }
 
-    private fun robotReturn() = lifecycleScope.launch {
-        val returnLocation = viewModel.returnLocation.singleLatest()
+    private fun robotReturn() {
+        val returnLocation = args.returnLocation
 
         if (returnLocation.isNotBlank()) {
             robot.goTo(returnLocation)

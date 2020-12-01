@@ -34,6 +34,14 @@ class MapFragment : BindingViewModelFragment<FragmentMapBinding, MapFragmentView
         reenterTransition = MaterialFadeThrough()
     }
 
+    override fun onStart() {
+        super.onStart()
+
+        if (mainViewModel.mapRevisited) {
+            mainViewModel.requestTts(R.string.tts_map_revisit)
+        }
+    }
+
     fun onLocationSelected(v: View) {
         (v as Button).run {
             val location = text.toString()
