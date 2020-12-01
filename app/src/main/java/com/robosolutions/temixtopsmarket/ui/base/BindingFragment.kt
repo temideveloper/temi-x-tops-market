@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.robosolutions.temixtopsmarket.R
 import com.robosolutions.temixtopsmarket.extensions.executePendingBindings
+import com.robosolutions.temixtopsmarket.extensions.logAnalyticsScreenEvent
 import com.robosolutions.temixtopsmarket.ui.activity.MainActivityViewModel
 import com.robosolutions.temixtopsmarket.utils.tryAssignBinding
 
@@ -74,6 +75,12 @@ abstract class BindingFragment<T : ViewDataBinding> : Fragment() {
         }
 
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        logAnalyticsScreenEvent()
     }
 
     /**

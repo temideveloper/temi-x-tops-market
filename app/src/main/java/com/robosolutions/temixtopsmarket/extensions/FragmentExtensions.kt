@@ -5,6 +5,9 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.NavDirections
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
@@ -28,4 +31,20 @@ suspend fun <T> Fragment.getByFragmentResult(
     }
 
     view.navigate(dir)
+}
+
+/**
+ * Send data to firebase analytics that the user is viewing this screen.
+ * Use this method on [Fragment.onResume].
+ *
+ */
+fun Fragment.logAnalyticsScreenEvent() {
+    val currentScreenName = this::class.simpleName
+
+    val screenData = Bundle().apply {
+        putString(FirebaseAnalytics.Param.SCREEN_NAME, currentScreenName)
+        putString(FirebaseAnalytics.Param.SCREEN_CLASS, currentScreenName)
+    }
+
+    Firebase.analytics.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW, screenData)
 }

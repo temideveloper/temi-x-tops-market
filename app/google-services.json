@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "408759680064",
+    "firebase_url": "https://nong-sukjai.firebaseio.com",
+    "project_id": "nong-sukjai",
+    "storage_bucket": "nong-sukjai.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:408759680064:android:92ce709f4063a66847f3a5",
+        "android_client_info": {
+          "package_name": "com.robosolutions.temixtopsmarket"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "408759680064-bdkqj3j6d1no86u1q70poe6pbpsn3ii6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmtomjwaxUz--m7C9WEG4dlezc36Uch74"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "408759680064-bdkqj3j6d1no86u1q70poe6pbpsn3ii6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
