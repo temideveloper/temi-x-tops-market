@@ -2,5 +2,5 @@
 <resources>
     <integer name="default_auto_return_ms">15000</integer>
     <integer name="default_check_in_return_ms">15000</integer>
-    <integer name="default_excuse_me_interval_ms">2000</integer>
+    <integer name="default_excuse_me_interval_ms">6000</integer>
 </resources>
