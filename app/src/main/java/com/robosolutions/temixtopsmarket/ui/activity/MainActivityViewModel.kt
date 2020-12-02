@@ -43,6 +43,8 @@ class MainActivityViewModel @ViewModelInject constructor(
 
     val autoReturnDelay = _delays.map { it.autoReturn }
 
+    val excuseMeDelay = _delays.map { it.excuseMeInterval }
+
     val delays = _delays.asLiveData()
 
     fun saveAutoReturnDelay(delayMs: Int) =

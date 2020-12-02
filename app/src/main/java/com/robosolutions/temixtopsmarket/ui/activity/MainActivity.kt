@@ -48,8 +48,6 @@ class MainActivity : AppCompatActivity(),
             }
         }
 
-    private lateinit var tts: TextToSpeech
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -200,5 +198,6 @@ class MainActivity : AppCompatActivity(),
 
     companion object {
         const val REQUEST_CODE = 1042
+        lateinit var tts: TextToSpeech
     }
 }
