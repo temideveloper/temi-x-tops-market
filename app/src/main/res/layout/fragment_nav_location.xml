@@ -3,6 +3,8 @@
 
     <data>
 
+        <import type="java.util.Locale" />
+
         <variable
             name="viewModel"
             type="com.robosolutions.temixtopsmarket.ui.location.NavLocationFragmentViewModel" />
@@ -54,6 +56,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:hint="@string/label_zone_one_title"
+                    app:helperText='@{!viewModel.savedLocations.zoneOne.empty &amp;&amp; !viewModel.locations.contains(viewModel.savedLocations.zoneOne.toLowerCase(Locale.ROOT)) ? @string/helper_location_not_saved : null}'
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintWidth_percent="0.6">
@@ -62,10 +65,11 @@
                         android:id="@+id/textZoneOne"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="none"
+                        android:imeOptions="actionDone"
+                        android:inputType="textShortMessage"
                         app:content="@{viewModel.locations}"
                         app:onTextChange="@{text -> viewModel.saveZoneOne(text)}"
-                        app:textNoFilter="@{viewModel.savedLocations.zoneOne}" />
+                        app:textNoFilter="@{viewModel.lastSavedLocations.zoneOne}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textview.MaterialTextView
@@ -85,6 +89,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/settings_margin_between_settings"
                     android:hint="@string/label_zone_two_title"
+                    app:helperText='@{!viewModel.savedLocations.zoneTwo.empty &amp;&amp; !viewModel.locations.contains(viewModel.savedLocations.zoneTwo.toLowerCase(Locale.ROOT)) ? @string/helper_location_not_saved : null}'
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/layoutZoneOne"
                     app:layout_constraintWidth_percent="0.6">
@@ -93,10 +98,11 @@
                         android:id="@+id/textZoneTwo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="none"
+                        android:imeOptions="actionDone"
+                        android:inputType="textShortMessage"
                         app:content="@{viewModel.locations}"
                         app:onTextChange="@{text -> viewModel.saveZoneTwo(text)}"
-                        app:textNoFilter="@{viewModel.savedLocations.zoneTwo}" />
+                        app:textNoFilter="@{viewModel.lastSavedLocations.zoneTwo}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textview.MaterialTextView
@@ -116,6 +122,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/settings_margin_between_settings"
                     android:hint="@string/label_zone_three_title"
+                    app:helperText='@{!viewModel.savedLocations.zoneThree.empty &amp;&amp; !viewModel.locations.contains(viewModel.savedLocations.zoneThree.toLowerCase(Locale.ROOT)) ? @string/helper_location_not_saved : null}'
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/layoutZoneTwo"
                     app:layout_constraintWidth_percent="0.6">
@@ -124,10 +131,11 @@
                         android:id="@+id/textZoneThree"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="none"
+                        android:imeOptions="actionDone"
+                        android:inputType="textShortMessage"
                         app:content="@{viewModel.locations}"
                         app:onTextChange="@{text -> viewModel.saveZoneThree(text)}"
-                        app:textNoFilter="@{viewModel.savedLocations.zoneThree}" />
+                        app:textNoFilter="@{viewModel.lastSavedLocations.zoneThree}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textview.MaterialTextView
@@ -147,6 +155,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/settings_margin_between_settings"
                     android:hint="@string/label_zone_four_title"
+                    app:helperText='@{!viewModel.savedLocations.zoneFour.empty &amp;&amp; !viewModel.locations.contains(viewModel.savedLocations.zoneFour.toLowerCase(Locale.ROOT)) ? @string/helper_location_not_saved : null}'
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/layoutZoneThree"
                     app:layout_constraintWidth_percent="0.6">
@@ -155,10 +164,11 @@
                         android:id="@+id/textZoneFour"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="none"
+                        android:imeOptions="actionDone"
+                        android:inputType="textShortMessage"
                         app:content="@{viewModel.locations}"
                         app:onTextChange="@{text -> viewModel.saveZoneFour(text)}"
-                        app:textNoFilter="@{viewModel.savedLocations.zoneFour}" />
+                        app:textNoFilter="@{viewModel.lastSavedLocations.zoneFour}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textview.MaterialTextView
@@ -177,6 +187,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/settings_margin_between_settings"
                     android:hint="@string/label_zone_five_title"
+                    app:helperText='@{!viewModel.savedLocations.zoneFive.empty &amp;&amp; !viewModel.locations.contains(viewModel.savedLocations.zoneFive.toLowerCase(Locale.ROOT)) ? @string/helper_location_not_saved : null}'
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/layoutZoneFour"
                     app:layout_constraintWidth_percent="0.6">
@@ -184,10 +195,11 @@
                     <com.google.android.material.textfield.MaterialAutoCompleteTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="none"
+                        android:imeOptions="actionDone"
+                        android:inputType="textShortMessage"
                         app:content="@{viewModel.locations}"
                         app:onTextChange="@{text -> viewModel.saveZoneFive(text)}"
-                        app:textNoFilter="@{viewModel.savedLocations.zoneFive}" />
+                        app:textNoFilter="@{viewModel.lastSavedLocations.zoneFive}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textview.MaterialTextView
@@ -206,6 +218,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/settings_margin_between_settings"
                     android:hint="@string/label_zone_six_title"
+                    app:helperText='@{!viewModel.savedLocations.zoneSix.empty &amp;&amp; !viewModel.locations.contains(viewModel.savedLocations.zoneSix.toLowerCase(Locale.ROOT)) ? @string/helper_location_not_saved : null}'
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/layoutZoneFive"
                     app:layout_constraintWidth_percent="0.6">
@@ -213,10 +226,11 @@
                     <com.google.android.material.textfield.MaterialAutoCompleteTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="none"
+                        android:imeOptions="actionDone"
+                        android:inputType="textShortMessage"
                         app:content="@{viewModel.locations}"
                         app:onTextChange="@{text -> viewModel.saveZoneSix(text)}"
-                        app:textNoFilter="@{viewModel.savedLocations.zoneSix}" />
+                        app:textNoFilter="@{viewModel.lastSavedLocations.zoneSix}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textview.MaterialTextView
@@ -235,6 +249,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/settings_margin_between_settings"
                     android:hint="@string/label_zone_seven_title"
+                    app:helperText='@{!viewModel.savedLocations.zoneSeven.empty &amp;&amp; !viewModel.locations.contains(viewModel.savedLocations.zoneSeven.toLowerCase(Locale.ROOT)) ? @string/helper_location_not_saved : null}'
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/layoutZoneSix"
                     app:layout_constraintWidth_percent="0.6">
@@ -242,10 +257,11 @@
                     <com.google.android.material.textfield.MaterialAutoCompleteTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="none"
+                        android:imeOptions="actionDone"
+                        android:inputType="textShortMessage"
                         app:content="@{viewModel.locations}"
                         app:onTextChange="@{text -> viewModel.saveZoneSeven(text)}"
-                        app:textNoFilter="@{viewModel.savedLocations.zoneSeven}" />
+                        app:textNoFilter="@{viewModel.lastSavedLocations.zoneSeven}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textview.MaterialTextView
@@ -264,6 +280,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/settings_margin_between_settings"
                     android:hint="@string/label_zone_eight_title"
+                    app:helperText='@{!viewModel.savedLocations.zoneEight.empty &amp;&amp; !viewModel.locations.contains(viewModel.savedLocations.zoneEight.toLowerCase(Locale.ROOT)) ? @string/helper_location_not_saved : null}'
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/layoutZoneSeven"
                     app:layout_constraintWidth_percent="0.6">
@@ -271,10 +288,11 @@
                     <com.google.android.material.textfield.MaterialAutoCompleteTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="none"
+                        android:imeOptions="actionDone"
+                        android:inputType="textShortMessage"
                         app:content="@{viewModel.locations}"
                         app:onTextChange="@{text -> viewModel.saveZoneEight(text)}"
-                        app:textNoFilter="@{viewModel.savedLocations.zoneEight}" />
+                        app:textNoFilter="@{viewModel.lastSavedLocations.zoneEight}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textview.MaterialTextView
@@ -293,6 +311,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/settings_margin_between_settings"
                     android:hint="@string/label_zone_nine_title"
+                    app:helperText='@{!viewModel.savedLocations.zoneNine.empty &amp;&amp; !viewModel.locations.contains(viewModel.savedLocations.zoneNine.toLowerCase(Locale.ROOT)) ? @string/helper_location_not_saved : null}'
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/layoutZoneEight"
                     app:layout_constraintWidth_percent="0.6">
@@ -300,10 +319,11 @@
                     <com.google.android.material.textfield.MaterialAutoCompleteTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="none"
+                        android:imeOptions="actionDone"
+                        android:inputType="textShortMessage"
                         app:content="@{viewModel.locations}"
                         app:onTextChange="@{text -> viewModel.saveZoneNine(text)}"
-                        app:textNoFilter="@{viewModel.savedLocations.zoneNine}" />
+                        app:textNoFilter="@{viewModel.lastSavedLocations.zoneNine}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textview.MaterialTextView
@@ -322,6 +342,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/settings_margin_between_settings"
                     android:hint="@string/label_zone_ten_title"
+                    app:helperText='@{!viewModel.savedLocations.zoneTen.empty &amp;&amp; !viewModel.locations.contains(viewModel.savedLocations.zoneTen.toLowerCase(Locale.ROOT)) ? @string/helper_location_not_saved : null}'
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/layoutZoneNine"
                     app:layout_constraintWidth_percent="0.6">
@@ -329,10 +350,11 @@
                     <com.google.android.material.textfield.MaterialAutoCompleteTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="none"
+                        android:imeOptions="actionDone"
+                        android:inputType="textShortMessage"
                         app:content="@{viewModel.locations}"
                         app:onTextChange="@{text -> viewModel.saveZoneTen(text)}"
-                        app:textNoFilter="@{viewModel.savedLocations.zoneTen}" />
+                        app:textNoFilter="@{viewModel.lastSavedLocations.zoneTen}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textview.MaterialTextView
@@ -351,6 +373,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/settings_margin_between_settings"
                     android:hint="@string/label_zone_eleven_title"
+                    app:helperText='@{!viewModel.savedLocations.zoneEleven.empty &amp;&amp; !viewModel.locations.contains(viewModel.savedLocations.zoneEleven.toLowerCase(Locale.ROOT)) ? @string/helper_location_not_saved : null}'
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/layoutZoneTen"
                     app:layout_constraintWidth_percent="0.6">
@@ -358,10 +381,11 @@
                     <com.google.android.material.textfield.MaterialAutoCompleteTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="none"
+                        android:imeOptions="actionDone"
+                        android:inputType="textShortMessage"
                         app:content="@{viewModel.locations}"
                         app:onTextChange="@{text -> viewModel.saveZoneEleven(text)}"
-                        app:textNoFilter="@{viewModel.savedLocations.zoneEleven}" />
+                        app:textNoFilter="@{viewModel.lastSavedLocations.zoneEleven}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textview.MaterialTextView
@@ -380,6 +404,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/settings_margin_between_settings"
                     android:hint="@string/label_zone_twelve_title"
+                    app:helperText='@{!viewModel.savedLocations.zoneTwelve.empty &amp;&amp; !viewModel.locations.contains(viewModel.savedLocations.zoneTwelve.toLowerCase(Locale.ROOT)) ? @string/helper_location_not_saved : null}'
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/layoutZoneEleven"
                     app:layout_constraintWidth_percent="0.6">
@@ -387,10 +412,11 @@
                     <com.google.android.material.textfield.MaterialAutoCompleteTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="none"
+                        android:imeOptions="actionDone"
+                        android:inputType="textShortMessage"
                         app:content="@{viewModel.locations}"
                         app:onTextChange="@{text -> viewModel.saveZoneTwelve(text)}"
-                        app:textNoFilter="@{viewModel.savedLocations.zoneTwelve}" />
+                        app:textNoFilter="@{viewModel.lastSavedLocations.zoneTwelve}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textview.MaterialTextView
@@ -409,6 +435,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/settings_margin_between_settings"
                     android:hint="@string/label_zone_thirteen_title"
+                    app:helperText='@{!viewModel.savedLocations.zoneThirteen.empty &amp;&amp; !viewModel.locations.contains(viewModel.savedLocations.zoneThirteen.toLowerCase(Locale.ROOT)) ? @string/helper_location_not_saved : null}'
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/layoutZoneTwelve"
                     app:layout_constraintWidth_percent="0.6">
@@ -416,10 +443,11 @@
                     <com.google.android.material.textfield.MaterialAutoCompleteTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="none"
+                        android:imeOptions="actionDone"
+                        android:inputType="textShortMessage"
                         app:content="@{viewModel.locations}"
                         app:onTextChange="@{text -> viewModel.saveZoneThirteen(text)}"
-                        app:textNoFilter="@{viewModel.savedLocations.zoneThirteen}" />
+                        app:textNoFilter="@{viewModel.lastSavedLocations.zoneThirteen}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textview.MaterialTextView
@@ -438,6 +466,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/settings_margin_between_settings"
                     android:hint="@string/label_zone_fourteen_title"
+                    app:helperText='@{!viewModel.savedLocations.zoneFourteen.empty &amp;&amp; !viewModel.locations.contains(viewModel.savedLocations.zoneFourteen.toLowerCase(Locale.ROOT)) ? @string/helper_location_not_saved : null}'
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/layoutZoneThirteen"
                     app:layout_constraintWidth_percent="0.6">
@@ -445,10 +474,11 @@
                     <com.google.android.material.textfield.MaterialAutoCompleteTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="none"
+                        android:imeOptions="actionDone"
+                        android:inputType="textShortMessage"
                         app:content="@{viewModel.locations}"
                         app:onTextChange="@{text -> viewModel.saveZoneFourteen(text)}"
-                        app:textNoFilter="@{viewModel.savedLocations.zoneFourteen}" />
+                        app:textNoFilter="@{viewModel.lastSavedLocations.zoneFourteen}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textview.MaterialTextView
@@ -467,6 +497,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/settings_margin_between_settings"
                     android:hint="@string/label_zone_fifteen_title"
+                    app:helperText='@{!viewModel.savedLocations.zoneFifteen.empty &amp;&amp; !viewModel.locations.contains(viewModel.savedLocations.zoneFifteen.toLowerCase(Locale.ROOT)) ? @string/helper_location_not_saved : null}'
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/layoutZoneFourteen"
                     app:layout_constraintWidth_percent="0.6">
@@ -474,10 +505,11 @@
                     <com.google.android.material.textfield.MaterialAutoCompleteTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="none"
+                        android:imeOptions="actionDone"
+                        android:inputType="textShortMessage"
                         app:content="@{viewModel.locations}"
                         app:onTextChange="@{text -> viewModel.saveZoneFifteen(text)}"
-                        app:textNoFilter="@{viewModel.savedLocations.zoneFifteen}" />
+                        app:textNoFilter="@{viewModel.lastSavedLocations.zoneFifteen}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textview.MaterialTextView
@@ -496,6 +528,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/settings_margin_between_settings"
                     android:hint="@string/label_zone_sixteen_title"
+                    app:helperText='@{!viewModel.savedLocations.zoneSixteen.empty &amp;&amp; !viewModel.locations.contains(viewModel.savedLocations.zoneSixteen.toLowerCase(Locale.ROOT)) ? @string/helper_location_not_saved : null}'
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/layoutZoneFifteen"
                     app:layout_constraintWidth_percent="0.6">
@@ -503,10 +536,11 @@
                     <com.google.android.material.textfield.MaterialAutoCompleteTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="none"
+                        android:imeOptions="actionDone"
+                        android:inputType="textShortMessage"
                         app:content="@{viewModel.locations}"
                         app:onTextChange="@{text -> viewModel.saveZoneSixteen(text)}"
-                        app:textNoFilter="@{viewModel.savedLocations.zoneSixteen}" />
+                        app:textNoFilter="@{viewModel.lastSavedLocations.zoneSixteen}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textview.MaterialTextView
@@ -525,6 +559,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/settings_margin_between_settings"
                     android:hint="@string/label_zone_seventeen_title"
+                    app:helperText='@{!viewModel.savedLocations.zoneSeventeen.empty &amp;&amp; !viewModel.locations.contains(viewModel.savedLocations.zoneSeventeen.toLowerCase(Locale.ROOT)) ? @string/helper_location_not_saved : null}'
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/layoutZoneSixteen"
                     app:layout_constraintWidth_percent="0.6">
@@ -532,10 +567,11 @@
                     <com.google.android.material.textfield.MaterialAutoCompleteTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="none"
+                        android:imeOptions="actionDone"
+                        android:inputType="textShortMessage"
                         app:content="@{viewModel.locations}"
                         app:onTextChange="@{text -> viewModel.saveZoneSeventeen(text)}"
-                        app:textNoFilter="@{viewModel.savedLocations.zoneSeventeen}" />
+                        app:textNoFilter="@{viewModel.lastSavedLocations.zoneSeventeen}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>

@@ -92,6 +92,8 @@
     <string name="hint_thai_chana_qr">Thai Chana URL</string>
     <string name="hint_promotion_qr">Promotion URL</string>
 
+    <string name="helper_location_not_saved">This location is not saved in temi. It will still show in the map, but will not be selectable.</string>
+
     <string name="content_desc_add_video">Add a new promotion video</string>
     <string name="content_desc_video">Promotion video</string>
     <string name="content_desc_map">CENTRAL food hall map</string>

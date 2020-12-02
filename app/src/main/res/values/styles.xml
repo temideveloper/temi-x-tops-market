@@ -118,7 +118,7 @@
     </style>
 
     <style name="LocationTextButton" parent="Widget.MaterialComponents.Button.TextButton">
-        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:textColor">@drawable/app_text_button_selector</item>
         <item name="autoSizeMinTextSize">@dimen/text_minimal_en</item>
         <item name="autoSizeTextType">uniform</item>
         <item name="autoSizeMaxTextSize">@dimen/text_small_en</item>

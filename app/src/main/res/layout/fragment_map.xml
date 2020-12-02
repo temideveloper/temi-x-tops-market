@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="java.util.Locale" />
+
         <variable
             name="fragment"
             type="com.robosolutions.temixtopsmarket.ui.location.MapFragment" />
@@ -32,7 +34,7 @@
                 style="@style/LocationTextButton"
                 android:layout_width="300dp"
                 android:layout_height="150dp"
-                android:enabled='@{viewModel.zones.zoneOne != ""}'
+                android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneOne.toLowerCase(Locale.ROOT))}'
                 android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneOne}"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -47,7 +49,7 @@
                 style="@style/LocationTextButton"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:enabled='@{viewModel.zones.zoneTwo != ""}'
+                android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneTwo.toLowerCase(Locale.ROOT))}'
                 android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneTwo}"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -62,7 +64,7 @@
                 style="@style/LocationTextButton"
                 android:layout_width="45dp"
                 android:layout_height="150dp"
-                android:enabled='@{viewModel.zones.zoneThree != ""}'
+                android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneThree.toLowerCase(Locale.ROOT))}'
                 android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneThree}"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -77,7 +79,7 @@
                 style="@style/LocationTextButton"
                 android:layout_width="100dp"
                 android:layout_height="220dp"
-                android:enabled='@{viewModel.zones.zoneFour != ""}'
+                android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneFour.toLowerCase(Locale.ROOT))}'
                 android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneFour}"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -92,7 +94,7 @@
                 style="@style/LocationTextButton"
                 android:layout_width="76dp"
                 android:layout_height="80dp"
-                android:enabled='@{viewModel.zones.zoneFive != ""}'
+                android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneFive.toLowerCase(Locale.ROOT))}'
                 android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneFive}"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -107,7 +109,7 @@
                 style="@style/LocationTextButton"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:enabled='@{viewModel.zones.zoneSix != ""}'
+                android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneSix.toLowerCase(Locale.ROOT))}'
                 android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneSix}"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -122,7 +124,7 @@
                 style="@style/LocationTextButton"
                 android:layout_width="130dp"
                 android:layout_height="240dp"
-                android:enabled='@{viewModel.zones.zoneSeven != ""}'
+                android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneSeven.toLowerCase(Locale.ROOT))}'
                 android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneSeven}"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -137,7 +139,7 @@
                 style="@style/LocationTextButton"
                 android:layout_width="90dp"
                 android:layout_height="100dp"
-                android:enabled='@{viewModel.zones.zoneEight != ""}'
+                android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneEight.toLowerCase(Locale.ROOT))}'
                 android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneEight}"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -152,7 +154,7 @@
                 style="@style/LocationTextButton"
                 android:layout_width="150dp"
                 android:layout_height="145dp"
-                android:enabled='@{viewModel.zones.zoneNine != ""}'
+                android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneNine.toLowerCase(Locale.ROOT))}'
                 android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneNine}"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -167,7 +169,7 @@
                 style="@style/LocationTextButton"
                 android:layout_width="150dp"
                 android:layout_height="80dp"
-                android:enabled='@{viewModel.zones.zoneTen != ""}'
+                android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneTen.toLowerCase(Locale.ROOT))}'
                 android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneTen}"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -182,7 +184,7 @@
                 style="@style/LocationTextButton"
                 android:layout_width="57dp"
                 android:layout_height="80dp"
-                android:enabled='@{viewModel.zones.zoneEleven != ""}'
+                android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneEleven.toLowerCase(Locale.ROOT))}'
                 android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneEleven}"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -197,7 +199,7 @@
                 style="@style/LocationTextButton"
                 android:layout_width="57dp"
                 android:layout_height="80dp"
-                android:enabled='@{viewModel.zones.zoneTwelve != ""}'
+                android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneTwelve.toLowerCase(Locale.ROOT))}'
                 android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneTwelve}"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -212,7 +214,7 @@
                 style="@style/LocationTextButton"
                 android:layout_width="100dp"
                 android:layout_height="130dp"
-                android:enabled='@{viewModel.zones.zoneThirteen != ""}'
+                android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneThirteen.toLowerCase(Locale.ROOT))}'
                 android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneThirteen}"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -227,7 +229,7 @@
                 style="@style/LocationTextButton"
                 android:layout_width="130dp"
                 android:layout_height="245dp"
-                android:enabled='@{viewModel.zones.zoneFourteen != ""}'
+                android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneFourteen.toLowerCase(Locale.ROOT))}'
                 android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneFourteen}"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -242,7 +244,7 @@
                 style="@style/LocationTextButton"
                 android:layout_width="150dp"
                 android:layout_height="110dp"
-                android:enabled='@{viewModel.zones.zoneFifteen != ""}'
+                android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneFifteen.toLowerCase(Locale.ROOT))}'
                 android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneFifteen}"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -257,7 +259,7 @@
                 style="@style/LocationTextButton"
                 android:layout_width="210dp"
                 android:layout_height="60dp"
-                android:enabled='@{viewModel.zones.zoneSixteen != ""}'
+                android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneSixteen.toLowerCase(Locale.ROOT))}'
                 android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneSixteen}"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -272,7 +274,7 @@
                 style="@style/LocationTextButton"
                 android:layout_width="180dp"
                 android:layout_height="60dp"
-                android:enabled='@{viewModel.zones.zoneSeventeen != ""}'
+                android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneSeventeen.toLowerCase(Locale.ROOT))}'
                 android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneSeventeen}"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -281,6 +283,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.855"
+                tools:enabled="false"
                 tools:text="Zone 17" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
