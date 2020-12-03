@@ -126,6 +126,10 @@ class PreferenceRepository @Inject constructor(@ApplicationContext context: Cont
 
     suspend fun saveZoneSeventeen(location: String) = saveLocations { setZoneSeventeen(location) }
 
+    suspend fun saveZoneEighteen(location: String) = saveLocations { setZoneEighteen(location) }
+
+    suspend fun saveZoneNineteen(location: String) = saveLocations { setZoneNineteen(location) }
+
     private suspend fun saveLocations(block: Locations.Builder.() -> Locations.Builder) {
         savePreference { setLocations(block(locations.toBuilder()).build()) }
     }

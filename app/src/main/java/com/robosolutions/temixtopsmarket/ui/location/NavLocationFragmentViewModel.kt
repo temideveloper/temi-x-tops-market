@@ -48,4 +48,10 @@ class NavLocationFragmentViewModel @ViewModelInject constructor(
 
     fun saveZoneSeventeen(location: String) =
         viewModelLaunch { repository.saveZoneSeventeen(location) }
+
+    fun saveZoneEighteen(location: String) =
+        viewModelLaunch { repository.saveZoneEighteen(location) }
+
+    fun saveZoneNineteen(location: String) =
+        viewModelLaunch { repository.saveZoneNineteen(location) }
 }

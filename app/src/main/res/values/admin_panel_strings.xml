@@ -54,6 +54,8 @@
     <string name="label_zone_fifteen_title">Zone 15</string>
     <string name="label_zone_sixteen_title">Zone 16</string>
     <string name="label_zone_seventeen_title">Zone 17</string>
+    <string name="label_zone_eighteen_title">Zone 18</string>
+    <string name="label_zone_nineteen_title">Zone 19</string>
 
     <string name="label_video_title">Title</string>
     <string name="label_video_summary">Summary</string>

@@ -85,4 +85,6 @@ message Locations {
   string zoneFifteen = 15;
   string zoneSixteen = 16;
   string zoneSeventeen = 17;
+  string zoneEighteen = 18;
+  string zoneNineteen = 19;
 }

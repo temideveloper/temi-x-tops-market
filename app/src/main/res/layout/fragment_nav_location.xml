@@ -574,6 +574,68 @@
                         app:textNoFilter="@{viewModel.lastSavedLocations.zoneSeventeen}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/SettingsTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_zone_eighteen_title"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutZoneEighteen"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/layoutZoneEighteen" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutZoneEighteen"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/settings_margin_between_settings"
+                    android:hint="@string/label_zone_eighteen_title"
+                    app:helperText='@{!viewModel.savedLocations.zoneEighteen.empty &amp;&amp; !viewModel.locations.contains(viewModel.savedLocations.zoneEighteen.toLowerCase(Locale.ROOT)) ? @string/helper_location_not_saved : null}'
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutZoneSeventeen"
+                    app:layout_constraintWidth_percent="0.6">
+
+                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionDone"
+                        android:inputType="textShortMessage"
+                        app:content="@{viewModel.locations}"
+                        app:onTextChange="@{text -> viewModel.saveZoneEighteen(text)}"
+                        app:textNoFilter="@{viewModel.lastSavedLocations.zoneEighteen}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/SettingsTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_zone_nineteen_title"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutZoneNineteen"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/layoutZoneNineteen" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutZoneNineteen"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/settings_margin_between_settings"
+                    android:hint="@string/label_zone_nineteen_title"
+                    app:helperText='@{!viewModel.savedLocations.zoneNineteen.empty &amp;&amp; !viewModel.locations.contains(viewModel.savedLocations.zoneNineteen.toLowerCase(Locale.ROOT)) ? @string/helper_location_not_saved : null}'
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutZoneEighteen"
+                    app:layout_constraintWidth_percent="0.6">
+
+                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionDone"
+                        android:inputType="textShortMessage"
+                        app:content="@{viewModel.locations}"
+                        app:onTextChange="@{text -> viewModel.saveZoneNineteen(text)}"
+                        app:textNoFilter="@{viewModel.lastSavedLocations.zoneNineteen}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
 
