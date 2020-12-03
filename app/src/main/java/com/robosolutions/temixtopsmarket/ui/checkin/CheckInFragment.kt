@@ -24,6 +24,8 @@ class CheckInFragment :
     override val titleIdEn = R.string.empty
     override val titleIdThai = R.string.empty
 
+    override val entranceSpeechId = R.string.tts_check_in
+
     override val headerImage = R.drawable.ic_thai_chana
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -76,6 +76,8 @@
     <string name="tts_complete_greeting">สวัสดีค่ะ ยินดีต้อนรับสู่เซ็นทรัล ฟู้ด ฮอลล์ คุณมีอะไรให้สุขใจช่วยเหลือไหมคะ?</string>
     <string name="tts_partial_greeting">คุณมีอะไรให้สุขใจช่วยอีกมั้ยคะ? สุขใจยินดีช่วยเหลือคุณเสมอค่ะ</string>
 
+    <string name="tts_check_in">กรุณาสแกนคิวอาร์โค้ดเพื่อเช็คอินก่อนเข้าร้านค่ะ ขอบคุณค่ะ</string>
+    <string name="tts_promotion">กรุณาสแกนคิวอาร์โค้ดเพื่อดูโปรโมชั่นสุดพิเศษของเราค่ะ</string>
     <string name="tts_map">สนใจไปช็อปที่โซนไหนดีคะ กรุณาเลือกได้เลยค่ะ</string>
     <string name="tts_map_revisit">ุณต้องการไปช็อปอะไรต่อดีคะ? กรุณาเลือกโซนที่คุณต้องการไปได้เลยค่ะ</string>
     <string name="tts_navigating">กรุณาเดินตามสุขใจมานะคะ เราจะไปโซน %1$s กันค่ะ</string>

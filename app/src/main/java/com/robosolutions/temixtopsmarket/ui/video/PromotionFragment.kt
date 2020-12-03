@@ -20,6 +20,8 @@ class PromotionFragment :
     override val titleIdEn = R.string.title_promotions_en
     override val titleIdThai = R.string.title_promotions_th
 
+    override val entranceSpeechId = R.string.tts_promotion
+
     @Inject
     lateinit var videoPlayer: LifecycleExoPlayer
 
