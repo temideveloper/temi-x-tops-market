@@ -11,9 +11,11 @@ import com.robosolutions.temixtopsmarket.extensions.updateTo
 import com.robosolutions.temixtopsmarket.preference.PreferenceRepository
 import com.robosolutions.temixtopsmarket.ui.base.AppViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
+@OptIn(FlowPreview::class)
 class MainActivityViewModel @ViewModelInject constructor(
     @ApplicationContext private val context: Context,
     private val repository: PreferenceRepository,
@@ -169,16 +171,20 @@ class MainActivityViewModel @ViewModelInject constructor(
 
     fun updateLastLocation(last: String) = _lastLocation updateTo last
 
-    private val isGoing = MutableStateFlow(false)
+    private val _isGoing = MutableStateFlow(false)
+    val isGoing: StateFlow<Boolean> = _isGoing
 
-    fun setTemiGoing(going: Boolean) = isGoing updateTo going
+    fun setTemiGoing(going: Boolean) = _isGoing updateTo going
 
-    /** `true` when the user interaction changes only because of the user.
+    /** Emits the user interaction changes only because of the user.
      * This is because temi will change the user interaction to
      * `true` when the robot is going to a location. */
-    val exactUserInteraction = isInteracting.combine(isGoing) { interacting, going ->
-        interacting && !going
-    }.asLiveData()
+    val exactUserInteraction = isInteracting.combineToPair(_isGoing)
+        .filter { (_, going) -> !going }
+        .map { (interaction, _) -> interaction }
+        .debounce(1000)
+        .distinctUntilChanged()
+        .asLiveData()
 
     // Map fragment state
     var mapRevisited = false

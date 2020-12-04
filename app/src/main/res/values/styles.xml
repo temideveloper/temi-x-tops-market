@@ -171,4 +171,45 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">3%</item>
     </style>
+
+    <style name="AutoReturnAlertDialog" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <item name="materialAlertDialogTitleIconStyle">@style/AutoReturnAlertDialogIcon</item>
+        <item name="materialAlertDialogTitleTextStyle">
+            @style/MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked
+        </item>
+        <item name="materialAlertDialogTitlePanelStyle">
+            @style/MaterialAlertDialog.MaterialComponents.Title.Panel.CenterStacked
+        </item>
+        <item name="materialAlertDialogBodyTextStyle">@style/AutoReturnAlertDialogBodyText</item>
+        <item name="buttonBarPositiveButtonStyle">@style/AutoReturnDialogButtons</item>
+        <item name="buttonBarNeutralButtonStyle">@style/AutoReturnDialogButtons</item>
+        <item name="shapeAppearanceMediumComponent">@style/RoundShapeAppearance</item>
+    </style>
+
+    <style name="AutoReturnAlertDialogIcon" parent="MaterialAlertDialog.MaterialComponents.Title.Icon.CenterStacked">
+        <item name="android:layout_width">@dimen/alert_dialog_icon</item>
+        <item name="android:layout_height">@dimen/alert_dialog_icon</item>
+    </style>
+
+    <style name="AutoReturnAlertDialogBodyText" parent="MaterialAlertDialog.MaterialComponents.Body.Text">
+        <item name="android:textSize">@dimen/text_normal_th</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:paddingTop">24dp</item>
+        <item name="android:paddingBottom">24dp</item>
+        <item name="android:paddingStart">40dp</item>
+        <item name="android:paddingEnd">40dp</item>
+    </style>
+
+    <style name="AutoReturnDialogButtons" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textSize">@dimen/text_normal_th</item>
+        <item name="android:paddingTop">24dp</item>
+        <item name="android:paddingBottom">24dp</item>
+        <item name="android:paddingStart">40dp</item>
+        <item name="android:paddingEnd">40dp</item>
+    </style>
+
+    <style name="RoundShapeAppearance" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
 </resources>

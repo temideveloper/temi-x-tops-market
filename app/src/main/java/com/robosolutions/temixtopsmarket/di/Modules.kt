@@ -32,7 +32,7 @@ class FragmentModules {
     fun provideLifecycleExoPlayer(@ApplicationContext context: Context) =
         SimpleExoPlayer.Builder(context)
             .build()
-            .apply { repeatMode = SimpleExoPlayer.REPEAT_MODE_ONE }
+            .apply { repeatMode = SimpleExoPlayer.REPEAT_MODE_OFF }
             .run { LifecycleExoPlayer(this) }
 }
 

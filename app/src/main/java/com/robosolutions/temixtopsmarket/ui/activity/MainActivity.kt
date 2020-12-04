@@ -10,13 +10,11 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.robosolutions.temixtopsmarket.R
 import com.robosolutions.temixtopsmarket.databinding.ActivityMainBinding
-import com.robosolutions.temixtopsmarket.extensions.completeHideTopBar
-import com.robosolutions.temixtopsmarket.extensions.executePendingBindings
-import com.robosolutions.temixtopsmarket.extensions.robot
-import com.robosolutions.temixtopsmarket.extensions.singleLatest
+import com.robosolutions.temixtopsmarket.extensions.*
 import com.robosolutions.temixtopsmarket.utils.isNightMode
 import com.robosolutions.temixtopsmarket.utils.switchNightMode
 import com.robotemi.sdk.listeners.OnGoToLocationStatusChangedListener
@@ -26,6 +24,8 @@ import com.robotemi.sdk.permission.OnRequestPermissionResultListener
 import com.robotemi.sdk.permission.Permission
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.util.*
@@ -43,12 +43,44 @@ class MainActivity : AppCompatActivity(),
 
     private val navController: NavController by lazy { findNavController(R.id.navHostFragment) }
 
+    private val currentDestinationId
+        get() = navController.currentDestination?.id ?: -1
+
     private val navigationListener =
         NavController.OnDestinationChangedListener { _, destination, _ ->
             if (destination.id != R.id.homeFragment) {
                 mainViewModel.updateHasNavigated(true)
             }
         }
+
+    private lateinit var autoReturnJob: Job
+
+    /** List of destination ids that the auto return dialog should not show. */
+    private val autoReturnExclusionList = listOf(
+        R.id.passwordFragment,
+        R.id.adminFragment,
+        R.id.generalFragment,
+        R.id.delaysFragment,
+        R.id.delaySelectDialog,
+        R.id.navLocationFragment,
+        R.id.speechFragment,
+        R.id.qrCodeFragment,
+        R.id.scanQrFragment,
+        R.id.staffsFragment,
+        R.id.videoEditFragment,
+        R.id.promotionFragment
+    )
+
+    /**
+     * Stops auto return timer.
+     *
+     */
+    private fun cancelAutoReturn() {
+        if (::autoReturnJob.isInitialized && !autoReturnJob.isCancelled) {
+            Timber.d("Stop auto return timer")
+            autoReturnJob.cancel()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -101,8 +133,81 @@ class MainActivity : AppCompatActivity(),
             }
 
             exactUserInteraction.observe(this@MainActivity) { userInteracts ->
-                if (userInteracts) robot.stopMovement()
+                if (mainViewModel.isGoing.value) return@observe
+
+                Timber.d("Exact user interaction: $userInteracts")
+
+                if (userInteracts) {
+                    robot.stopMovement()
+                } else {
+                    // Show only if the current destination is not in the exclusion list
+                    if (currentDestinationId in autoReturnExclusionList) return@observe
+
+                    startAutoReturnDialog()
+                }
             }
+        }
+    }
+
+    /**
+     * Shows the auto-return dialog. If there is one showing already, it will restart the dialog.
+     *
+     * @param onCancel Additional action to do upon cancel (user taps the scrim area).
+     * @param onWait Additional action to do when user taps "wait".
+     */
+    fun startAutoReturnDialog(onCancel: () -> Unit = {}, onWait: () -> Unit = {}) {
+        // Ensure only 1 kind of this task is running
+        cancelAutoReturn()
+
+        autoReturnJob = lifecycleScope.launch {
+            val returnDelay = mainViewModel.autoReturnDelay.singleLatest() / 1000
+            val returnLocation = mainViewModel.autoReturnLocation.singleLatest()
+
+            Timber.d("Return location: $returnLocation")
+
+            if (returnLocation == mainViewModel.lastLocation.value) {
+                Timber.d("Already on the location!")
+                return@launch
+            }
+
+            Timber.d("Start timer for $returnDelay seconds")
+
+            // Show dialog and speak
+            val autoReturnDialog =
+                MaterialAlertDialogBuilder(this@MainActivity, R.style.AutoReturnAlertDialog)
+                    .setIcon(R.drawable.ic_info)
+                    .setTitle(" ")
+                    .setMessage("")
+                    .setNeutralButton(R.string.button_send_back) { _, _ ->
+                        onSendRobotBack(navHostFragment)
+                    }
+                    .setPositiveButton(R.string.button_wait) { _, _ ->
+                        cancelAutoReturn()
+                        onWait()
+                    }
+                    .setOnCancelListener {
+                        cancelAutoReturn()
+                        onCancel()
+                    }
+                    .create()
+
+            autoReturnDialog.show()
+            mainViewModel.requestTts(R.string.tts_no_activity, returnDelay)
+
+            // Start the timer
+            timer(
+                returnDelay,
+                onElapse = {
+                    val dialogMessage =
+                        getString(R.string.dialog_content_auto_return).format(it)
+
+                    autoReturnDialog.setMessage(dialogMessage)
+                },
+                onTimesUp = {
+                    autoReturnDialog.dismiss()
+                    onSendRobotBack(navHostFragment)
+                }
+            ).collect()
         }
     }
 
@@ -115,6 +220,7 @@ class MainActivity : AppCompatActivity(),
     override fun onPause() {
         super.onPause()
 
+        cancelAutoReturn()
         navController.removeOnDestinationChangedListener(navigationListener)
     }
 

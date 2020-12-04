@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
+import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.SimpleExoPlayer
 import timber.log.Timber
 import javax.inject.Inject
@@ -16,20 +17,21 @@ import javax.inject.Inject
  *
  * @property player The video player.
  */
-class LifecycleExoPlayer @Inject constructor(val player: SimpleExoPlayer) : LifecycleObserver {
+class LifecycleExoPlayer @Inject constructor(val player: SimpleExoPlayer) : LifecycleObserver,
+    ExoPlayer by player {
 
     private var wasPlaying = true
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     fun startPlayer() {
         Timber.d("Starting player")
-        player.play()
+        play()
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     fun pausePlayer() {
         wasPlaying = player.isPlaying
-        player.pause()
+        pause()
 
         Timber.d("Player is paused")
     }
@@ -37,7 +39,7 @@ class LifecycleExoPlayer @Inject constructor(val player: SimpleExoPlayer) : Life
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     fun resumePlayer() {
         if (wasPlaying) {
-            player.play()
+            play()
         }
 
         Timber.d(if (wasPlaying) "Player is resumed" else "Player is resumed, but no video was played")

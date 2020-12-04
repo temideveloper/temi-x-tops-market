@@ -6,10 +6,6 @@
     <data>
 
         <variable
-            name="viewModel"
-            type="com.robosolutions.temixtopsmarket.ui.location.ArrivedFragmentViewModel" />
-
-        <variable
             name="fragment"
             type="com.robosolutions.temixtopsmarket.ui.location.ArrivedFragment" />
     </data>
@@ -50,7 +46,7 @@
             android:onClick="@{() -> fragment.requireActivity().onBackPressed()}"
             android:text="@string/button_next_zone"
             app:icon="@drawable/ic_navigation"
-            app:layout_constraintBottom_toTopOf="@id/labelReturning"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/buttonOtherTask"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/labelArrivedTh" />
@@ -61,7 +57,7 @@
             android:onClick="@{v -> fragment.onViewOtherTask(v)}"
             android:text="@string/button_other_task"
             app:icon="@drawable/ic_task"
-            app:layout_constraintBottom_toTopOf="@id/labelReturning"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/buttonSendBack"
             app:layout_constraintStart_toEndOf="@id/buttonNextZone"
             app:layout_constraintTop_toBottomOf="@id/labelArrivedTh" />
@@ -72,21 +68,10 @@
             android:onClick="@{v -> fragment.onSendRobotBack(v)}"
             android:text="@string/button_send_back"
             app:icon="@drawable/ic_return"
-            app:layout_constraintBottom_toTopOf="@id/labelReturning"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/buttonOtherTask"
             app:layout_constraintTop_toBottomOf="@id/labelArrivedTh" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/labelReturning"
-            style="@style/TipsText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{@string/label_returning_in(viewModel.currentCountdown)}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/buttonNextZone"
-            tools:text="@string/label_returning_in" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
