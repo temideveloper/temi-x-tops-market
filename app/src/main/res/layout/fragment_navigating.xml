@@ -50,11 +50,12 @@
             style="@style/NormalTextTh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/label_follow_me_th"
+            android:text="@{@string/label_follow_me_th(fragment.args.location)}"
             android:textSize="@dimen/text_large_en"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/labelZoneName" />
+            app:layout_constraintTop_toBottomOf="@id/labelZoneName"
+            tools:text="กรุณาเดินตามสุขใจเพื่อไปโซน 1" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

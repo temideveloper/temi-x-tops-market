@@ -20,8 +20,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:transitionGroup="true"
         android:layout_height="match_parent"
+        android:transitionGroup="true"
         tools:context=".ui.home.HomeFragment">
 
         <ImageView
@@ -64,20 +64,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/label_welcome_title_th"
-            app:canVisible="@{sharedModel.shouldShowGreetMessage}"
             app:layout_constraintEnd_toEndOf="@id/labelWelcomeTitleEn"
             app:layout_constraintStart_toStartOf="@id/labelWelcomeTitleEn"
             app:layout_constraintTop_toBottomOf="@id/labelWelcomeSubtitleEn" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/labelWelcomeSubtitleTh"
-            style="@style/NormalTextTh"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/label_welcome_subtitle_th"
-            app:layout_constraintEnd_toEndOf="@id/labelWelcomeTitleEn"
-            app:layout_constraintStart_toStartOf="@id/labelWelcomeTitleEn"
-            app:layout_constraintTop_toBottomOf="@id/labelWelcomeTitleTh" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonCheckIn"
@@ -85,7 +74,7 @@
             app:layout_constraintBottom_toTopOf="@+id/buttonNavigation"
             app:layout_constraintEnd_toStartOf="@id/buttonPromotion"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/labelWelcomeSubtitleTh"
+            app:layout_constraintTop_toBottomOf="@id/labelWelcomeTitleTh"
             app:onClickNavigate="@{@id/action_homeFragment_to_checkInFragment}" />
 
         <ImageView
@@ -107,7 +96,7 @@
             app:layout_constraintBottom_toTopOf="@id/buttonContactStaff"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/buttonCheckIn"
-            app:layout_constraintTop_toBottomOf="@id/labelWelcomeSubtitleTh"
+            app:layout_constraintTop_toBottomOf="@id/labelWelcomeTitleTh"
             app:onClickNavigate="@{@id/action_homeFragment_to_promotionFragment}" />
 
         <com.google.android.material.button.MaterialButton
