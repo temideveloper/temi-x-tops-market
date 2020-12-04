@@ -81,6 +81,7 @@
     <string name="button_settings_staff">Staffs</string>
     <string name="button_settings_videos">Videos</string>
     <string name="button_settings_open_menu">Show Temi\'s Menu</string>
+    <string name="button_settings_home_base">Send to Home base</string>
 
     <string name="error_incorrect_password">Incorrect password!</string>
     <string name="error_weak_password">Password does not meet the requirements!</string>

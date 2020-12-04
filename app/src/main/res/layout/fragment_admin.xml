@@ -104,6 +104,16 @@
                 android:text="@{viewModel.currentCount == -1 ? @string/button_settings_open_menu : @string/label_countdown_top_bar(viewModel.currentCount)}"
                 app:icon="@drawable/ic_menu"
                 tools:text="@string/button_settings_open_menu" />
+
+            <View style="@style/HorizontalLine" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/SettingsSelectButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> fragment.sendToHomeBase()}"
+                android:text="@string/button_settings_home_base"
+                app:icon="@drawable/ic_return" />
         </LinearLayout>
     </ScrollView>
 </layout>

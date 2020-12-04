@@ -1,9 +1,7 @@
 package com.robosolutions.temixtopsmarket.ui.admin
 
-import android.os.Bundle
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.google.android.material.transition.MaterialSharedAxis
 import com.robosolutions.temixtopsmarket.R
 import com.robosolutions.temixtopsmarket.databinding.FragmentAdminBinding
 import com.robosolutions.temixtopsmarket.extensions.completeHideTopBar
@@ -32,6 +30,11 @@ class AdminFragment : BindingViewModelFragment<FragmentAdminBinding, AdminFragme
                 viewModel.updateCountDown(-1)
             }
         ).collect()
+    }
+
+    fun sendToHomeBase() {
+        robot.goTo("home base")
+        requireActivity().onBackPressed()
     }
 
     override fun onStop() {
