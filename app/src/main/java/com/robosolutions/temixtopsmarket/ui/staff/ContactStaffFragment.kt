@@ -20,6 +20,9 @@ class ContactStaffFragment :
 
     override val viewModel by viewModels<ContactStaffFragmentViewModel>()
 
+    override val showHomeButton = false
+    override val showSendBackButton = true
+
     val adapter by lazy {
         UserInfoAdapter {
             Timber.d("Starting video call with staff ${it.name}")

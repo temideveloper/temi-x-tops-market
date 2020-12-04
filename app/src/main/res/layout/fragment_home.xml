@@ -35,6 +35,15 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_percent="0.15" />
 
+        <com.google.android.material.button.MaterialButton
+            style="@style/SendRobotBackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{v -> fragment.onSendRobotBack(v)}"
+            app:isVisible="@{!sharedModel.shouldShowGreetMessage}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/labelWelcomeTitleEn"
             style="@style/HeaderTextEn"

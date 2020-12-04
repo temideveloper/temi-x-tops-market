@@ -21,7 +21,7 @@
         <androidx.constraintlayout.widget.Group
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:constraint_referenced_ids="buttonHome,buttonBack,textTitleEn, textTitleTh"
+            app:constraint_referenced_ids="textTitleEn, textTitleTh"
             app:isVisible="@{viewModel.displayHeader}" />
 
         <com.google.android.material.button.MaterialButton
@@ -29,6 +29,7 @@
             style="@style/ImageButton"
             android:onClick="onClickBack"
             app:icon="@drawable/ic_cancel"
+            app:isVisible="@{viewModel.showCloseButton &amp;&amp; viewModel.displayHeader}"
             app:layout_constraintBottom_toBottomOf="@id/textTitleEn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/textTitleTh" />
@@ -76,9 +77,22 @@
             android:layout_gravity="end"
             android:onClick="onClickHome"
             app:icon="@drawable/ic_home"
+            app:isVisible="@{viewModel.showHomeButton &amp;&amp; viewModel.displayHeader}"
             app:layout_constraintBottom_toBottomOf="@id/textTitleEn"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/textTitleTh" />
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/SendRobotBackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:onClick="onSendRobotBack"
+            app:isVisible="@{viewModel.showSendBackButton &amp;&amp; viewModel.displayHeader}"
+            app:layout_constraintBottom_toTopOf="@id/navHostFragment"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/navHostFragment"

@@ -41,6 +41,15 @@ abstract class BindingFragment<T : ViewDataBinding> : Fragment() {
     /** Padding for the content of the screen. */
     open val contentPadding: Int? = R.dimen.content_padding
 
+    /** Header home button. */
+    open val showHomeButton = true
+
+    /** Header close button. */
+    open val showCloseButton = true
+
+    /** Header send back button. */
+    open val showSendBackButton = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -59,6 +68,9 @@ abstract class BindingFragment<T : ViewDataBinding> : Fragment() {
             updateHeaderTitle(titleIdEn, titleIdThai)
             updateHeaderImageId(headerImage)
             updateHeader(useHeader)
+            showHomeButton(this@BindingFragment.showHomeButton)
+            showCloseButton(this@BindingFragment.showCloseButton)
+            showSendBackButton(this@BindingFragment.showSendBackButton)
 
             updateContentPadding(this@BindingFragment.contentPadding)
         }

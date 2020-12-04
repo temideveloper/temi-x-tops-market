@@ -113,6 +113,21 @@ class MainActivityViewModel @ViewModelInject constructor(
 
     fun updateContentPadding(dimenId: Int?) = _contentPadding updateTo (dimenId ?: R.dimen.zero_dp)
 
+    private val _showCloseButton = MutableStateFlow(true)
+    val showCloseButton = _showCloseButton.asLiveData()
+
+    fun showCloseButton(show: Boolean) = _showCloseButton updateTo show
+
+    private val _showHomeButton = MutableStateFlow(true)
+    val showHomeButton = _showHomeButton.asLiveData()
+
+    fun showHomeButton(show: Boolean) = _showHomeButton updateTo show
+
+    private val _showSendBackButton = MutableStateFlow(false)
+    val showSendBackButton = _showSendBackButton.asLiveData()
+
+    fun showSendBackButton(show: Boolean) = _showSendBackButton updateTo show
+
     private val isInteracting = MutableStateFlow(true)
     private val hasNavigatedScreen = MutableStateFlow(false)
 

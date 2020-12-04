@@ -22,6 +22,9 @@ class PromotionFragment :
 
     override val entranceSpeechId = R.string.tts_promotion
 
+    override val showHomeButton = false
+    override val showSendBackButton = true
+
     @Inject
     lateinit var videoPlayer: LifecycleExoPlayer
 

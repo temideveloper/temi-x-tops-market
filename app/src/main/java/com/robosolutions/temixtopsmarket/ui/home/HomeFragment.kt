@@ -11,6 +11,7 @@ import com.robosolutions.temixtopsmarket.extensions.navigate
 import com.robosolutions.temixtopsmarket.extensions.robot
 import com.robosolutions.temixtopsmarket.extensions.singleLatest
 import com.robosolutions.temixtopsmarket.extensions.timer
+import com.robosolutions.temixtopsmarket.ui.activity.MainActivity
 import com.robosolutions.temixtopsmarket.ui.base.BindingViewModelFragment
 import com.robotemi.sdk.listeners.OnUserInteractionChangedListener
 import dagger.hilt.android.AndroidEntryPoint
@@ -64,6 +65,10 @@ class HomeFragment : BindingViewModelFragment<FragmentHomeBinding, HomeFragmentV
             }
             5 -> v.navigate(R.id.action_homeFragment_to_passwordFragment)
         }
+    }
+
+    fun onSendRobotBack(v: View) {
+        (requireActivity() as MainActivity).onSendRobotBack(v)
     }
 
     override fun onResume() {

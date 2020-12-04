@@ -28,6 +28,9 @@ class CheckInFragment :
 
     override val headerImage = R.drawable.ic_thai_chana
 
+    override val showHomeButton = false
+    override val showSendBackButton = true
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

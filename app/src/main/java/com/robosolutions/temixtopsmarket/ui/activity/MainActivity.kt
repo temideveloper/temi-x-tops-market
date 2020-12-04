@@ -139,6 +139,12 @@ class MainActivity : AppCompatActivity(),
         navController.popBackStack(R.id.homeFragment, false)
     }
 
+    /**
+     * Sends robot back to the chosen auto-return location.
+     * Also brings the screen back to the ome screen.
+     *
+     * @param v Any view.
+     */
     fun onSendRobotBack(v: View) {
         lifecycleScope.launch {
             val returnLocation = mainViewModel.autoReturnLocation.singleLatest()

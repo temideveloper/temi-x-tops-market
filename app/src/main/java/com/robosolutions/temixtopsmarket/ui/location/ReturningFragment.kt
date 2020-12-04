@@ -26,7 +26,10 @@ class ReturningFragment : BindingFragment<FragmentReturningBinding>(),
     override val entranceSpeechId = R.string.tts_returning
     override val entranceSpeechArgs: Array<Any?> by lazy { arrayOf(args.returnLocation) }
 
+    /** `true` if navigation is aborted by the user. */
     private var userAbort = false
+
+    override val showCloseButton = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
