@@ -110,6 +110,14 @@
         <item name="android:textSize">@dimen/text_normal_th</item>
     </style>
 
+    <style name="SendRobotBackButton" parent="OutlinedAppButton">
+        <item name="iconSize">@dimen/image_button_icon_small</item>
+        <item name="android:textSize">@dimen/text_default</item>
+        <item name="iconGravity">textTop</item>
+        <item name="icon">@drawable/ic_return</item>
+        <item name="android:text">@string/button_send_back</item>
+    </style>
+
     <style name="TextAppButton" parent="Widget.MaterialComponents.Button.TextButton">
         <item name="android:textSize">@dimen/text_normal_en</item>
         <item name="paddingStart">@dimen/app_button_padding_horizontal</item>
@@ -125,8 +133,8 @@
         <item name="android:textColor">@drawable/app_text_button_selector</item>
         <item name="autoSizeMinTextSize">@dimen/text_minimal_en</item>
         <item name="autoSizeTextType">uniform</item>
-        <item name="autoSizeMaxTextSize">@dimen/text_small_en</item>
-        <item name="autoSizeStepGranularity">1sp</item>
+        <item name="autoSizeMaxTextSize">@dimen/text_mini_en</item>
+        <item name="autoSizeStepGranularity">2sp</item>
     </style>
 
     <style name="SettingsSelectButton" parent="TextAppButton">

@@ -25,9 +25,12 @@
     <dimen name="image_button_size">60dp</dimen>
     <dimen name="image_button_icon">36dp</dimen>
 
+    <dimen name="image_button_icon_small">30dp</dimen>
+
     <dimen name="play_promotion_icon">160dp</dimen>
 
     <dimen name="text_minimal_en">8sp</dimen>
+    <dimen name="text_default">14sp</dimen>
     <dimen name="text_mini_en">16sp</dimen>
     <dimen name="text_small_en">18sp</dimen>
     <dimen name="text_normal_th">20sp</dimen>

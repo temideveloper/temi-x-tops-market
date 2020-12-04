@@ -7,6 +7,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.asLiveData
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.google.android.material.snackbar.Snackbar
@@ -15,6 +16,7 @@ import com.robosolutions.temixtopsmarket.databinding.ActivityMainBinding
 import com.robosolutions.temixtopsmarket.extensions.completeHideTopBar
 import com.robosolutions.temixtopsmarket.extensions.executePendingBindings
 import com.robosolutions.temixtopsmarket.extensions.robot
+import com.robosolutions.temixtopsmarket.extensions.singleLatest
 import com.robosolutions.temixtopsmarket.utils.isNightMode
 import com.robosolutions.temixtopsmarket.utils.switchNightMode
 import com.robotemi.sdk.listeners.OnGoToLocationStatusChangedListener
@@ -24,9 +26,9 @@ import com.robotemi.sdk.permission.OnRequestPermissionResultListener
 import com.robotemi.sdk.permission.Permission
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.util.*
-
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(),
@@ -135,6 +137,15 @@ class MainActivity : AppCompatActivity(),
     @Suppress("UNUSED_PARAMETER")
     fun onClickHome(v: View) {
         navController.popBackStack(R.id.homeFragment, false)
+    }
+
+    fun onSendRobotBack(v: View) {
+        lifecycleScope.launch {
+            val returnLocation = mainViewModel.autoReturnLocation.singleLatest()
+            robot.goTo(returnLocation)
+
+            onClickHome(v)
+        }
     }
 
     override fun onRobotReady(isReady: Boolean) {

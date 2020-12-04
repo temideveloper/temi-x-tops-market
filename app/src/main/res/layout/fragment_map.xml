@@ -21,270 +21,358 @@
         android:layout_height="match_parent"
         tools:context=".ui.location.MapFragment">
 
+        <com.google.android.material.button.MaterialButton
+            style="@style/ImageButton"
+            android:onClick="@{v -> fragment.onClickBack(v)}"
+            app:icon="@drawable/ic_cancel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/SendRobotBackButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:onClick="@{v -> fragment.onSendRobotBack(v)}"
+            app:iconGravity="top"
+            app:layout_constraintEnd_toStartOf="@id/layoutMap"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutMap"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:background="@drawable/empty_map"
             android:transitionGroup="true"
-            app:layout_constraintDimensionRatio="1.1"
+            app:layout_constraintDimensionRatio="1.28"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
             <com.google.android.material.button.MaterialButton
                 style="@style/LocationTextButton"
-                android:layout_width="300dp"
-                android:layout_height="150dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneOne.toLowerCase(Locale.ROOT))}'
                 android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneOne}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.03"
+                app:layout_constraintHeight_percent=".45"
+                app:layout_constraintHorizontal_bias="0.15"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.15"
-                tools:text="Zone 1" />
+                app:layout_constraintVertical_bias="1"
+                app:layout_constraintWidth_percent=".3"
+                tools:text="Take Home &amp; Food Court" />
 
             <com.google.android.material.button.MaterialButton
                 style="@style/LocationTextButton"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneTwo.toLowerCase(Locale.ROOT))}'
                 android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneTwo}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.54"
+                app:layout_constraintHeight_percent=".08"
+                app:layout_constraintHorizontal_bias="0.27"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.33"
-                tools:text="Zone 2" />
+                app:layout_constraintVertical_bias="0.46"
+                app:layout_constraintWidth_percent=".13"
+                tools:text="Counter" />
 
             <com.google.android.material.button.MaterialButton
                 style="@style/LocationTextButton"
-                android:layout_width="45dp"
-                android:layout_height="150dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneThree.toLowerCase(Locale.ROOT))}'
                 android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneThree}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.58"
+                app:layout_constraintHeight_percent=".07"
+                app:layout_constraintHorizontal_bias="0.09"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.07"
-                tools:text="Zone 3" />
+                app:layout_constraintVertical_bias="0.39"
+                app:layout_constraintWidth_percent=".35"
+                tools:text="Check out counter &amp; SCO" />
 
             <com.google.android.material.button.MaterialButton
                 style="@style/LocationTextButton"
-                android:layout_width="100dp"
-                android:layout_height="220dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneFour.toLowerCase(Locale.ROOT))}'
                 android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneFour}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.72"
+                app:layout_constraintHeight_percent=".15"
+                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0"
-                tools:text="Zone 4" />
+                app:layout_constraintVertical_bias="0.25"
+                app:layout_constraintWidth_percent=".39"
+                tools:text="Looks" />
 
             <com.google.android.material.button.MaterialButton
                 style="@style/LocationTextButton"
-                android:layout_width="76dp"
-                android:layout_height="80dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneFive.toLowerCase(Locale.ROOT))}'
                 android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneFive}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.86"
+                app:layout_constraintHeight_percent=".11"
+                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0"
-                tools:text="Zone 5" />
+                app:layout_constraintVertical_bias="0.12"
+                app:layout_constraintWidth_percent=".15"
+                tools:text="General Merchandise" />
 
             <com.google.android.material.button.MaterialButton
                 style="@style/LocationTextButton"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneSix.toLowerCase(Locale.ROOT))}'
                 android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneSix}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintHeight_percent=".1"
+                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0"
-                tools:text="Zone 6" />
+                app:layout_constraintWidth_percent=".16"
+                tools:enabled="false"
+                tools:text="Petster" />
 
             <com.google.android.material.button.MaterialButton
                 style="@style/LocationTextButton"
-                android:layout_width="130dp"
-                android:layout_height="240dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneSeven.toLowerCase(Locale.ROOT))}'
                 android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneSeven}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintHeight_percent=".2"
+                app:layout_constraintHorizontal_bias="0.68"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.62"
-                tools:text="Zone 7" />
+                app:layout_constraintVertical_bias="1"
+                app:layout_constraintWidth_percent=".4"
+                tools:text="Produce" />
 
             <com.google.android.material.button.MaterialButton
                 style="@style/LocationTextButton"
-                android:layout_width="90dp"
-                android:layout_height="100dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneEight.toLowerCase(Locale.ROOT))}'
                 android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneEight}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.225"
+                app:layout_constraintHeight_percent=".14"
+                app:layout_constraintHorizontal_bias="0.48"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.46"
-                tools:text="Zone 8" />
+                app:layout_constraintVertical_bias="0.77"
+                app:layout_constraintWidth_percent=".15"
+                tools:text="Ham &amp; Brie" />
 
             <com.google.android.material.button.MaterialButton
                 style="@style/LocationTextButton"
-                android:layout_width="150dp"
-                android:layout_height="145dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneNine.toLowerCase(Locale.ROOT))}'
                 android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneNine}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.25"
+                app:layout_constraintHeight_percent=".22"
+                app:layout_constraintHorizontal_bias="0.75"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.71"
-                tools:text="Zone 9" />
+                app:layout_constraintVertical_bias="0.74"
+                app:layout_constraintWidth_percent=".25"
+                tools:text="Central Eatery" />
 
             <com.google.android.material.button.MaterialButton
                 style="@style/LocationTextButton"
-                android:layout_width="150dp"
-                android:layout_height="80dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneTen.toLowerCase(Locale.ROOT))}'
                 android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneTen}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.44"
+                app:layout_constraintHeight_percent=".14"
+                app:layout_constraintHorizontal_bias="0.48"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.45"
-                tools:text="Zone 10" />
+                app:layout_constraintVertical_bias="0.62"
+                app:layout_constraintWidth_percent=".15"
+                tools:text="Wine Story" />
 
             <com.google.android.material.button.MaterialButton
                 style="@style/LocationTextButton"
-                android:layout_width="57dp"
-                android:layout_height="80dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneEleven.toLowerCase(Locale.ROOT))}'
                 android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneEleven}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.67"
+                app:layout_constraintHeight_percent=".07"
+                app:layout_constraintHorizontal_bias="0.47"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.435"
-                tools:text="Zone 11" />
+                app:layout_constraintVertical_bias="0.32"
+                app:layout_constraintWidth_percent=".18"
+                tools:text="Coffee" />
 
             <com.google.android.material.button.MaterialButton
                 style="@style/LocationTextButton"
-                android:layout_width="57dp"
-                android:layout_height="80dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneTwelve.toLowerCase(Locale.ROOT))}'
                 android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneTwelve}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.76"
+                app:layout_constraintHeight_percent=".07"
+                app:layout_constraintHorizontal_bias="0.47"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.435"
-                tools:text="Zone 12" />
+                app:layout_constraintVertical_bias="0.235"
+                app:layout_constraintWidth_percent=".18"
+                tools:text="Asian Town" />
 
             <com.google.android.material.button.MaterialButton
                 style="@style/LocationTextButton"
-                android:layout_width="100dp"
-                android:layout_height="130dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneThirteen.toLowerCase(Locale.ROOT))}'
                 android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneThirteen}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.74"
+                app:layout_constraintHeight_percent=".17"
+                app:layout_constraintHorizontal_bias="0.75"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.69"
-                tools:text="Zone 13" />
+                app:layout_constraintVertical_bias="0.26"
+                app:layout_constraintWidth_percent=".24"
+                tools:text="Snack" />
 
             <com.google.android.material.button.MaterialButton
                 style="@style/LocationTextButton"
-                android:layout_width="130dp"
-                android:layout_height="245dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneFourteen.toLowerCase(Locale.ROOT))}'
                 android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneFourteen}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintHeight_percent=".21"
+                app:layout_constraintHorizontal_bias=".25"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.24"
-                tools:text="Zone 14" />
+                app:layout_constraintVertical_bias="0"
+                app:layout_constraintWidth_percent=".42"
+                tools:text="Grocery" />
 
             <com.google.android.material.button.MaterialButton
                 style="@style/LocationTextButton"
-                android:layout_width="150dp"
-                android:layout_height="110dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneFifteen.toLowerCase(Locale.ROOT))}'
                 android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneFifteen}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHeight_percent=".225"
+                app:layout_constraintHorizontal_bias="1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0"
-                tools:text="Zone 15" />
+                app:layout_constraintVertical_bias="1"
+                app:layout_constraintWidth_percent=".19"
+                tools:text="Bakery" />
 
             <com.google.android.material.button.MaterialButton
                 style="@style/LocationTextButton"
-                android:layout_width="210dp"
-                android:layout_height="60dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneSixteen.toLowerCase(Locale.ROOT))}'
                 android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneSixteen}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.43"
+                app:layout_constraintHeight_percent=".2"
+                app:layout_constraintHorizontal_bias="1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.855"
-                tools:text="Zone 16" />
+                app:layout_constraintVertical_bias="0.47"
+                app:layout_constraintWidth_percent=".19"
+                tools:text="James the Butcher" />
 
             <com.google.android.material.button.MaterialButton
                 style="@style/LocationTextButton"
-                android:layout_width="180dp"
-                android:layout_height="60dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneSeventeen.toLowerCase(Locale.ROOT))}'
                 android:onClick="@{v -> fragment.onLocationSelected(v)}"
                 android:text="@{viewModel.zones.zoneSeventeen}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.86"
+                app:layout_constraintHeight_percent=".14"
+                app:layout_constraintHorizontal_bias="1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.855"
+                app:layout_constraintVertical_bias="0.08"
+                app:layout_constraintWidth_percent=".44"
                 tools:enabled="false"
-                tools:text="Zone 17" />
+                tools:text="Chilled &amp; Frozen" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/LocationTextButton"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneEighteen.toLowerCase(Locale.ROOT))}'
+                android:onClick="@{v -> fragment.onLocationSelected(v)}"
+                android:text="@{viewModel.zones.zoneEighteen}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent=".19"
+                app:layout_constraintHorizontal_bias=".75"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias=".48"
+                app:layout_constraintWidth_percent=".25"
+                tools:text="Bio" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/LocationTextButton"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:enabled='@{viewModel.locations.contains(viewModel.zones.zoneNineteen.toLowerCase(Locale.ROOT))}'
+                android:onClick="@{v -> fragment.onLocationSelected(v)}"
+                android:text="@{viewModel.zones.zoneNineteen}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent=".2"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.72"
+                app:layout_constraintWidth_percent=".19"
+                tools:text="Fish Monker" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
