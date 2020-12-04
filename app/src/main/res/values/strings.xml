@@ -17,9 +17,6 @@
     <string name="label_follow_me_en">Please follow me to</string>
     <string name="label_follow_me_th">กรุณาเดินตามสุขใจเพื่อไปโ %1$s</string>
 
-    <string name="label_thank_you_en">Thank You</string>
-    <string name="label_thank_you_th">ขอบคุณ</string>
-
     <string name="label_arrived_en">We have arrived at %1$s, what would you like to do next?</string>
     <string name="label_arrived_th">เรามาถึงโซน %1$s แล้วนะคะ คุณต้องการทำอะไรต่อดีค่ะ?</string>
     <string name="label_returning_in">Returning in %1$s Seconds</string>
@@ -57,7 +54,7 @@
     <string name="button_store_navigation">Store Navigation</string>
     <string name="button_contact_staff">Contact Us</string>
     <string name="button_play_promotions">Promotions</string>
-    <string name="button_next_zone">Go to the\nNext Zone</string>
+    <string name="button_next_zone">Go to the Next Zone</string>
     <string name="button_other_task">View Other Tasks</string>
     <string name="button_send_back">Send Robot Back</string>
 
@@ -80,7 +77,7 @@
     <string name="tts_map">สนใจไปช็อปที่โซนไหนดีคะ กรุณาเลือกได้เลยค่ะ</string>
     <string name="tts_map_revisit">ุณต้องการไปช็อปอะไรต่อดีคะ? กรุณาเลือกโซนที่คุณต้องการไปได้เลยค่ะ</string>
     <string name="tts_navigating">กรุณาเดินตามสุขใจมานะคะ เราจะไปโซน %1$s กันค่ะ</string>
-    <string name="tts_excuse_me">"ขอโทษนะคะคุณลูกค้า ขอทางหน่อยค่า"</string>
+    <string name="tts_excuse_me">ขอโทษนะคะคุณลูกค้า ขอทางหน่อยค่า</string>
     <string name="tts_arrived">ขอบคุณค่ะ เรามาถึงโซน %1$s แล้วนะคะ คุณมีอะไรให้สุขใจช่วยต่อมั้ยคะ?</string>
 
     <string name="tts_returning">เชิญช็อปให้สนุกนะคะ แล้วพบกับสุขใจอีกครั้งที่บริเวณ %1$s ค่ะ</string>

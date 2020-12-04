@@ -26,6 +26,8 @@ class ReturningFragment : BindingFragment<FragmentReturningBinding>(),
     override val entranceSpeechId = R.string.tts_returning
     override val entranceSpeechArgs: Array<Any?> by lazy { arrayOf(args.returnLocation) }
 
+    private var userAbort = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -62,6 +64,16 @@ class ReturningFragment : BindingFragment<FragmentReturningBinding>(),
         requireActivity().onBackPressed()
     }
 
+    /**
+     * Called when the user tap the screen.
+     *
+     */
+    fun onScreenTap() {
+        userAbort = true
+        robot.stopMovement()
+        returnToHomeScreen()
+    }
+
     override fun onGoToLocationStatusChanged(
         location: String,
         status: String,
@@ -69,7 +81,7 @@ class ReturningFragment : BindingFragment<FragmentReturningBinding>(),
         description: String
     ) {
         when (status) {
-            OnGoToLocationStatusChangedListener.ABORT -> robotReturn()
+            OnGoToLocationStatusChangedListener.ABORT -> if (!userAbort) robotReturn()
             OnGoToLocationStatusChangedListener.COMPLETE -> returnToHomeScreen()
         }
     }

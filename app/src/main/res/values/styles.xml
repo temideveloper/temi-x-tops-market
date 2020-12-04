@@ -90,6 +90,10 @@
         <item name="layout_constraintWidth_percent">0.3</item>
     </style>
 
+    <style name="ArrivedScreenButton" parent="HomeScreenButton">
+        <item name="android:textSize">@dimen/text_large_th</item>
+    </style>
+
     <style name="OutlinedAppButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
         <item name="android:textSize">@dimen/text_normal_en</item>
         <item name="paddingStart">@dimen/app_button_padding_horizontal</item>

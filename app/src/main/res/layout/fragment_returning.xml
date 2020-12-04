@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.robosolutions.temixtopsmarket.ui.location.ReturningFragment" />
+    </data>
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
+        android:onClick="@{() -> fragment.onScreenTap()}"
         android:orientation="vertical"
         android:transitionGroup="true"
         tools:context=".ui.location.ReturningFragment">
