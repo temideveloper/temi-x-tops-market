@@ -277,7 +277,7 @@ class MainActivity : AppCompatActivity(),
                     R.id.checkInFragment ->
                         CheckInFragmentDirections.actionCheckInFragmentToReturningFragment(it)
 
-                    else -> throw IllegalStateException("The current destination is not returnable!")
+                    else -> return@launch
                 }
 
                 navHostFragment.navigate(dir)
