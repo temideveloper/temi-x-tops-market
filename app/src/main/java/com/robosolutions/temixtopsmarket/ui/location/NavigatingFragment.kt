@@ -36,8 +36,6 @@ class NavigatingFragment :
     val args by navArgs<NavigatingFragmentArgs>()
     private val goToLocation by lazy { args.location.toLowerCase(Locale.ROOT) }
 
-    private val excuseMeMessage by lazy { requireContext().getString(R.string.tts_excuse_me) }
-
     override val entranceSpeechId = R.string.tts_navigating
     override val entranceSpeechArgs: Array<Any?>? by lazy { arrayOf(args.location) }
 
@@ -57,15 +55,23 @@ class NavigatingFragment :
 
         lifecycleScope.launchWhenCreated {
             viewModel.latestGoToDesc.collectLatest {
-                if (!it.contains("obstacle", true)) return@collectLatest
-
                 val delayMs = mainViewModel.excuseMeDelay.singleLatest()
+
+                val message = when {
+                    it.contains("obstacle", true) ->
+                        requireContext().getString(R.string.tts_excuse_me)
+
+                    it.contains("path plan", true) ->
+                        requireContext().getString(R.string.tts_path_plan)
+
+                    else -> return@collectLatest
+                }
 
                 while (true) {
                     ensureActive()
 
                     Timber.d("Speaking")
-                    MainActivity.tts.speakAndWait(excuseMeMessage, TextToSpeech.QUEUE_FLUSH)
+                    MainActivity.tts.speakAndWait(message, TextToSpeech.QUEUE_FLUSH)
                     Timber.d("Spoken")
 
                     Timber.d("Delaying")

@@ -81,6 +81,7 @@
     <string name="tts_map_revisit">ุณต้องการไปช็อปอะไรต่อดีคะ? กรุณาเลือกโซนที่คุณต้องการไปได้เลยค่ะ</string>
     <string name="tts_navigating">กรุณาเดินตามสุขใจมานะคะ เราจะไปโซน %1$s กันค่ะ</string>
     <string name="tts_excuse_me">ขอโทษนะคะคุณลูกค้า ขอทางหน่อยค่า</string>
+    <string name="tts_path_plan">รอหน่อยนะคะ สุขใจกำลังคิดอยู่ค่ะ</string>
     <string name="tts_arrived">ขอบคุณค่ะ เรามาถึงโซน %1$s แล้วนะคะ คุณมีอะไรให้สุขใจช่วยต่อมั้ยคะ?</string>
     <string name="tts_no_activity">คุณต้องการจะทำอะไรต่ออีกไหมคะ? ถ้าไม่มีแล้ว สุขใจขอตัวกลับไปที่ Entrance ใน %d วินาทีค่ะ</string>
 
