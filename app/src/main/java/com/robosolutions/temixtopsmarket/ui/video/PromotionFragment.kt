@@ -8,8 +8,6 @@ import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.material.transition.MaterialSharedAxis
 import com.robosolutions.temixtopsmarket.R
 import com.robosolutions.temixtopsmarket.databinding.FragmentPromotionBinding
-import com.robosolutions.temixtopsmarket.extensions.robot
-import com.robosolutions.temixtopsmarket.extensions.singleLatest
 import com.robosolutions.temixtopsmarket.extensions.timer
 import com.robosolutions.temixtopsmarket.ui.activity.MainActivity
 import com.robosolutions.temixtopsmarket.ui.base.BindingViewModelFragment
@@ -92,16 +90,14 @@ class PromotionFragment :
     override fun onResume() {
         super.onResume()
 
-        robot.setDetectionModeOn(false, 0.5f)
+        mainViewModel.switchUserInteractionDetection(false)
     }
 
     override fun onPause() {
         super.onPause()
 
         cancelDialogJob()
-        lifecycleScope.launch {
-            robot.setDetectionModeOn(true, mainViewModel.detectRange.singleLatest())
-        }
+        mainViewModel.switchUserInteractionDetection(true)
     }
 
     override fun onBinding(binding: FragmentPromotionBinding) {

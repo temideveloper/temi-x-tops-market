@@ -11,8 +11,10 @@ import com.robosolutions.temixtopsmarket.R
 import com.robosolutions.temixtopsmarket.databinding.FragmentArrivedBinding
 import com.robosolutions.temixtopsmarket.extensions.navigate
 import com.robosolutions.temixtopsmarket.extensions.singleLatest
+import com.robosolutions.temixtopsmarket.extensions.timer
 import com.robosolutions.temixtopsmarket.ui.base.BindingFragment
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -33,6 +35,26 @@ class ArrivedFragment : BindingFragment<FragmentArrivedBinding>() {
         returnTransition = MaterialFadeThrough()
 
         mainViewModel.mapRevisited = true
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        mainViewModel.switchUserInteractionDetection(false)
+
+        lifecycleScope.launch {
+            timer(15,
+                onTimesUp = {
+                    mainViewModel.switchUserInteractionDetection(true)
+                }
+            ).collect()
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+
+        mainViewModel.switchUserInteractionDetection(true)
     }
 
     fun onSendRobotBack(v: View) = lifecycleScope.launch {

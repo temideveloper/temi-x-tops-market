@@ -56,19 +56,12 @@ class MainActivity : AppCompatActivity(),
     private lateinit var autoReturnJob: Job
 
     /** List of destination ids that the auto return dialog should not show. */
-    private val autoReturnExclusionList = listOf(
-        R.id.passwordFragment,
-        R.id.adminFragment,
-        R.id.generalFragment,
-        R.id.delaysFragment,
-        R.id.delaySelectDialog,
-        R.id.navLocationFragment,
-        R.id.speechFragment,
-        R.id.qrCodeFragment,
-        R.id.scanQrFragment,
-        R.id.staffsFragment,
-        R.id.videoEditFragment,
-        R.id.promotionFragment
+    private val autoReturnInclusionList = listOf(
+        R.id.homeFragment,
+        R.id.contactStaffFragment,
+        R.id.checkInFragment,
+        R.id.mapFragment,
+        R.id.arrivedFragment
     )
 
     /**
@@ -141,7 +134,7 @@ class MainActivity : AppCompatActivity(),
                     robot.stopMovement()
                 } else {
                     // Show only if the current destination is not in the exclusion list
-                    if (currentDestinationId in autoReturnExclusionList) return@observe
+                    if (currentDestinationId !in autoReturnInclusionList) return@observe
 
                     startAutoReturnDialog()
                 }
@@ -170,7 +163,10 @@ class MainActivity : AppCompatActivity(),
                 return@launch
             }
 
-            Timber.d("Start timer for $returnDelay seconds")
+            if (mainViewModel.isGoing.value) {
+                Timber.d("Temi is going! Cannot display dialog")
+                return@launch
+            }
 
             // Show dialog and speak
             val autoReturnDialog =
@@ -195,6 +191,7 @@ class MainActivity : AppCompatActivity(),
             mainViewModel.requestTts(R.string.tts_no_activity, returnDelay)
 
             // Start the timer
+            Timber.d("Start timer for $returnDelay seconds")
             timer(
                 returnDelay,
                 onElapse = {

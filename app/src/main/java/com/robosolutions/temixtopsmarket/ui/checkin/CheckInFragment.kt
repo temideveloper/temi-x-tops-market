@@ -38,6 +38,18 @@ class CheckInFragment :
         returnTransition = MaterialSharedAxis(MaterialSharedAxis.Z, false)
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        mainViewModel.switchUserInteractionDetection(false)
+    }
+
+    override fun onPause() {
+        super.onPause()
+
+        mainViewModel.switchUserInteractionDetection(true)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

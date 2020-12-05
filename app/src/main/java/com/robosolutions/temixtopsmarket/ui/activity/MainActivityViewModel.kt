@@ -6,6 +6,7 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.robosolutions.temixtopsmarket.R
 import com.robosolutions.temixtopsmarket.extensions.combineToPair
+import com.robosolutions.temixtopsmarket.extensions.robot
 import com.robosolutions.temixtopsmarket.extensions.singleLatest
 import com.robosolutions.temixtopsmarket.extensions.updateTo
 import com.robosolutions.temixtopsmarket.preference.PreferenceRepository
@@ -147,6 +148,18 @@ class MainActivityViewModel @ViewModelInject constructor(
 
     fun updateIsInteracting(interacting: Boolean) = isInteracting updateTo interacting
 
+    /**
+     * Turns user detection on or off. If turned on, it will fetch the range from the data store.
+     *
+     * @param on `true` to switch on user detection.
+     */
+    fun switchUserInteractionDetection(on: Boolean) = viewModelLaunch {
+        if (on) {
+            robot.setDetectionModeOn(true, detectRange.singleLatest())
+        } else {
+            robot.setDetectionModeOn(false, 0.5f)
+        }
+    }
 
     fun updateHasNavigated(navigated: Boolean) = hasNavigatedScreen updateTo navigated
 
