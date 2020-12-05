@@ -15,7 +15,7 @@
     <string name="label_scan_promotion_th">สแกนเพื่อดูโปรโมชั่นสุดพิเศษค่ะ</string>
 
     <string name="label_follow_me_en">Please follow me to</string>
-    <string name="label_follow_me_th">กรุณาเดินตามสุขใจเพื่อไปโ %1$s</string>
+    <string name="label_follow_me_th">กรุณาเดินตามสุขใจเพื่อไปโซน %1$s</string>
 
     <string name="label_arrived_en">We have arrived at %1$s, what would you like to do next?</string>
     <string name="label_arrived_th">เรามาถึงโซน %1$s แล้วนะคะ คุณต้องการทำอะไรต่อดีค่ะ?</string>
