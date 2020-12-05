@@ -10,32 +10,34 @@
     </string>
     <string name="label_auto_return_title">Auto Return</string>
     <string name="label_auto_return_desc">
-        The number of seconds for the robot to return after doing store navigation.
+        The number of seconds for the robot to return to the starting point. The countdown is shown in the pop-up dialog
     </string>
     <string name="label_excuse_me_interval_title">\"Excuse Me\" Interval</string>
     <string name="label_excuse_me_interval_desc">
-        The number of seconds for the robot to speak when going from a location to another.
+        The number of seconds for the robot to speak when going from a location to another
     </string>
 
     <string name="label_qr_check_in_title">Thai Chana</string>
     <string name="label_qr_check_in_desc">The URL for checking in using Thai Chana</string>
     <string name="label_qr_promotion_title">Promotions</string>
     <string name="label_qr_promotion_desc">The URL for viewing ongoing promotions</string>
-    <string name="label_qr_tips">Tip: press the QR scan icon to scan your QR code</string>
+    <string name="label_qr_tips">Tip: press the QR scan icon to scan your QR code instead</string>
 
     <string name="label_duration">%d minutes %d seconds</string>
     <string name="label_minutes">Minutes</string>
     <string name="label_seconds">Seconds</string>
 
     <string name="label_greeting_tts_title">Greeting</string>
-    <string name="label_greeting_tts_desc">The message spoken to greet the user</string>
+    <string name="label_greeting_tts_desc">The message spoken to greet the user for the first time</string>
     <string name="label_excuse_me_tts_title">Recurring Greeting</string>
     <string name="label_excuse_me_tts_desc">The message spoken when the user returns back to the home screen after interacting with the application</string>
 
     <string name="label_user_detection_title">User Detection Range</string>
     <string name="label_user_detection_desc">The range of user detection in meters</string>
     <string name="label_auto_return_loc_title">Auto Return Location</string>
-    <string name="label_auto_return_loc_desc">Where to return after temi escorts the user in store navigation</string>
+    <string name="label_auto_return_loc_desc">
+        Where to return after temi escorts the user in store navigation or if there is no user interaction
+    </string>
 
     <string name="label_zone_one_title">Zone 1</string>
     <string name="label_zone_two_title">Zone 2</string>
