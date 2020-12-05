@@ -15,6 +15,12 @@ import com.google.android.material.snackbar.Snackbar
 import com.robosolutions.temixtopsmarket.R
 import com.robosolutions.temixtopsmarket.databinding.ActivityMainBinding
 import com.robosolutions.temixtopsmarket.extensions.*
+import com.robosolutions.temixtopsmarket.ui.checkin.CheckInFragmentDirections
+import com.robosolutions.temixtopsmarket.ui.home.HomeFragmentDirections
+import com.robosolutions.temixtopsmarket.ui.location.ArrivedFragmentDirections
+import com.robosolutions.temixtopsmarket.ui.location.MapFragmentDirections
+import com.robosolutions.temixtopsmarket.ui.staff.ContactStaffFragmentDirections
+import com.robosolutions.temixtopsmarket.ui.video.PromotionFragmentDirections
 import com.robosolutions.temixtopsmarket.utils.isNightMode
 import com.robosolutions.temixtopsmarket.utils.switchNightMode
 import com.robotemi.sdk.listeners.OnGoToLocationStatusChangedListener
@@ -59,7 +65,6 @@ class MainActivity : AppCompatActivity(),
     private val autoReturnInclusionList = listOf(
         R.id.homeFragment,
         R.id.contactStaffFragment,
-        R.id.checkInFragment,
         R.id.mapFragment,
         R.id.arrivedFragment
     )
@@ -248,12 +253,35 @@ class MainActivity : AppCompatActivity(),
      *
      * @param v Any view.
      */
+    @Suppress("UNUSED_PARAMETER")
     fun onSendRobotBack(v: View) {
         lifecycleScope.launch {
-            val returnLocation = mainViewModel.autoReturnLocation.singleLatest()
-            robot.goTo(returnLocation)
+            mainViewModel.autoReturnLocation.singleLatest().let {
+                val dir = when (currentDestinationId) {
+                    R.id.homeFragment ->
+                        HomeFragmentDirections.actionHomeFragmentToReturningFragment(it)
 
-            onClickHome(v)
+                    R.id.promotionFragment ->
+                        PromotionFragmentDirections.actionPromotionFragmentToReturningFragment(it)
+
+                    R.id.mapFragment ->
+                        MapFragmentDirections.actionMapFragmentToReturningFragment(it)
+
+                    R.id.contactStaffFragment ->
+                        ContactStaffFragmentDirections
+                            .actionContactStaffFragmentToReturningFragment(it)
+
+                    R.id.arrivedFragment ->
+                        ArrivedFragmentDirections.actionArrivedFragmentToReturningFragment(it)
+
+                    R.id.checkInFragment ->
+                        CheckInFragmentDirections.actionCheckInFragmentToReturningFragment(it)
+
+                    else -> throw IllegalStateException("The current destination is not returnable!")
+                }
+
+                navHostFragment.navigate(dir)
+            }
         }
     }
 

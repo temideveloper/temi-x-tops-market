@@ -29,6 +29,9 @@
         <action
             android:id="@+id/action_homeFragment_to_mapFragment"
             app:destination="@id/mapFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_returningFragment"
+            app:destination="@id/returningFragment" />
     </fragment>
     <fragment
         android:id="@+id/passwordFragment"
@@ -162,7 +165,12 @@
         android:id="@+id/contactStaffFragment"
         tools:layout="@layout/fragment_contact_staff"
         android:name="com.robosolutions.temixtopsmarket.ui.staff.ContactStaffFragment"
-        android:label="ContactStaffFragment" />
+        android:label="ContactStaffFragment" >
+        <action
+            android:id="@+id/action_contactStaffFragment_to_returningFragment"
+            app:destination="@id/returningFragment"
+            app:popUpTo="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/promotionFragment"
         android:name="com.robosolutions.temixtopsmarket.ui.video.PromotionFragment"
@@ -175,6 +183,10 @@
                 android:name="isEditMode"
                 android:defaultValue="false" />
         </action>
+        <action
+            android:id="@+id/action_promotionFragment_to_returningFragment"
+            app:destination="@id/returningFragment"
+            app:popUpTo="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/videoPlayFragment"
@@ -189,7 +201,12 @@
         android:id="@+id/checkInFragment"
         tools:layout="@layout/fragment_check_in"
         android:name="com.robosolutions.temixtopsmarket.ui.checkin.CheckInFragment"
-        android:label="CheckInFragment" />
+        android:label="CheckInFragment" >
+        <action
+            android:id="@+id/action_checkInFragment_to_returningFragment"
+            app:destination="@id/returningFragment"
+            app:popUpTo="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/mapFragment"
         tools:layout="@layout/fragment_map"
@@ -198,6 +215,10 @@
         <action
             android:id="@+id/action_mapFragment_to_navigatingFragment"
             app:destination="@id/navigatingFragment" />
+        <action
+            android:id="@+id/action_mapFragment_to_returningFragment"
+            app:destination="@id/returningFragment"
+            app:popUpTo="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/navigatingFragment"
