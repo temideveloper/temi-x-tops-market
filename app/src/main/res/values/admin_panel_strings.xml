@@ -12,9 +12,9 @@
     <string name="label_auto_return_desc">
         The number of seconds for the robot to return to the starting point. The countdown is shown in the pop-up dialog
     </string>
-    <string name="label_excuse_me_interval_title">\"Excuse Me\" Interval</string>
+    <string name="label_excuse_me_interval_title">Navigation Message Interval</string>
     <string name="label_excuse_me_interval_desc">
-        The number of seconds for the robot to speak when going from a location to another
+        The number of seconds before repeating any messages that temi speak while escorting the user
     </string>
 
     <string name="label_qr_check_in_title">Thai Chana</string>
