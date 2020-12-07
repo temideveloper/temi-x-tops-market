@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:onClick="@{() -> fragment.onScreenTap()}"
+        android:onClick="@{() -> fragment.returnToHomeScreen()}"
         android:orientation="vertical"
         android:transitionGroup="true"
         tools:context=".ui.location.ReturningFragment">

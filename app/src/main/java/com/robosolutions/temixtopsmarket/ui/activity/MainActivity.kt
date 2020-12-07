@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.view.View
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.asLiveData
@@ -60,6 +61,7 @@ class MainActivity : AppCompatActivity(),
         }
 
     private lateinit var autoReturnJob: Job
+    private lateinit var autoReturnDialog: AlertDialog
 
     /** List of destination ids that the auto return dialog should not show. */
     private val autoReturnInclusionList = listOf(
@@ -74,9 +76,13 @@ class MainActivity : AppCompatActivity(),
      *
      */
     private fun cancelAutoReturn() {
-        if (::autoReturnJob.isInitialized && !autoReturnJob.isCancelled) {
+        if (::autoReturnJob.isInitialized) {
             Timber.d("Stop auto return timer")
             autoReturnJob.cancel()
+        }
+
+        if (::autoReturnDialog.isInitialized) {
+            autoReturnDialog.dismiss()
         }
     }
 
@@ -174,7 +180,7 @@ class MainActivity : AppCompatActivity(),
             }
 
             // Show dialog and speak
-            val autoReturnDialog =
+            autoReturnDialog =
                 MaterialAlertDialogBuilder(this@MainActivity, R.style.AutoReturnAlertDialog)
                     .setIcon(R.drawable.ic_info)
                     .setTitle(" ")

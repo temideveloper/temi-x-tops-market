@@ -26,9 +26,6 @@ class ReturningFragment : BindingFragment<FragmentReturningBinding>(),
     override val entranceSpeechId = R.string.tts_returning
     override val entranceSpeechArgs: Array<Any?> by lazy { arrayOf(args.returnLocation) }
 
-    /** `true` if navigation is aborted by the user. */
-    private var userAbort = false
-
     override val showCloseButton = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,6 +47,7 @@ class ReturningFragment : BindingFragment<FragmentReturningBinding>(),
 
         robot.toggleNavigationBillboard(false)
         robot.removeOnGoToLocationStatusChangedListener(this)
+        robot.stopMovement()
     }
 
     private fun robotReturn() {
@@ -62,20 +60,11 @@ class ReturningFragment : BindingFragment<FragmentReturningBinding>(),
         }
     }
 
-    private fun returnToHomeScreen() {
+    fun returnToHomeScreen() {
         returnTransition = MaterialSharedAxis(MaterialSharedAxis.Z, false)
         requireActivity().onBackPressed()
     }
 
-    /**
-     * Called when the user tap the screen.
-     *
-     */
-    fun onScreenTap() {
-        userAbort = true
-        robot.stopMovement()
-        returnToHomeScreen()
-    }
 
     override fun onGoToLocationStatusChanged(
         location: String,
@@ -84,7 +73,7 @@ class ReturningFragment : BindingFragment<FragmentReturningBinding>(),
         description: String
     ) {
         when (status) {
-            OnGoToLocationStatusChangedListener.ABORT -> if (!userAbort) robotReturn()
+            OnGoToLocationStatusChangedListener.ABORT -> robotReturn()
             OnGoToLocationStatusChangedListener.COMPLETE -> returnToHomeScreen()
         }
     }
