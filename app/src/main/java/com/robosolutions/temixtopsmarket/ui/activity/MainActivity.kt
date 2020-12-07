@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity(),
     private lateinit var autoReturnJob: Job
     private lateinit var autoReturnDialog: AlertDialog
 
-    /** List of destination ids that the auto return dialog should not show. */
+    /** List of destination ids that the auto return dialog should show. */
     private val autoReturnInclusionList = listOf(
         R.id.homeFragment,
         R.id.contactStaffFragment,
@@ -104,11 +104,6 @@ class MainActivity : AppCompatActivity(),
                 Timber.w("Failed to initialize tts! Please restart the application")
             }
         }
-
-        robot.addOnRobotReadyListener(this)
-        robot.addOnRequestPermissionResultListener(this)
-        robot.addOnUserInteractionChangedListener(this)
-        robot.addOnGoToLocationStatusChangedListener(this)
 
         if (!isNightMode) switchNightMode(true)
 
@@ -151,6 +146,24 @@ class MainActivity : AppCompatActivity(),
                 }
             }
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        robot.addOnRobotReadyListener(this)
+        robot.addOnRequestPermissionResultListener(this)
+        robot.addOnUserInteractionChangedListener(this)
+        robot.addOnGoToLocationStatusChangedListener(this)
+    }
+
+    override fun onStop() {
+        super.onStop()
+
+        robot.removeOnRobotReadyListener(this)
+        robot.removeOnUserInteractionChangedListener(this)
+        robot.removeOnGoToLocationStatusChangedListener(this)
+        robot.removeOnRequestPermissionResultListener(this)
     }
 
     /**
@@ -230,15 +243,6 @@ class MainActivity : AppCompatActivity(),
 
         cancelAutoReturn()
         navController.removeOnDestinationChangedListener(navigationListener)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-
-        robot.removeOnRobotReadyListener(this)
-        robot.removeOnUserInteractionChangedListener(this)
-        robot.removeOnGoToLocationStatusChangedListener(this)
-        robot.removeOnRequestPermissionResultListener(this)
     }
 
     private fun localeThai() = Locale.Builder()

@@ -64,8 +64,8 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(), OnUserInteractionCh
         (requireActivity() as MainActivity).onSendRobotBack(v)
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onStart() {
+        super.onStart()
 
         logoClickCount = 0
         mainViewModel.mapRevisited = false
@@ -73,8 +73,8 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(), OnUserInteractionCh
         robot.addOnUserInteractionChangedListener(this)
     }
 
-    override fun onPause() {
-        super.onPause()
+    override fun onStop() {
+        super.onStop()
 
         if (::resetClickJob.isInitialized) resetClickJob.cancel()
         robot.removeOnUserInteractionChangedListener(this)

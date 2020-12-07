@@ -46,11 +46,16 @@ class NavigatingFragment :
         exitTransition = MaterialFadeThrough()
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onStart() {
+        super.onStart()
 
         robot.toggleNavigationBillboard(true)
         robot.addOnGoToLocationStatusChangedListener(this)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         robot.goTo(goToLocation)
 
         lifecycleScope.launchWhenCreated {
@@ -82,8 +87,8 @@ class NavigatingFragment :
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
+    override fun onStop() {
+        super.onStop()
 
         robot.toggleNavigationBillboard(false)
         robot.removeOnGoToLocationStatusChangedListener(this)

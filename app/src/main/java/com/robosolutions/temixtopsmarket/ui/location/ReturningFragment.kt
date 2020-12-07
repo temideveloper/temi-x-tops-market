@@ -34,16 +34,21 @@ class ReturningFragment : BindingFragment<FragmentReturningBinding>(),
         enterTransition = MaterialFadeThrough()
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onStart() {
+        super.onStart()
 
         robot.toggleNavigationBillboard(true)
         robot.addOnGoToLocationStatusChangedListener(this)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         robotReturn()
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
+    override fun onStop() {
+        super.onStop()
 
         robot.toggleNavigationBillboard(false)
         robot.removeOnGoToLocationStatusChangedListener(this)
@@ -64,7 +69,6 @@ class ReturningFragment : BindingFragment<FragmentReturningBinding>(),
         returnTransition = MaterialSharedAxis(MaterialSharedAxis.Z, false)
         requireActivity().onBackPressed()
     }
-
 
     override fun onGoToLocationStatusChanged(
         location: String,
